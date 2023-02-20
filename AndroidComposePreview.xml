@@ -1,0 +1,7 @@
+<templateSet group="AndroidComposePreview">
+  <template name="test" value="String a = '';" description="test" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+</templateSet>

@@ -1,0 +1,277 @@
+<templateSet group="user">
+  <template name="printme" value="OBLog('-zlog- $text$');" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="text" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="jsonclass" value="class GameQueryGameData {&#10;  String? id;&#10;  String? assortName;&#10;  String? assortSort;&#10;&#10;  GameQueryGameData({this.id,&#10;    this.assortName,&#10;    this.assortSort});&#10;&#10;  GameQueryGameData.fromJson(Map&lt;String, dynamic&gt; json) {&#10;    id = json['id'] is String ? json['id'] : '${json['id']}';&#10;    assortName = json['assortName'];&#10;    assortSort = json['assortSort'] is String ? json['assortSort'] : '${json['assortSort']}';&#10;  }&#10;&#10;  Map&lt;String, dynamic&gt; toJson() {&#10;    final Map&lt;String, dynamic&gt; data = new Map&lt;String, dynamic&gt;();&#10;    data['id'] = this.id;&#10;    data['assortName'] = this.assortName;&#10;    data['assortSort'] = this.assortSort;&#10;    return data;&#10;  }&#10;}" description="自定义对象解析" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="getclass" value="$class$ $name$ = Get.find&lt;$class$&gt;(); " description="获取某个类实例" toReformat="false" toShortenFQNames="true">
+    <variable name="class" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="extensionTemplate" value="extension $extensionName$ on $String$ {&#10;  int parseInt() {&#10;    return int.parse(this);&#10;  }&#10;}" description="类扩展" toReformat="false" toShortenFQNames="true">
+    <variable name="extensionName" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="String" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="userdefault" value="import 'package:shared_preferences/shared_preferences.dart';&#10;SharedPreferences prefs = await SharedPreferences.getInstance();&#10;List&lt;String&gt;? lastList =&#10;        await HomeGameManager.instance.getUserGameSortFromSave();&#10;          Future&lt;List&lt;String&gt;?&gt; getUserGameSortFromSave() async {&#10;    if (_uidEmpty()) {&#10;      return null;&#10;    }&#10;&#10;    SharedPreferences prefs = await SharedPreferences.getInstance();&#10;    List&lt;String&gt;? list = prefs.getStringList(_findUid());&#10;    return list;&#10;  }&#10;//保存数据&#10;void saveMethodName() async {&#10;  SharedPreferences prefs = await _prefs;&#10;  prefs.setString(&quot;strKey&quot;, &quot;strValue&quot;);&#10;  prefs.setInt(&quot;intKey&quot;, &quot;intValue&quot;);&#10;}&#10;//获取数据&#10;void initFromCache() async {&#10;  SharedPreferences prefs = await _prefs;&#10;  String strValue = prefs.getString(&quot;strKey&quot;);&#10;  int intValue = prefs.getInt(&quot;intKey&quot;);&#10;}&#10;//从缓存中获取信息填充&#10;  void initFromCache() async {&#10;    final SharedPreferences prefs = await _prefs;&#10;    final nickname = prefs.getString(&quot;nickname&quot;);&#10;    final mt = prefs.getBool(&quot;mt&quot;);&#10;    final ds = prefs.getBool(&quot;ds&quot;);&#10;    final ltb = prefs.getBool(&quot;ltb&quot;);&#10;    &#10;    //获取到缓存中的值后，使用setState更新界面信息&#10;    setState(() {&#10;      controller.text = (nickname == null ? &quot;&quot; : nickname);&#10;      this.mt = (mt == null ? false : mt);&#10;      this.ds = (ds == null ? false : ds);&#10;      this.ltb = (ltb == null ? false : ltb);&#10;    });&#10;  }&#10;&#10;  //保存界面的输入选择信息&#10;  void saveInfo(String nickname) async {&#10;    final SharedPreferences prefs = await _prefs;&#10;    prefs.setString(&quot;nickname&quot;, nickname);&#10;    prefs.setBool(&quot;mt&quot;, mt);&#10;    prefs.setBool(&quot;ds&quot;, ds);&#10;    prefs.setBool(&quot;ltb&quot;, ltb);&#10;  }&#10;" description="持久存储" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="importget" value="import 'package:get/get.dart';" description="引入get框架" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER" value="true" />
+    </context>
+  </template>
+  <template name="importauth" value="import 'package:ob_app/service/auth_service.dart';" description="引入用户单例" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="FLUTTER" value="true" />
+    </context>
+  </template>
+  <template name="importgamemanager" value="import 'package:ob_app/modules/home/components/controller/home_game_manager.dart';" description="引入游戏管理单例" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="map用法" value="List&lt;String&gt; sortIds =&#10;        gameTypesForSort.map((element) =&gt; element['id'].toString()).toList();" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="mapFromlist创建" value="Map&lt;String, dynamic&gt; dataMap = {&#10;  for (int i = 0; i &lt; model.data.length; i++)&#10;    model.data[i]['id']: model.data[i]&#10;};&#10;letters = [&#10;  for (int number in numbers) mappings[number]&#10;];" description="list转map" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="delay" value="await Future.delayed(Duration(milliseconds: 20));&#10;Future.delayed(Duration(seconds: 1), () {&#10;    openWeb(gameCode, url, gameName, gameId);&#10;});&#10;          " description="延后执行" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="statusbarheight" value="// 状态栏高度&#10;    double statusBarHeight = MediaQuery.of(context).padding.top;" description="状态栏高度" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="positioned" value="Positioned(&#10;    $right$: $0$,&#10;    child:$view$&#10;)" description="具体定位view" toReformat="false" toShortenFQNames="true">
+    <variable name="right" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="0" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="view" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="padding" value="Padding(&#10;    padding: EdgeInsets.symmetric(horizontal: 0.w),&#10;    child: ,&#10;)" description="内容偏移" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="containerround" value="Container(&#10;    alignment: Alignment.center,&#10;    width: 52.w,&#10;    height: 28.w,&#10;    decoration: ShapeDecoration(&#10;        shape: RoundedRectangleBorder(&#10;        borderRadius:&#10;        BorderRadius.all(Radius.circular(14.w))),&#10;        border: Border.all(color: ColorName.colorE6E8EE, width: 1),&#10;        color: Colors.white.withOpacity(0.8),&#10;    ),&#10;    child:Container()&#10;)" description="圆角视图" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="image" value="Image(image: AssetImage(&quot;assets/images/$bg$.png&quot;,))&#10;Image.network($url$)" description="图片" toReformat="false" toShortenFQNames="true">
+    <variable name="bg" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="url" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="transform" value="Transform.rotate(&#10;    angle: pi / 4.0,&#10;    child: Container(&#10;        width: 8.w,&#10;        height: 8.w,&#10;        color: Color(0xFF151E25),&#10;    ),&#10;)" description="旋转" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="timer" value="    //间隔重复调用timer&#10;    kickTimer?.cancel();&#10;    kickTimer = null;&#10;&#10;    int count = 0;&#10;    void Function(Timer) callBack = (timer) {&#10;      if (count &gt;= 5) {&#10;        askTimer?.cancel();&#10;        askTimer = null;&#10;      }&#10;      if (count % 2 == 0) {&#10;        do something&#10;        } else {&#10;        do other thing&#10;        }&#10;        count++;&#10;        };&#10;&#10;    kickTimer = Timer.periodic(&#10;        Duration(milliseconds: 500), callBack);&#10;    callBack(askTimer!); //立即触发timer&#10;&#10;    //一次性timer&#10;    Timer(Duration(seconds: 60 * 10), kickAction)" description="定时器" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="get" value="String get showPayType {&#10;    return '';&#10;}" description="get计算型方法" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="colorwhite" value="Colors.white.withOpacity(0.6)" description="白色" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="rightswipe" value="return Scaffold(&#10;appBar: AppBar(&#10;backgroundColor: Colors.white,&#10;title: Text('title'),&#10;),&#10;body: WillPopScope(&#10;child: Text('禁止侧滑返回'),&#10;onWillPop: () async{&#10;return false;&#10;})&#10;);" description="禁止右滑退出页面" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="inputGuangBiao" value="transferAmountCtrl.text = balance;&#10;        transferAmountCtrl.selection = TextSelection.fromPosition(&#10;          TextPosition(offset: transferAmountCtrl.text.length),&#10;        );" description="输入框赋值后光标放最后" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="sharedInstant" value="class Singleton {&#10;  static final Singleton _instance = Singleton._internal();&#10;&#10;  static Singleton get instance {&#10;    return _instance;&#10;  }&#10;&#10;  Singleton._internal() {&#10;    init();&#10;  }&#10;&#10;  void init() {&#10;    print(&quot;这里初始化&quot;);&#10;  }&#10;}&#10;" description="单例模板" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="customview-fast" value="import 'package:flutter/material.dart';&#10;import 'package:get/get.dart';&#10;import 'package:ob_component/ob_component.dart';&#10;import 'package:flutter_screenutil/flutter_screenutil.dart';&#10;&#10;class GetViewAndGetWidgetExample extends GetView&lt;GetViewCountController&gt; {&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    return Container();&#10;  }&#10;}" description="最常用视图模板" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="customview" value="//没有挂载任何controller的视图&#10;class MyApp extends StatelessWidget {&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    return GetMaterialApp(&#10;      title: &quot;GetX&quot;,&#10;      home: GetViewAndGetWidgetExample(),&#10;    );&#10;  }&#10;}&#10;//寻找已存在的此controller并挂载&#10;import 'package:flutter/material.dart';&#10;import 'package:get/get.dart';&#10;import 'package:ob_component/ob_component.dart';&#10;import 'package:flutter_screenutil/flutter_screenutil.dart';&#10;&#10;class GetViewAndGetWidgetExample extends GetView&lt;GetViewCountController&gt; {&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    return Container();&#10;  }&#10;}&#10;//每次都新创建一个给定的controller&#10;class GetViewAndGetWidgetExample extends GetView&lt;GetViewCountController&gt; {&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    // Get.create(() =&gt; GetViewCountController());&#10;    return Container();&#10;  }&#10;}" description="自定义视图模板" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="regex" value="ScreenUtilFloor.setWidth(27)&#10;替换为&#10;27.w&#10;使用正则&#9;ScreenUtilFloor.setWidth\((.*)\)&#10;替换为&#9;$1.w&#10;注意导致 可能导致 3).w的情况" description="正则替换笔记" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="containerbgimage" value="Container(&#10;              decoration: BoxDecoration(&#10;                image: DecorationImage(&#10;                  image: AssetImage(&quot;images/bg.jpg&quot;),&#10;                  fit: BoxFit.cover,&#10;                ),&#10;              ),&#10;              child: Container(),&#10;            )" description="container背景图片" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="textnoline" value="decoration: TextDecoration.none" description="文字去掉下划线" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="containerborder" value="Container(&#10;              alignment: Alignment(0, 0),&#10;              height: 50,&#10;              width: 300,&#10;              decoration: BoxDecoration(&#10;                //背景&#10;                // color: Colors.white,&#10;                borderRadius: BorderRadius.all(Radius.circular(4.0)),&#10;                //设置四周边框&#10;                border: Border.all(width: 1, color: Colors.red),&#10;              ),&#10;              child: Text(&quot;Container 的圆角边框&quot;),&#10;            )" description="带圆角边框的" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="customviewstand" value="import 'package:flutter/material.dart';&#10;import 'package:get/get.dart';&#10;import 'package:ob_component/ob_component.dart';&#10;import 'package:flutter_screenutil/flutter_screenutil.dart';&#10;&#10;class VirtualTableContainer extends StatefulWidget {&#10;  @override&#10;  _VirtualTableContainerState createState() =&gt; _VirtualTableContainerState();&#10;}&#10;&#10;class _VirtualTableContainerState extends State&lt;VirtualTableContainer&gt;&#10;    with SingleTickerProviderStateMixin {&#10;  GameController controller = Get.find&lt;GameController&gt;();&#10;  &#10;  @override&#10;  void initState() {&#10;    super.initState();&#10;    controller.timeAnimationController =&#10;        AnimationController(vsync: this, duration: Duration(milliseconds: 300));&#10;  }&#10;&#10;  @override&#10;  void dispose() {&#10;    controller.timeAnimationController?.stop();&#10;    super.dispose();&#10;  }&#10;&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    return Container();&#10;  }&#10;}&#10;" description="标准自定义视图" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="importscreen" value="import 'package:flutter_screenutil/flutter_screenutil.dart';" description=".w方法引用" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="textrich" value="Text.rich(&#10;                TextSpan(&#10;                  children: [&#10;                    TextSpan(&#10;                      text: &quot;预计支付&quot;,&#10;                      style:&#10;                          TextStyle(fontSize: 9, color: ColorName.color838897),&#10;                    ),&#10;                    TextSpan(&#10;                      text: &quot; ${controller.payCoin.value} &quot;,&#10;                      style: TextStyle(&#10;                          fontSize: 9,&#10;                          color: Color(0xff000b19),&#10;                          fontFamily: AppFontFamily.pfb),&#10;                    ),&#10;                    TextSpan(&#10;                      text: &quot;deposit_change2&quot;.tr,&#10;                      style:&#10;                          TextStyle(fontSize: 9, color: ColorName.color838897),&#10;                    )&#10;                  ],&#10;                ),&#10;              )" description="富文本" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="expansion" value="Expansion(&#10;      header: Padding(&#10;        padding: EdgeInsets.only(top: 16, bottom: 16),&#10;        child: Row(&#10;          children: [&#10;            Text(&#10;              '钱包明细',&#10;              style: TextStyle(&#10;                fontSize: 14,&#10;                fontWeight: FontWeight.w500,&#10;                color: Colors.white,&#10;              ),&#10;            ),&#10;            SizedBox(width: 8.w),&#10;            GestureDetector(&#10;              onTap: onRefresh,&#10;              child: Opacity(&#10;                opacity: 0.6,&#10;                child: Image.asset(&#10;                  Assets.images.comRefresh.path,&#10;                  width: 20.w,&#10;                  height: 20.w,&#10;                ),&#10;              ),&#10;            ),&#10;            SizedBox(width: 24.w),&#10;            Spacer(),&#10;            GestureDetector(&#10;              onTap: onRecycler,&#10;              child: Text(&#10;                '一键回收',&#10;                style: TextStyle(&#10;                  fontSize: 12,&#10;                  fontWeight: FontWeight.w400,&#10;                  color: Color(0xffE1A100),&#10;                ),&#10;              ),&#10;            ),&#10;            SizedBox(width: 24.w),&#10;            GestureDetector(&#10;              onTap: () =&gt; onExpansionChanged?.call(!isExpand),&#10;              child: Row(&#10;                children: [&#10;                  Text(&#10;                    isExpand ? '收起' : '展开',&#10;                    style: TextStyle(&#10;                      fontSize: 12,&#10;                      color: Colors.white.withOpacity(0.6),&#10;                    ),&#10;                  ),&#10;                  SizedBox(width: 4.w),&#10;                  RotatedBox(&#10;                    quarterTurns: isExpand ? 2 : 0,&#10;                    child: Image.asset(&#10;                      Assets.images.home.homeMoreDown.path,&#10;                      width: 16,&#10;                    ),&#10;                  )&#10;                ],&#10;              ),&#10;            )&#10;          ],&#10;        ),&#10;      ),&#10;      children: [&#10;        Row(&#10;          children: [&#10;            Expanded(&#10;              child:&#10;                  _buildColorBlockWallet(Color(0xff28EC52), '钱包总余额（￥）', amount),&#10;            ),&#10;            SizedBox(&#10;              width: 12.w,&#10;            ),&#10;            Expanded(&#10;              child: _buildColorBlockWallet(&#10;                  Color(0xff1CB5FF), '中心钱包  (￥)', centerAmount),&#10;            ),&#10;          ],&#10;        ),&#10;        SizedBox(height: 12.w),&#10;        Container(&#10;          decoration: BoxDecoration(&#10;            color: Color(0xff989a9c).withOpacity(0.06),&#10;            borderRadius: BorderRadius.all(Radius.circular(8.w)),&#10;          ),&#10;          child: Obx(() =&gt; ListView(&#10;                padding: EdgeInsets.zero,&#10;                shrinkWrap: true,&#10;                physics: NeverScrollableScrollPhysics(),&#10;                children: join(&#10;                  partition(merchants, 2)&#10;                      .map&lt;Widget&gt;((e) =&gt; SizedBox(&#10;                            height: 71.w,&#10;                            child: Row(&#10;                              children: [&#10;                                Expanded(&#10;                                  child: _buildWalletTile(&#10;                                    e.first,&#10;                                    () =&gt; onRefreshMerchant?.call(e.first),&#10;                                    onItemFlowDetailClick,&#10;                                  ),&#10;                                ),&#10;                                VerticalDivider(&#10;                                  thickness: 1.w,&#10;                                  indent: 16.w,&#10;                                  endIndent: 16.w,&#10;                                ),&#10;                                e.length == 2&#10;                                    ? Expanded(&#10;                                        child: _buildWalletTile(&#10;                                        e.last,&#10;                                        () =&gt; onRefreshMerchant?.call(e.last),&#10;                                        onItemFlowDetailClick,&#10;                                      ))&#10;                                    : Spacer()&#10;                              ],&#10;                            ),&#10;                          ))&#10;                      .toList(),&#10;                  Divider(&#10;                    indent: 16.w,&#10;                    endIndent: 16.w,&#10;                  ),&#10;                ),&#10;              )),&#10;        ),&#10;      ],&#10;      isExpand: isExpand,&#10;    )" description="可展开收起的部件" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="containergradient" value="Container(&#10;              alignment: Alignment.center,&#10;              margin: EdgeInsets.only(&#10;                  left: 16.w, right: 16.w, top: 16.w, bottom: 16.w),&#10;              padding: EdgeInsets.only(top: 16.w, bottom: 16.w),&#10;              decoration: BoxDecoration(&#10;                  borderRadius: BorderRadius.all(Radius.circular(8)),&#10;                  gradient: LinearGradient(&#10;                    colors: [Color(0xFFFFFFFF), Color(0xFFFDE7EC)],&#10;                    begin: Alignment.topCenter,&#10;                    end: Alignment.bottomCenter,&#10;                  )),&#10;                  )" description="带渐变的容器" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="contactcustomerservice" value="Center(&#10;                  child: ContactCustomerService(),&#10;                ),&#10;                        SizedBox(&#10;                          height: MediaQuery.of(context).padding.bottom,&#10;                        )" description="联系客服部件" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="importnumextension" value="import 'package:ob_zr_app/components/extension/num_extension.dart';" description="fixed(2)方法" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="textshadow" value="style: TextStyle(&#10;                        fontSize: 8,&#10;                        color: Colors.white,&#10;                        shadows: &lt;Shadow&gt;[&#10;                          Shadow(&#10;                            offset: Offset(1.0, 1.0),&#10;                            blurRadius: 1.0,&#10;                            color: Color.fromARGB(255, 0, 0, 0),&#10;                          ),&#10;                          Shadow(&#10;                            offset: Offset(1.0, 1.0),&#10;                            blurRadius: 1.0,&#10;                            color: Color.fromARGB(125, 0, 0, 255),&#10;                          ),&#10;                        ],&#10;                      )" description="文字阴影" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="image属性说明" value="const Image({&#10;...&#10;this.width, //图片的宽&#10;this.height, //图片高度&#10;this.color, //图片的混合色值&#10;this.colorBlendMode, //混合模式&#10;this.fit,//缩放模式&#10;this.alignment = Alignment.center, //对齐方式&#10;this.repeat = ImageRepeat.noRepeat, //重复方式&#10;...&#10;})&#10;&#10;// width &amp; height&#10;width、height：用于设置图片的宽、高，当不指定宽高时，图片会根据当前父容器的限制，尽可能的显示其原始大小，&#10;如果只设置width、height的其中一个，那么另一个属性默认会按比例缩放，但可以通过下面介绍的fit属性来指定适应规则。&#10;&#10;// fit&#10;该属性用于在图片的显示空间和图片本身大小不同时指定图片的适应模式。适应模式是在BoxFit中定义，它是一个枚举类型，有如下值：&#10;&#10;fill：会拉伸填充满显示空间，图片本身长宽比会发生变化，图片会变形。// 拉伸填满全屏、图片变形&#10;&#10;cover：会按图片的长宽比放大后居中填满显示空间，图片不会变形，超出显示空间部分会被剪裁。// 被裁剪、比例全屏、图片不变形&#10;&#10;contain：这是图片的默认适应规则，图片会在保证图片本身长宽比不变的情况下缩放以适应当前显示空间，图片不会变形。 // 默认&#10;&#10;fitWidth：图片的宽度会缩放到显示空间的宽度，高度会按比例缩放，然后居中显示，图片不会变形，超出显示空间部分会被剪裁。 // 宽度全部显示容器、高度比例缩放&#10;&#10;fitHeight：图片的高度会缩放到显示空间的高度，宽度会按比例缩放，然后居中显示，图片不会变形，超出显示空间部分会被剪裁。 // 高度全是显示容器、宽度比例缩放&#10;&#10;none：图片没有适应策略，会在显示空间内显示图片，如果图片比显示空间大，则显示空间只会显示图片中间部分。 // 没有任何适配规则&#10;&#10;// repeat&#10;repeat：当图片本身大小小于显示空间时，指定图片的重复规则。&#10;&#10;// color &amp; colorBlendMode&#10;color和 colorBlendMode：在图片绘制时可以对每一个像素进行颜色混合处理，color指定混合色，而colorBlendMode指定混合模式；" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="get-tips" value="if (Get.isBottomSheetOpen ?? false) {&#10;      Get.back();&#10;    }&#10;// Get.until((route) =&gt; Get.currentRoute == AppRoutes.GAME);" description="Get的更多用法" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="stamp" value="DateTime.now().millisecondsSinceEpoch&#10;DateTime.fromMillisecondsSinceEpoch(1585140111111)" description="时间戳转为时间" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="cliprect" value=" ClipRRect(&#10;                  borderRadius: BorderRadius.all(&#10;                      Radius.circular(8)),&#10;                  child: OBPlayerBlurView())" description="绝对圆角" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="isios" value="InstallDeviceType().isIOS()" description="是否是ios" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="textsize" value=" double textWidth = boundingTextSize(&#10;              context,&#10;              name,&#10;              TextStyle(&#10;                  color: Colors.white,&#10;                  fontSize: 13,&#10;                  fontFamily: AppFontFamily.pfb,&#10;                  decoration: TextDecoration.none))&#10;          .width;" description="textsize" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="cooldown" value=" bool enabled = CoolDownManager.handler(&#10;                key: 'switchTap',&#10;                duration: 650,&#10;              );&#10;              if(!enabled){&#10;                return;&#10;              }" description="cooldown" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="cooldownmanager" value="class CoolDownManager {&#10;  CoolDownManager._privateConstructor();&#10;&#10;  static final CoolDownManager _instance =&#10;      CoolDownManager._privateConstructor();&#10;&#10;  static CoolDownManager get instance {&#10;    return _instance;&#10;  }&#10;&#10;  static Map&lt;String, int&gt; timeMap = {};&#10;&#10;  static bool handler({required String key, required int duration}) {&#10;    int currentTime = DateTime.now().millisecondsSinceEpoch;&#10;    if (currentTime - (timeMap[key] ?? 0) &gt; duration) {&#10;      timeMap[key] = DateTime.now().millisecondsSinceEpoch;&#10;      return true;&#10;    }&#10;    return false;&#10;  }&#10;}&#10;" description="cooldownmanager" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="currentroute" value="Get.currentRoute == AppRoutes.GAME" description="判断当前页面" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="listofui" value="List.generate(10, (i) {&#10;        double w = 50.0 + 10 * i;&#10;        return Container(&#10;          color: Colors.primaries[i],&#10;          height: 50,&#10;          width: w,&#10;          child: Text('$i'),&#10;        );&#10;      })," description="返回数组组成的UI" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="swipeleftright" value="GestureDetector(&#10;    onHorizontalDragEnd: (DragEndDetails details) {&#10;      if (details.primaryVelocity &gt; 0) {&#10;        // User swiped Left&#10;      } else if (details.primaryVelocity &lt; 0) {&#10;        // User swiped Right&#10;      }&#10;    }&#10;)" description="左右滑动检测" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="screenhelp" value="import 'dart:ui';&#10;final screenW = window.physicalSize.width;&#10;final screenH = window.physicalSize.height;" description="屏幕相关" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="imageFadein" value="FadeInImage.assetNetwork(&#10;    placeholder: 'assets/loading.gif',&#10;    image: 'https://picsum.photos/250?image=9',&#10;)&#10;FadeInImage.memoryNetwork(&#10;    placeholder: kTransparentImage,&#10;    image: '${item.image.value}',&#10;)&#10;final Uint8List kTransparentImage = new Uint8List.fromList([&#10;  0x89,&#10;  0x50,&#10;  0x4E,&#10;  0x47,&#10;  0x0D,&#10;  0x0A,&#10;  0x1A,&#10;  0x0A,&#10;  0x00,&#10;  0x00,&#10;  0x00,&#10;  0x0D,&#10;  0x49,&#10;  0x48,&#10;  0x44,&#10;  0x52,&#10;  0x00,&#10;  0x00,&#10;  0x00,&#10;  0x01,&#10;  0x00,&#10;  0x00,&#10;  0x00,&#10;  0x01,&#10;  0x08,&#10;  0x06,&#10;  0x00,&#10;  0x00,&#10;  0x00,&#10;  0x1F,&#10;  0x15,&#10;  0xC4,&#10;  0x89,&#10;  0x00,&#10;  0x00,&#10;  0x00,&#10;  0x0A,&#10;  0x49,&#10;  0x44,&#10;  0x41,&#10;  0x54,&#10;  0x78,&#10;  0x9C,&#10;  0x63,&#10;  0x00,&#10;  0x01,&#10;  0x00,&#10;  0x00,&#10;  0x05,&#10;  0x00,&#10;  0x01,&#10;  0x0D,&#10;  0x0A,&#10;  0x2D,&#10;  0xB4,&#10;  0x00,&#10;  0x00,&#10;  0x00,&#10;  0x00,&#10;  0x49,&#10;  0x45,&#10;  0x4E,&#10;  0x44,&#10;  0xAE&#10;]);" description="渐现加载网络图片" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="enum" value="enum $askType$ {&#10;  $none$,  &#10;  $banker$, &#10;  $player$, &#10;}" description="枚举举例" toReformat="false" toShortenFQNames="true">
+    <variable name="askType" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="none" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="banker" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="player" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="colorDebug" value="color: index % 2 == 0 ? Colors.red : Colors.green," description="背景颜色区分辅助debugUI" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+</templateSet>

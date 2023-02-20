@@ -1,0 +1,52 @@
+<templateSet group="Dart">
+  <template name="template-controller" value="import 'package:get/get_state_manager/src/simple/get_controllers.dart';&#10;&#10;class LoginController extends GetxController {&#10;  @override&#10;  void onInit() {&#10;    super.onInit();&#10;  }&#10;&#10;  @override&#10;  void onDetached() {}&#10;&#10;  @override&#10;  void onInactive() {}&#10;&#10;  @override&#10;  void onPaused() {}&#10;&#10;  @override&#10;  void onResumed() {}&#10;&#10;  @override&#10;  void onClose() {&#10;    super.onClose();&#10;  }&#10;}&#10;" description="controller模板" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="template-binding" value="import 'package:get/get.dart';&#10;import 'package:get/get_instance/src/bindings_interface.dart';&#10;&#10;import 'load_controller.dart';&#10;&#10;class LoadBinding implements Bindings {&#10;  @override&#10;  void dependencies() {&#10;    Get.lazyPut&lt;LoadController&gt;(() =&gt; LoadController());&#10;  }&#10;}&#10;" description="binding模板" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="template-page" value="import 'package:flutter/cupertino.dart';&#10;import 'package:get/get.dart';&#10;import 'components/load_body.dart';&#10;import 'load_controller.dart';&#10;&#10;class LoadPage extends GetView&lt;LoadController&gt; {&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    return LoadBody();&#10;  }&#10;}&#10;" description="page模板" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="template-body" value="import 'package:flutter/material.dart';&#10;import 'package:get/get.dart';&#10;import '../load_controller.dart';&#10;&#10;class LoadBody extends StatefulWidget {&#10;  @override&#10;  _LoadBodyState createState() =&gt; _LoadBodyState();&#10;}&#10;&#10;class _LoadBodyState extends State&lt;LoadBody&gt; {&#10;  LoadController loadController = Get.find&lt;LoadController&gt;();&#10;&#10;  @override&#10;  void initState() {&#10;    super.initState();&#10;  }&#10;&#10;  @override&#10;  void dispose() {&#10;    super.dispose();&#10;  }&#10;&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    return Scaffold(&#10;      body: Container(),&#10;    );&#10;  }&#10;}&#10;" description="body模板" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="alert" value="Get.dialog(&#10;            ObDialog.alert(&#10;              title: '提示',&#10;              content: '试玩帐号不支持绑定USDT',&#10;              cancelText: '知道了',&#10;              onCancelListener: () {&#10;                Get.back();&#10;              },&#10;            ),&#10;          );" description="弹窗" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="jiantingOne" value="  StreamSubscription? _listener;&#10;  _listener = eventBus.on&lt;FlyChipEvent&gt;().listen((event) {&#10;      List&lt;int&gt; activePoints = _betController.activePoints;&#10;       &#10;    });&#10;&#10;@override&#10;  void dispose() {&#10;    _listener?.cancel();&#10;    super.dispose();&#10;  }" description="单个事件监听" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="ifregister" value="late BetController _betController;&#10;    if (Get.isRegistered&lt;BetController&gt;()) {&#10;      _betController = Get.find&lt;BetController&gt;();&#10;    } else {&#10;      _betController = Get.put(BetController());&#10;    }" description="判断类是否有初始化过" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="getbacktoroute" value="Get.until((route) =&gt; Get.currentRoute == AppRoutes.DEPOSIT);" description="返回到指定路由" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="future" value="final completer = Completer&lt;bool&gt;();&#10;completer.complete(true);&#10;completer.complete(false);&#10;return completer.future;" description="Future返回值写法" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="gradient" value="decoration: BoxDecoration(&#10;          gradient: LinearGradient(&#10;              begin: Alignment.centerLeft,&#10;              end: Alignment.centerRight,&#10;              colors: &lt;Color&gt;[&#10;            Colors.transparent,&#10;            Colors.black,&#10;            Colors.transparent,&#10;          ]))," description="渐变图层" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+</templateSet>
