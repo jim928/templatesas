@@ -299,4 +299,9 @@
       <option name="SHELL_SCRIPT" value="true" />
     </context>
   </template>
+  <template name="rm" value="#-i 删除前逐一询问确认。&#10;#-f 即使原档案属性设为唯读，亦直接删除，无需逐一确认。&#10;#-r 将目录及以下之档案亦逐一删除。&#10;rm -f -r &quot;$path&quot;" description="rm文件命令" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="SHELL_SCRIPT" value="true" />
+    </context>
+  </template>
 </templateSet>
