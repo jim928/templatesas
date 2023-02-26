@@ -274,4 +274,9 @@
       <option name="DART" value="true" />
     </context>
   </template>
+  <template name="mkdir" value="sudo mkdir -p ./&quot;$finalFolder&quot;" description="创建文件夹" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="SHELL_SCRIPT" value="true" />
+    </context>
+  </template>
 </templateSet>
