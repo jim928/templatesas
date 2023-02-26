@@ -284,4 +284,19 @@
       <option name="SHELL_SCRIPT" value="true" />
     </context>
   </template>
+  <template name="stringLength" value="echo &quot;${#name}&quot;" description="获取字符串长度" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="SHELL_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="substring" value="name=&quot;John rayno&quot;&#10;echo &quot;${name:0:2}&quot;    #=&gt; &quot;Jo&quot; (slicing)&#10;echo &quot;${name::2}&quot;     #=&gt; &quot;Jo&quot; (slicing)" description="字符串截取" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="SHELL_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="for" value="for i in &quot;$appPath&quot;/AndroidStudio*; do&#10;  echo &quot;$i&quot;&#10;  cd &quot;$i&quot;&#10;done" description="for循环使用" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="SHELL_SCRIPT" value="true" />
+    </context>
+  </template>
 </templateSet>
