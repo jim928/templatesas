@@ -299,4 +299,14 @@
       <option name="SHELL_SCRIPT" value="true" />
     </context>
   </template>
+  <template name="folderExist" value="#if [ -n &quot;$finalFolder&quot; ]; then&#10;if [ -d &quot;$finalFolder&quot; ]; then&#10;    echo &quot;folder exist&quot;&#10;fi" description="文件夹是否存在" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="SHELL_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="fileExist" value="FILE=~/.ssh/id_ed25519.pub&#10;if test -f &quot;$FILE&quot;; then&#10;    echo &quot;$FILE exist&quot;&#10;fi" description="文件是否存在" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="SHELL_SCRIPT" value="true" />
+    </context>
+  </template>
 </templateSet>
