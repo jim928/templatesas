@@ -279,4 +279,9 @@
       <option name="SHELL_SCRIPT" value="true" />
     </context>
   </template>
+  <template name="gitCommitPush" value="git add .&#10;git commit -m &quot;commit msg&quot; -a&#10;git push &quot;${gitUrl}&quot; HEAD:master" description="git先commit再push" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="SHELL_SCRIPT" value="true" />
+    </context>
+  </template>
 </templateSet>
