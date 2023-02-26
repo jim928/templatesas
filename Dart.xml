@@ -59,6 +59,11 @@
       <option name="SHELL_SCRIPT" value="true" />
     </context>
   </template>
+  <template name="fileExist" value="#if [ -n &quot;$finalFolder&quot; ]; then #反向判断，文件不存在&#10;if [ -d &quot;$finalFolder&quot; ]; then&#10;  echo &quot;dir $finalFolder exist&quot;&#10;else&#10;  echo &quot;folder /$finalFolder not exist , now mkdir&quot;&#10;  sudo mkdir -p ./&quot;$finalFolder&quot;           #文件夹不存在则创建&#10;  sudo chown -R $(id -un) ./&quot;$finalFolder&quot; # give permissions&#10;fi" description="判断文件是否存在" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="SHELL_SCRIPT" value="true" />
+    </context>
+  </template>
   <template name="googlepath" value="appPath=~/Library/Application\ Support/Google" description="google文件夹位置" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="SHELL_SCRIPT" value="true" />
