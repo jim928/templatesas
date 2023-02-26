@@ -304,9 +304,4 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="testdart" value="String testDart1234 = &quot;testDart1234&quot;;" description="测试234" toReformat="false" toShortenFQNames="true">
-    <context>
-      <option name="DART" value="true" />
-    </context>
-  </template>
 </templateSet>
