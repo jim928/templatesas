@@ -54,4 +54,39 @@
       <option name="SHELL_SCRIPT" value="true" />
     </context>
   </template>
+  <template name="userdatapath" value="userDataPath=~/Library/Developer/Xcode/UserData" description="xcode的userData文件夹" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="SHELL_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="fileExist" value="#if [ -n &quot;$finalFolder&quot; ]; then #反向判断，文件不存在&#10;if [ -d &quot;$finalFolder&quot; ]; then&#10;  echo &quot;dir $finalFolder exist&quot;&#10;else&#10;  echo &quot;folder /$finalFolder not exist , now mkdir&quot;&#10;  sudo mkdir -p ./&quot;$finalFolder&quot;           #文件夹不存在则创建&#10;  sudo chown -R $(id -un) ./&quot;$finalFolder&quot; # give permissions&#10;fi" description="判断文件是否存在" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="SHELL_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="googlepath" value="appPath=~/Library/Application\ Support/Google" description="google文件夹位置" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="SHELL_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="jetbrainpath" value="appPath=~/Library/Application\ Support/JetBrains" description="jetbrain的安装路径" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="SHELL_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="stringIsEmpty" value="if [[ -z &quot;$string&quot; ]]; then&#10;  echo &quot;String is empty&quot;&#10;elif [[ -n &quot;$string&quot; ]]; then&#10;  echo &quot;String is not empty&quot;&#10;fi" description="字符串是否为空" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="SHELL_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="cp" value="#使用.而不是* 可以隐藏文件一起复制， 用yes可以在重复文件覆盖的时候免去输入yes确认&#10;sudo cp -r &quot;$jim928Path&quot;/$gitProjectName/. ./&quot;$finalFolder&quot;/" description="cp命令" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="SHELL_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="formulaPath" value="path=$(brew --repo)/Library/Taps/homebrew/homebrew-core/Formula" description="Formula文件夹位置" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="SHELL_SCRIPT" value="true" />
+    </context>
+  </template>
 </templateSet>
