@@ -78,11 +78,6 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="containerround" value="Container(&#10;    alignment: Alignment.center,&#10;    width: 52.w,&#10;    height: 28.w,&#10;    decoration: ShapeDecoration(&#10;        shape: RoundedRectangleBorder(&#10;        borderRadius:&#10;        BorderRadius.all(Radius.circular(14.w))),&#10;        border: Border.all(color: ColorName.colorE6E8EE, width: 1),&#10;        color: Colors.white.withOpacity(0.8),&#10;    ),&#10;    child:Container()&#10;)" description="圆角视图" toReformat="true" toShortenFQNames="true">
-    <context>
-      <option name="DART" value="true" />
-    </context>
-  </template>
   <template name="image" value="Image(image: AssetImage(&quot;assets/images/$bg$.png&quot;,))&#10;Image.network($url$)&#10;Image.network(&#10;  'https://flutter.github.io/assets-for-api-docs/assets/widgets/puffin.jpg',&#10;  height: 150,&#10;  width: 150,&#10;  fit: BoxFit.cover,&#10;  frameBuilder: (&#10;      BuildContext context,&#10;      Widget child,&#10;      int? frame,&#10;      bool? wasSynchronouslyLoaded,&#10;      ) {&#10;    if (frame == null) {&#10;      return Image.asset(&#10;        'assets/images/chat.png',&#10;        height: 150,&#10;        width: 150,&#10;        fit: BoxFit.cover,&#10;      );&#10;    }&#10;    return child;&#10;  },&#10;)" description="图片" toReformat="true" toShortenFQNames="true">
     <variable name="bg" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="url" expression="" defaultValue="" alwaysStopAt="true" />
@@ -128,7 +123,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="containerbgimage" value="Container(&#10;              decoration: BoxDecoration(&#10;                image: DecorationImage(&#10;                  image: AssetImage(&quot;images/bg.jpg&quot;),&#10;                  fit: BoxFit.cover,&#10;                ),&#10;              ),&#10;              child: Container(),&#10;            )" description="container背景图片" toReformat="true" toShortenFQNames="true">
+  <template name="containerbgimage" value="Container(&#10;  decoration: const BoxDecoration(&#10;    image: DecorationImage(&#10;      image: AssetImage(&quot;images/bg.jpg&quot;),&#10;      fit: BoxFit.cover,&#10;    ),&#10;  ),&#10;  child: Container(),&#10;)" description="container背景图片" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
@@ -138,7 +133,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="containerborder" value="Container(&#10;              alignment: Alignment(0, 0),&#10;              height: 50,&#10;              width: 300,&#10;              decoration: BoxDecoration(&#10;                //背景&#10;                // color: Colors.white,&#10;                borderRadius: BorderRadius.all(Radius.circular(4.0)),&#10;                //设置四周边框&#10;                border: Border.all(width: 1, color: Colors.red),&#10;              ),&#10;              child: Text(&quot;Container 的圆角边框&quot;),&#10;            )" description="带圆角边框的" toReformat="true" toShortenFQNames="true">
+  <template name="containerroundborder" value="Container(&#10;              alignment: Alignment(0, 0),&#10;              height: 50,&#10;              width: 300,&#10;              decoration: BoxDecoration(&#10;                //背景&#10;                // color: Colors.white,&#10;                borderRadius: BorderRadius.all(Radius.circular(4.0)),&#10;                //设置四周边框&#10;                border: Border.all(width: 1, color: Colors.red),&#10;              ),&#10;              child: Text(&quot;Container 的圆角边框&quot;),&#10;            )" description="带圆角边框的" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
@@ -158,7 +153,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="containergradient" value="Container(&#10;              alignment: Alignment.center,&#10;              margin: EdgeInsets.only(&#10;                  left: 16.w, right: 16.w, top: 16.w, bottom: 16.w),&#10;              padding: EdgeInsets.only(top: 16.w, bottom: 16.w),&#10;              decoration: BoxDecoration(&#10;                  borderRadius: BorderRadius.all(Radius.circular(8)),&#10;                  gradient: LinearGradient(&#10;                    colors: [Color(0xFFFFFFFF), Color(0xFFFDE7EC)],&#10;                    begin: Alignment.topCenter,&#10;                    end: Alignment.bottomCenter,&#10;                  )),&#10;                  )" description="带渐变的容器" toReformat="true" toShortenFQNames="true">
+  <template name="containergradient" value="Container(&#10;  alignment: Alignment.center,&#10;  margin:&#10;      const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 16),&#10;  padding: const EdgeInsets.only(top: 16, bottom: 16),&#10;  decoration: const BoxDecoration(&#10;      borderRadius: BorderRadius.all(Radius.circular(8)),&#10;      gradient: LinearGradient(&#10;        colors: [Color(0xFFFFFFFF), Color(0xFF00E7EC)],&#10;        begin: Alignment.topCenter,&#10;        end: Alignment.bottomCenter,&#10;      )),&#10;)" description="带渐变的容器" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
@@ -203,7 +198,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="cooldown" value=" bool enabled = CoolDownManager.handler(&#10;                key: 'switchTap',&#10;                duration: 650,&#10;              );&#10;              if(!enabled){&#10;                return;&#10;              }" description="cooldown" toReformat="true" toShortenFQNames="true">
+  <template name="cooldown" value="  void _incrementCounter() {&#10;    bool enabled = CoolDownManager.handler(&#10;      key: 'switchTap',&#10;      duration: 650,&#10;    );&#10;    if (!enabled) {&#10;      return;&#10;    }&#10;    /*&#10;class CoolDownManager {&#10;  CoolDownManager._privateConstructor();&#10;&#10;  static final CoolDownManager _instance =&#10;      CoolDownManager._privateConstructor();&#10;&#10;  static CoolDownManager get instance {&#10;    return _instance;&#10;  }&#10;&#10;  static Map&lt;String, int&gt; timeMap = {};&#10;&#10;  static bool handler({String key, int duration}) {&#10;    int currentTime = DateTime.now().millisecondsSinceEpoch;&#10;    if (currentTime - (timeMap[key] ?? 0) &gt; duration) {&#10;      timeMap[key] = DateTime.now().millisecondsSinceEpoch;&#10;      return true;&#10;    }&#10;    return false;&#10;  }&#10;}&#10;*/" description="cooldown" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
@@ -285,7 +280,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="containterAvatar" value="          Container(&#10;            width: 100,&#10;            height: 100,&#10;            padding: EdgeInsets.all(3),&#10;            decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.blue),&#10;            child: Container(&#10;              decoration: BoxDecoration(&#10;                  shape: BoxShape.circle,&#10;                  image: DecorationImage(&#10;                      image: AssetImage('assets/images/chat.png'), fit: BoxFit.cover)),&#10;            ),&#10;          )" description="圆形带边框头像" toReformat="true" toShortenFQNames="true">
+  <template name="containerAvatar" value="          Container(&#10;            width: 100,&#10;            height: 100,&#10;            padding: EdgeInsets.all(3),&#10;            decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.blue),&#10;            child: Container(&#10;              decoration: BoxDecoration(&#10;                  shape: BoxShape.circle,&#10;                  image: DecorationImage(&#10;                      image: AssetImage('assets/images/chat.png'), fit: BoxFit.cover)),&#10;            ),&#10;          )" description="圆形带边框头像" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
@@ -576,7 +571,7 @@
       <option name="JAVA_CODE" value="true" />
     </context>
   </template>
-  <template name="alertcustom" value="    showDialog(&#10;        barrierColor: Colors.black54, //default color&#10;        barrierDismissible: true, //default value&#10;        context: context,&#10;        builder: (context) {&#10;          return WillPopScope(&#10;            onWillPop: () async {&#10;              return true;&#10;            },&#10;            child: Container(&#10;              child: Center(&#10;                child: Container(&#10;                  width: 200,&#10;                  height: 100,&#10;                  color: Colors.red,&#10;                ),&#10;              ),&#10;            ),&#10;          );&#10;        });" description="弹窗（自定义）" toReformat="true" toShortenFQNames="true">
+  <template name="alertcustom" value="    showDialog(&#10;        barrierColor: Colors.black54, //default color&#10;        barrierDismissible: true, //default value&#10;        context: context,&#10;        builder: (context) {&#10;          return WillPopScope(&#10;            onWillPop: () async {&#10;              return true;&#10;            },&#10;            child: Container(&#10;              child: Center(&#10;                child: Container( //替换此位置&#10;                  width: 200,&#10;                  height: 100,&#10;                  color: Colors.red,&#10;                ),&#10;              ),&#10;            ),&#10;          );&#10;        });" description="弹窗（自定义）" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
       <option name="FLUTTER" value="true" />
