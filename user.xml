@@ -1,5 +1,5 @@
 <templateSet group="user">
-  <template name="printme" value="OBLog('-zlog- $text$');" description="" toReformat="false" toShortenFQNames="true">
+  <template name="printme" value="print('-zlog- $text$');" description="" toReformat="false" toShortenFQNames="true">
     <variable name="text" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="DART" value="true" />
@@ -60,12 +60,12 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="statusbarheight" value="// 状态栏高度&#10;    double statusBarHeight = MediaQuery.of(context).padding.top;" description="状态栏高度" toReformat="false" toShortenFQNames="true">
+  <template name="statusbarheight" value="// 状态栏高度&#10;    double statusBarHeight = MediaQuery.of(context).padding.top;&#10;    ScreenUtil().statusBarHeight" description="状态栏高度" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="positioned" value="Positioned(&#10;    $right$: $0$,&#10;    child:$view$&#10;)" description="具体定位view" toReformat="false" toShortenFQNames="true">
+  <template name="pd" value="Positioned(&#10;    $right$: $0$,&#10;    child:$view$&#10;)" description="positioned具体定位view" toReformat="false" toShortenFQNames="true">
     <variable name="right" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="0" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="view" expression="" defaultValue="" alwaysStopAt="true" />
@@ -83,7 +83,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="image" value="Image(image: AssetImage(&quot;assets/images/$bg$.png&quot;,))&#10;Image.network($url$)" description="图片" toReformat="false" toShortenFQNames="true">
+  <template name="image" value="Image(image: AssetImage(&quot;assets/images/$bg$.png&quot;,))&#10;Image.network($url$)&#10;Image.network(&#10;  'https://flutter.github.io/assets-for-api-docs/assets/widgets/puffin.jpg',&#10;  height: 150,&#10;  width: 150,&#10;  fit: BoxFit.cover,&#10;  frameBuilder: (&#10;      BuildContext context,&#10;      Widget child,&#10;      int? frame,&#10;      bool? wasSynchronouslyLoaded,&#10;      ) {&#10;    if (frame == null) {&#10;      return Image.asset(&#10;        'assets/images/chat.png',&#10;        height: 150,&#10;        width: 150,&#10;        fit: BoxFit.cover,&#10;      );&#10;    }&#10;    return child;&#10;  },&#10;)" description="图片" toReformat="false" toShortenFQNames="true">
     <variable name="bg" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="url" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
@@ -100,7 +100,9 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="get" value="String get showPayType {&#10;    return '';&#10;}" description="get计算型方法" toReformat="false" toShortenFQNames="true">
+  <template name="get" value="  $String$ _$contents$;&#10;  $String$ get $contents$ =&gt; _$contents$;&#10;  set $contents$($String$ value) {&#10;    _$contents$ = value;&#10;  }" description="get计算型方法以及set方法" toReformat="false" toShortenFQNames="true">
+    <variable name="contents" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="String" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="DART" value="true" />
     </context>
@@ -120,22 +122,13 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="sharedInstant" value="class Singleton {&#10;  static final Singleton _instance = Singleton._internal();&#10;&#10;  static Singleton get instance {&#10;    return _instance;&#10;  }&#10;&#10;  Singleton._internal() {&#10;    init();&#10;  }&#10;&#10;  void init() {&#10;    print(&quot;这里初始化&quot;);&#10;  }&#10;}&#10;" description="单例模板" toReformat="false" toShortenFQNames="true">
+  <template name="sharedInstant" value="class $Singleton$ {&#10;  static final $Singleton$ _instance = $Singleton$._internal();&#10;&#10;  static $Singleton$ get instance {&#10;    return _instance;&#10;  }&#10;&#10;  $Singleton$._internal() {&#10;    init();&#10;  }&#10;&#10;  void init() {&#10;    //print(&quot;这里初始化&quot;);&#10;  }&#10;}&#10;" description="单例模板" toReformat="false" toShortenFQNames="true">
+    <variable name="Singleton" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="customview-fast" value="import 'package:flutter/material.dart';&#10;import 'package:get/get.dart';&#10;import 'package:ob_component/ob_component.dart';&#10;import 'package:flutter_screenutil/flutter_screenutil.dart';&#10;&#10;class GetViewAndGetWidgetExample extends GetView&lt;GetViewCountController&gt; {&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    return Container();&#10;  }&#10;}" description="最常用视图模板" toReformat="false" toShortenFQNames="true">
-    <context>
-      <option name="DART" value="true" />
-    </context>
-  </template>
-  <template name="customview" value="//没有挂载任何controller的视图&#10;class MyApp extends StatelessWidget {&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    return GetMaterialApp(&#10;      title: &quot;GetX&quot;,&#10;      home: GetViewAndGetWidgetExample(),&#10;    );&#10;  }&#10;}&#10;//寻找已存在的此controller并挂载&#10;import 'package:flutter/material.dart';&#10;import 'package:get/get.dart';&#10;import 'package:ob_component/ob_component.dart';&#10;import 'package:flutter_screenutil/flutter_screenutil.dart';&#10;&#10;class GetViewAndGetWidgetExample extends GetView&lt;GetViewCountController&gt; {&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    return Container();&#10;  }&#10;}&#10;//每次都新创建一个给定的controller&#10;class GetViewAndGetWidgetExample extends GetView&lt;GetViewCountController&gt; {&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    // Get.create(() =&gt; GetViewCountController());&#10;    return Container();&#10;  }&#10;}" description="自定义视图模板" toReformat="false" toShortenFQNames="true">
-    <context>
-      <option name="DART" value="true" />
-    </context>
-  </template>
-  <template name="regex" value="ScreenUtilFloor.setWidth(27)&#10;替换为&#10;27.w&#10;使用正则&#9;ScreenUtilFloor.setWidth\((.*)\)&#10;替换为&#9;$1.w&#10;注意导致 可能导致 3).w的情况" description="正则替换笔记" toReformat="false" toShortenFQNames="true">
+  <template name="regex" value="var re = RegExp(r'(?&lt;=quick)(.*)(?=over)');&#10;String data =&quot;the quick brown fox jumps over the lazy dog&quot;;&#10;var match = re.firstMatch(data);&#10;if (match != null) print(match.group(0));&#10;&#10;///手机号验证&#10;static bool isChinaPhoneLegal(String str) {&#10;return RegExp(&#10;        r&quot;^1([38][0-9]|4[579]|5[0-3,5-9]|6[6]|7[0135678]|9[89])\d{8}$&quot;)&#10;    .hasMatch(str);&#10;}&#10;&#10;///邮箱验证&#10;static bool isEmail(String str) {&#10;return RegExp(r&quot;^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$&quot;)&#10;    .hasMatch(str);&#10;}&#10;&#10;///验证URL&#10;static bool isUrl(String value) {&#10;return RegExp(r&quot;^((https|http|ftp|rtsp|mms)?:\/\/)[^\s]+&quot;).hasMatch(value);&#10;}&#10;&#10;///验证身份证&#10;static bool isIdCard(String value) {&#10;return RegExp(r&quot;\d{17}[\d|x]|\d{15}&quot;).hasMatch(value);&#10;}&#10;&#10;///验证中文&#10;static bool isChinese(String value) {&#10;return RegExp(r&quot;[\u4e00-\u9fa5]&quot;).hasMatch(value);&#10;}" description="正则替换举例" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
@@ -155,17 +148,12 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="customviewstand" value="import 'package:flutter/material.dart';&#10;import 'package:get/get.dart';&#10;import 'package:ob_component/ob_component.dart';&#10;import 'package:flutter_screenutil/flutter_screenutil.dart';&#10;&#10;class VirtualTableContainer extends StatefulWidget {&#10;  @override&#10;  _VirtualTableContainerState createState() =&gt; _VirtualTableContainerState();&#10;}&#10;&#10;class _VirtualTableContainerState extends State&lt;VirtualTableContainer&gt;&#10;    with SingleTickerProviderStateMixin {&#10;  GameController controller = Get.find&lt;GameController&gt;();&#10;  &#10;  @override&#10;  void initState() {&#10;    super.initState();&#10;    controller.timeAnimationController =&#10;        AnimationController(vsync: this, duration: Duration(milliseconds: 300));&#10;  }&#10;&#10;  @override&#10;  void dispose() {&#10;    controller.timeAnimationController?.stop();&#10;    super.dispose();&#10;  }&#10;&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    return Container();&#10;  }&#10;}&#10;" description="标准自定义视图" toReformat="false" toShortenFQNames="true">
-    <context>
-      <option name="DART" value="true" />
-    </context>
-  </template>
   <template name="importscreen" value="import 'package:flutter_screenutil/flutter_screenutil.dart';" description=".w方法引用" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="textrich" value="Text.rich(&#10;                TextSpan(&#10;                  children: [&#10;                    TextSpan(&#10;                      text: &quot;预计支付&quot;,&#10;                      style:&#10;                          TextStyle(fontSize: 9, color: ColorName.color838897),&#10;                    ),&#10;                    TextSpan(&#10;                      text: &quot; ${controller.payCoin.value} &quot;,&#10;                      style: TextStyle(&#10;                          fontSize: 9,&#10;                          color: Color(0xff000b19),&#10;                          fontFamily: AppFontFamily.pfb),&#10;                    ),&#10;                    TextSpan(&#10;                      text: &quot;deposit_change2&quot;.tr,&#10;                      style:&#10;                          TextStyle(fontSize: 9, color: ColorName.color838897),&#10;                    )&#10;                  ],&#10;                ),&#10;              )" description="富文本" toReformat="false" toShortenFQNames="true">
+  <template name="textrich" value="    final Image image =&#10;        Image.asset('assets/images/icon_head.webp', width: 20, height: 20);&#10;    const TextStyle defaultStyle = TextStyle(color: Colors.black);&#10;    const TextStyle linkStyle = TextStyle(&#10;        color: Colors.blue,&#10;        decoration: TextDecoration.underline,&#10;        decorationColor: Colors.blue);&#10;&#10;    InlineSpan span = TextSpan(children: [&#10;      //文字内添加任何widget&#10;      WidgetSpan(&#10;        child: image,&#10;        alignment: PlaceholderAlignment.middle, //和文字的对齐方式&#10;      ),&#10;      const TextSpan(text: '我已同意 ', style: defaultStyle),&#10;      TextSpan(&#10;          text: '服务条款',&#10;          style: linkStyle,&#10;          recognizer: TapGestureRecognizer()..onTap = () {}),&#10;      const TextSpan(&#10;        text: ' 和 ',&#10;        style: defaultStyle,&#10;      ),&#10;      TextSpan(&#10;          text: '隐私政策',&#10;          style: linkStyle,&#10;          recognizer: TapGestureRecognizer()..onTap = () {}),&#10;      const TextSpan(text: ' 。', style: defaultStyle),&#10;    ]);&#10;    return Text.rich(span);" description="富文本" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
@@ -215,12 +203,12 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="isios" value="InstallDeviceType().isIOS()" description="是否是ios" toReformat="false" toShortenFQNames="true">
+  <template name="isios" value="//import 'dart:io';&#10;if (Platform.isIOS) {}" description="是否是ios" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="textsize" value=" double textWidth = boundingTextSize(&#10;              context,&#10;              name,&#10;              TextStyle(&#10;                  color: Colors.white,&#10;                  fontSize: 13,&#10;                  fontFamily: AppFontFamily.pfb,&#10;                  decoration: TextDecoration.none))&#10;          .width;" description="textsize" toReformat="false" toShortenFQNames="true">
+  <template name="textsize" value="Size boundingTextSize(BuildContext context, String text, TextStyle style,&#10;    {int maxLines = 2 ^ 31, double maxWidth = double.infinity}) {&#10;  if (text.isEmpty) {&#10;    return Size.zero;&#10;  }&#10;  final TextPainter textPainter = TextPainter(&#10;      textDirection: TextDirection.ltr,&#10;      locale: Localizations.localeOf(context),&#10;      text: TextSpan(text: text, style: style),&#10;      maxLines: maxLines)&#10;    ..layout(maxWidth: maxWidth);&#10;  return textPainter.size;&#10;}" description="textsize" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
@@ -250,7 +238,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="screenhelp" value="import 'dart:ui';&#10;final screenW = window.physicalSize.width;&#10;final screenH = window.physicalSize.height;" description="屏幕相关" toReformat="false" toShortenFQNames="true">
+  <template name="screenhelp" value="final screenW = ScreenUtil().screenWidth;&#10;final screenH = ScreenUtil().screenHeight;" description="屏幕相关" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
@@ -274,29 +262,154 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="mkdir" value="sudo mkdir -p ./&quot;$finalFolder&quot;" description="创建文件夹" toReformat="false" toShortenFQNames="true">
+  <template name="zlogfull" value="void ZLog(Object? object) {&#10;  if (kReleaseMode) return;&#10;  print(object);&#10;}" description="zlog完全体" toReformat="false" toShortenFQNames="true">
     <context>
-      <option name="SHELL_SCRIPT" value="true" />
+      <option name="DART" value="true" />
     </context>
   </template>
-  <template name="gitCommitPush" value="git add .&#10;git commit -m &quot;commit msg&quot; -a&#10;git push &quot;${gitUrl}&quot; HEAD:master" description="git先commit再push" toReformat="false" toShortenFQNames="true">
+  <template name="zlog" value="ZLog('-zlog- $text$');" description="zlog" toReformat="false" toShortenFQNames="true">
+    <variable name="text" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
-      <option name="SHELL_SCRIPT" value="true" />
+      <option name="DART" value="true" />
     </context>
   </template>
-  <template name="stringLength" value="echo &quot;${#name}&quot;" description="获取字符串长度" toReformat="false" toShortenFQNames="true">
+  <template name="findchinese" value="//匹配项目中中文字符&#10;['|&quot;].[\u4e00-\u9fa5]+.['|&quot;]&#10;//或&#10;['|&quot;]*[\u4E00-\u9FA5]+['|&quot;]" description="查找所有中文" toReformat="false" toShortenFQNames="true">
     <context>
-      <option name="SHELL_SCRIPT" value="true" />
+      <option name="DART" value="true" />
     </context>
   </template>
-  <template name="substring" value="name=&quot;John rayno&quot;&#10;echo &quot;${name:0:2}&quot;    #=&gt; &quot;Jo&quot; (slicing)&#10;echo &quot;${name::2}&quot;     #=&gt; &quot;Jo&quot; (slicing)" description="字符串截取" toReformat="false" toShortenFQNames="true">
+  <template name="listview" value="ListView.builder(&#10;                      itemCount: controller.data?.record.length ?? 0,&#10;                      itemBuilder: (ctx, index) {&#10;                        return GestureDetector(&#10;                          onTap: () =&gt; controller.navigateDetail(index),&#10;                          child: BetRecordPageItem(&#10;                              data: controller.data!.record[index]),&#10;                        );&#10;                      },&#10;                    )" description="列表构建" toReformat="false" toShortenFQNames="true">
     <context>
-      <option name="SHELL_SCRIPT" value="true" />
+      <option name="DART" value="true" />
     </context>
   </template>
-  <template name="for" value="for i in &quot;$appPath&quot;/AndroidStudio*; do&#10;  echo &quot;$i&quot;&#10;  cd &quot;$i&quot;&#10;done" description="for循环使用" toReformat="false" toShortenFQNames="true">
+  <template name="txtsprintf" value="sprintf('$txt$'.tr,[$str$])" description="多语言带参数字符串" toReformat="false" toShortenFQNames="true">
+    <variable name="txt" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="str" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
-      <option name="SHELL_SCRIPT" value="true" />
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="pageview" value="List&lt;Widget&gt; pageList = [PageView1(), PageView2(), PageView3()];&#10;&#10;PageView.builder(&#10;&#9;itemCount: 10000,&#10;&#9;itemBuilder: (context, index) {&#10;&#9;&#9;return pageList[index % (pageList.length)];&#10;    },&#10;)" description="无限滚动pageview" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="containerImgBg" value="          Container(&#10;            width: 270,&#10;            // height:  300,&#10;            padding: const EdgeInsets.only(left: 8,top: 8,right: 20,bottom: 8),&#10;            decoration: const BoxDecoration(&#10;                image: DecorationImage(&#10;                    centerSlice: Rect.fromLTWH(20, 20, 1, 1),&#10;                    image: AssetImage(&#10;                      'assets/images/chat.png',&#10;                    ),&#10;                    fit: BoxFit.fill)),&#10;            child: const Text('老孟，专注分享Flutter技术和应用实战。'&#10;                '老孟，专注分享Flutter技术和应用实战。'&#10;                '老孟，专注分享Flutter技术和应用实战。',),&#10;          )," description="点9图拉伸作为背景" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="containterAvatar" value="          Container(&#10;            width: 100,&#10;            height: 100,&#10;            padding: EdgeInsets.all(3),&#10;            decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.blue),&#10;            child: Container(&#10;              decoration: BoxDecoration(&#10;                  shape: BoxShape.circle,&#10;                  image: DecorationImage(&#10;                      image: AssetImage('assets/images/chat.png'), fit: BoxFit.cover)),&#10;            ),&#10;          )" description="圆形带边框头像" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="flutterkjj" value="只需要输入 stless 就可以创建一个StatelessWidget。&#10;只需要输入 stful 就可以创建一个StatefulWidget。&#10;给一个Widget包裹一个父元素：把光标放在当前Widget上面，option + 回车，出现wrap with xxx&#10;Commond + d 快速复制一行；&#10;把一个变量(类名或多行代码)转成全大写字母：Command + Shift + U，再按一下切换回来&#10;将当前行上移或下移：option + Shift + 上(下)箭头;&#10;将光标移动到上一次编辑（停留）过的地方： option+Command+左箭头，在代码比较多的页面中(或者查看源码的时候)，点击查看一个方法，看完后再回到原来的位置，就可以用此快捷键；option+Command+右箭头 相反的方向。&#10;清除无用引用  快捷键：control + option + O（字母 O 键）&#10;多行注释/**/：option + command + / 或者选中多行 ：command + /&#10;左移代码： 选中代码后 按 shift+Tab即可实现左移操作。&#10;代码格式化：选中代码后 按 option+command+l" description="flutter开发快捷键" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="for" value="for (var $element$ in $list$) { &#10;    $code$&#10;}  " description="for循环" toReformat="false" toShortenFQNames="true">
+    <variable name="element" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="list" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="code" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="icon" value="Icon(Icons.speaker_group,size: 100,color: Colors.orange,)" description="系统图标" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="rpx" value="Rpx.setRpx($1$)" description="rpx快捷键" toReformat="false" toShortenFQNames="true">
+    <variable name="1" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="rpxinit" value="Rpx.initialize(context);" description="prx初始化（build方法内）" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="imgshort" value=" Image(image: AssetImage('img/v2/common/$name$.png'),)" description="img快速方式" toReformat="false" toShortenFQNames="true">
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="red" value="Colors.red" description="红色" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="providerwithchild" value="ChangeNotifierProvider.value(&#10;      value: CounterNotifier(),&#10;      child: Container(),&#10;    )" description="provider带child" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="regexnote" value="abc…&#9;Letters&#10;123…&#9;Digits&#10;\d&#9;Any Digit&#10;\D&#9;Any Non-digit character&#10;.&#9;Any Character&#10;\.&#9;Period&#10;[abc]&#9;Only a, b, or c&#10;[^abc]&#9;Not a, b, nor c&#10;[a-z]&#9;Characters a to z&#10;[0-9]&#9;Numbers 0 to 9&#10;\w&#9;Any Alphanumeric character&#10;\W&#9;Any Non-alphanumeric character&#10;{m}&#9;m Repetitions&#10;{m,n}&#9;m to n Repetitions&#10;*&#9;Zero or more repetitions&#10;+&#9;One or more repetitions&#10;?&#9;Optional character&#10;\s&#9;Any Whitespace&#10;\S&#9;Any Non-whitespace character&#10;^…$&#9;Starts and ends&#10;(…)&#9;Capture Group&#10;(a(bc))&#9;Capture Sub-group&#10;(.*)&#9;Capture all&#10;(abc|def)&#9;Matches abc or def" description="正则小抄" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="ifversion" value="if (appThemeVersion == AppTheme.whiteTheme) {&#10;  &#10;} else if (appThemeVersion == AppTheme.darkTheme) {&#10;  &#10;}" description="版本判断" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="appshowloadinghideloading" value="nativeDialog.showLoading('', '正在登录中,请稍后...');&#10;nativeDialog.showLoading('', '', status: '1');" description="显示隐藏loading" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="gradienttext" value="ShaderMask(&#10;  shaderCallback: (Rect bounds) {&#10;    return LinearGradient(&#10;      begin: Alignment.centerLeft,&#10;      end: Alignment.centerRight,&#10;      colors: [Color(0xffFEC635), Color(0xffFD4827)],&#10;    ).createShader(Offset.zero &amp; bounds.size);&#10;  },&#10;  blendMode: BlendMode.srcATop,&#10;  child: Container(&#10;    child: Text(&#10;      &quot;充值中心&quot;,&#10;      style: TextStyle(&#10;          fontSize: 18,&#10;          color: Color(0xffffffff),&#10;          fontWeight: FontWeight.w500),&#10;    ),&#10;  ),&#10;)" description="渐变文字" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="appbar" value="Scaffold(&#10;appBar: CommonAppBar(&#10;  title: S.current.l_id_30058,&#10;),&#10;backgroundColor: MessagesSetting.MESSAGES_BG,&#10;body: ScrollConfiguration(&#10;  behavior: NoShadowScrollBehavior(),&#10;  child: ProviderWidget&lt;MyNoticeRefrishListModel&gt;(&#10;      model: MyNoticeRefrishListModel(),&#10;      onModelReady: (model) {&#10;        model.refresh(init: true);&#10;      },&#10;      builder: (context, listModel, child) {&#10;        return _makeSmartRefresher(listModel);&#10;      }),&#10;));" description="带appbar的页面" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="constraint" value="constraints: BoxConstraints(minHeight: 900)," description="对container添加宽高约束" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="white" value="Colors.white" description="白色" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="keyboardClose" value="GestureDetector(&#10;    onTap: () {&#10;        FocusScope.of(context).requestFocus(FocusNode());&#10;    },&#10;}" description="点击页面收起键盘的办法" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="actionsheet" value="void showHelpTip(BuildContext context, String content) {&#10;  BorderRadius topBorderRadius = BorderRadius.only(&#10;    topLeft: Radius.circular(20.0),&#10;    topRight: Radius.circular(20.0),&#10;  );&#10;  showModalBottomSheet(&#10;      context: context,&#10;      builder: (context) =&gt; Container(&#10;          decoration: BoxDecoration(&#10;            borderRadius: topBorderRadius,&#10;            color: Color(0xFF1F222E),&#10;          ),&#10;          child: Column(&#10;            mainAxisSize: MainAxisSize.min,&#10;            children: [&#10;              Container(&#10;                height: 50.rpx,&#10;                width: ScreenUtil().screenWidth,&#10;                decoration: BoxDecoration(&#10;                  borderRadius: topBorderRadius,&#10;                  color: Color(0xFF16181F),&#10;                ),&#10;                child: Row(&#10;                  mainAxisAlignment: MainAxisAlignment.center,&#10;                  children: [&#10;                    SizedBox(width: 31.rpx),&#10;                    Spacer(),&#10;                    Text(&#10;                      '温馨提示',&#10;                      style: TextStyle(&#10;                        fontSize: 18.rpx,&#10;                        color: Color(0xE6FFFFFF),&#10;                      ),&#10;                    ),&#10;                    Gaps.hGap5,&#10;                    Container(&#10;                      height: 16.rpx,&#10;                      width: 16.rpx,&#10;                      alignment: Alignment.centerRight,&#10;                      child: Image.asset('img/v2/withdraw/question.png'),&#10;                    ),&#10;                    Spacer(),&#10;                    GestureDetector(&#10;                      onTap: () =&gt; Routes.popPage(context),&#10;                      child: Container(&#10;                        margin: EdgeInsets.only(right: 15.rpx),&#10;                        width: 16.rpx,&#10;                        height: 16.rpx,&#10;                        child: Image.asset('img/v2/common/cancel.png'),&#10;                      ),&#10;                    )&#10;                  ],&#10;                ),&#10;              ),&#10;              Container(&#10;                color: Colors.transparent,&#10;                padding: EdgeInsets.all(20.rpx),&#10;                child: Text(&#10;                  content,&#10;                  style: TextStyle(&#10;                    fontSize: 13.rpx,&#10;                    color: Colors.white60,&#10;                    height: 1.5.rpx,&#10;                  ),&#10;                ),&#10;              )&#10;            ],&#10;          )));&#10;}" description="底部弹窗" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="customerservice" value="V2CustomerView().init(context);" description="联系客服" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER" value="true" />
+    </context>
+  </template>
+  <template name="mixin示例" value="mixin DrawFunc {&#10;  String content = '..';&#10;&#10;  String what();&#10;&#10;  void draw() {&#10;    print('I can draw ${what()}');&#10;  }&#10;}&#10;&#10;class Teacher with DrawFunc {&#10;  String what() =&gt; &quot;car&quot;;&#10;}&#10;" description="mixin简单示例" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER" value="true" />
+    </context>
+  </template>
+  <template name="find" value="// 在Java中查找对象数组中元素索引的通用方法&#10;public static&lt;T&gt; int find(T[] a, T target) {&#10;    return Arrays.asList(a).indexOf(target);&#10;}" description="查找元素" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
     </context>
   </template>
 </templateSet>

@@ -1,0 +1,17 @@
+<templateSet group="Groovy">
+  <template name="listhelp" value="var list = [1,null,2,3];&#10;var list1 = [0,...list];[...list];[...?list]; //在新的数组里填入元素&#10;var list1 = [...?list]; //避免list是null&#10;var more = [1, ...list.where((e) =&gt; e != null), 4];//避免null的元素&#10;&#10;var fruits = ['bananas', 'apples', 'oranges'];&#10;fruits.sort((a, b) =&gt; a.compareTo(b));&#10;&#10;listOfInts.any((element) =&gt; element &gt; 0);//只要有个符合条件&#10;listOfInts.every((element) =&gt; element &gt; 0);//每一个符合条件" description="数组使用帮助" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="maphelp" value="//将2个map合并产生新的map&#10;var map = {&#10;  ...options.queryParameters,&#10;  ...options.data&#10;}&#10;&#10;//对应的key不存在的时候才赋值&#10;var teamAssignments = &lt;String, String&gt;{};&#10;    teamAssignments.putIfAbsent('Catcher', () =&gt; 'value111');&#10;" description="map帮助" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="listtomap" value="var map = { for (var e in listOfInts) '${e+1}' : '${e+2}' };" description="数组转字典" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+</templateSet>

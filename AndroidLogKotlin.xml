@@ -1,0 +1,7 @@
+<templateSet group="AndroidLogKotlin">
+  <template name="blockToFuture" value="Future&lt;void&gt; postUpdatePassword(String newPassword, String password) {&#10;    final completer = Completer&lt;void&gt;();&#10;    MemberApis.memberPasswordUpdatePost(&#10;      parameters: {'newPassword': newPassword, 'password': password},&#10;      success: (MemberPasswordUpdatePostRespModel res) =&gt; completer.complete(),&#10;      fail: (code, msg) =&gt; completer.completeError(msg),&#10;    );&#10;    return completer.future;&#10;  }&#10;  &#10;  Future&lt;bool&gt; gameMaintainMyCollectPost(&#10;      int i, String gameId, String gameTypeId) {&#10;    final completer = Completer&lt;bool&gt;();&#10;&#10;    GameApis.gameMaintainMyCollectPost(&#10;        parameters: {&#10;          &quot;type&quot;: i,&#10;          &quot;gameId&quot;: gameId,&#10;        },&#10;        success: (GameMaintainMyCollectPostRespModel resp) {&#10;          if (gameTypeId != &quot;Recommend&quot;) {&#10;            homeGameController.updateGameMap(gameTypeId);&#10;          } else {&#10;            gameModuleRecommendPost();&#10;          }&#10;&#10;          completer.complete(true);&#10;        },&#10;        fail: (int code, String message) {&#10;          showToast(&quot;${message}&quot;);&#10;          completer.complete(false);&#10;        });&#10;    return completer.future;&#10;  }" description="block回调转future回调" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+</templateSet>

@@ -1,0 +1,8 @@
+<templateSet group="Java">
+  <template name="s.current" value="S.current.l_id_310$11$" description="多语言快捷" toReformat="false" toShortenFQNames="true">
+    <variable name="11" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+</templateSet>

@@ -19,7 +19,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="alert" value="Get.dialog(&#10;            ObDialog.alert(&#10;              title: '提示',&#10;              content: '试玩帐号不支持绑定USDT',&#10;              cancelText: '知道了',&#10;              onCancelListener: () {&#10;                Get.back();&#10;              },&#10;            ),&#10;          );" description="弹窗" toReformat="false" toShortenFQNames="true">
+  <template name="alert" value="showDialog(&#10;        context: context,&#10;        builder: (context) {&#10;          return AlertDialog(&#10;            title: Text('提示'),&#10;            content: Text('确认删除吗？'),&#10;            actions: &lt;Widget&gt;[&#10;              TextButton(child: Text('取消'),onPressed: (){Navigator.of(context).pop('cancel');},),&#10;              TextButton(child: Text('确认'),onPressed: (){Navigator.of(context).pop('ok');},),&#10;            ],&#10;          );&#10;        });" description="弹窗" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
@@ -49,44 +49,90 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="scriptname" value="script_name=$(basename &quot;$0&quot;)" description="获取脚本名称" toReformat="false" toShortenFQNames="true">
+  <template name="darthelp" value="String? a;&#10;a ??= '909';// a 为空 则赋值为 909；" description="dart帮助" toReformat="false" toShortenFQNames="true">
     <context>
-      <option name="SHELL_SCRIPT" value="true" />
+      <option name="DART" value="true" />
     </context>
   </template>
-  <template name="userdatapath" value="userDataPath=~/Library/Developer/Xcode/UserData" description="xcode的userData文件夹" toReformat="false" toShortenFQNames="true">
+  <template name="regexinput" value="const _regExp=r&quot;^[a-z0-9]+$&quot;;//只允许数字和小写字母&#10;class $InputFormatterName$ extends TextInputFormatter{&#10;  @override&#10;  TextEditingValue formatEditUpdate(TextEditingValue oldValue, TextEditingValue newValue) {&#10;    if(newValue.text.isNotEmpty){&#10;      if(RegExp(_regExp).firstMatch(newValue.text)!=null){&#10;        return newValue;&#10;      }&#10;      return oldValue;&#10;    }&#10;    return newValue;&#10;  }&#10;}" description="正则输入替换" toReformat="false" toShortenFQNames="true">
+    <variable name="InputFormatterName" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
-      <option name="SHELL_SCRIPT" value="true" />
+      <option name="DART" value="true" />
     </context>
   </template>
-  <template name="fileExist" value="#if [ -n &quot;$finalFolder&quot; ]; then #反向判断，文件不存在&#10;if [ -d &quot;$finalFolder&quot; ]; then&#10;  echo &quot;dir $finalFolder exist&quot;&#10;else&#10;  echo &quot;folder /$finalFolder not exist , now mkdir&quot;&#10;  sudo mkdir -p ./&quot;$finalFolder&quot;           #文件夹不存在则创建&#10;  sudo chown -R $(id -un) ./&quot;$finalFolder&quot; # give permissions&#10;fi" description="判断文件是否存在" toReformat="false" toShortenFQNames="true">
+  <template name="regexinputfield" value="TextFormField(&#10;  inputFormatters: [&#10;    TextNumberLimitFormatter(maxLimit),&#10;  ],&#10;  controller: controller,&#10;  keyboardType: TextInputType.number,&#10;  onChanged: (_) {&#10;    controller!.selection = TextSelection.fromPosition(&#10;      TextPosition(offset: controller!.text.length),&#10;    );&#10;  },&#10;)," description="正则输入框举例" toReformat="false" toShortenFQNames="true">
     <context>
-      <option name="SHELL_SCRIPT" value="true" />
+      <option name="DART" value="true" />
     </context>
   </template>
-  <template name="googlepath" value="appPath=~/Library/Application\ Support/Google" description="google文件夹位置" toReformat="false" toShortenFQNames="true">
+  <template name="switchtheme" value="switch (appThemeVersion) {&#10;  case AppTheme.whiteTheme:&#10;    return $HomeScene$;&#10;  case AppTheme.darkTheme:&#10;    return $HomeView$;&#10;}" description="切换主题代码" toReformat="false" toShortenFQNames="true">
+    <variable name="HomeScene" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="HomeView" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
-      <option name="SHELL_SCRIPT" value="true" />
+      <option name="DART" value="true" />
     </context>
   </template>
-  <template name="jetbrainpath" value="appPath=~/Library/Application\ Support/JetBrains" description="jetbrain的安装路径" toReformat="false" toShortenFQNames="true">
+  <template name="standbuttonuse" value="StandButton(&#10;width: 162,&#10;child: StandButtonTitle(title: '游客登录'),&#10;onPressed: () {&#10; &#10;},&#10;)" description="标准按钮使用" toReformat="false" toShortenFQNames="true">
     <context>
-      <option name="SHELL_SCRIPT" value="true" />
+      <option name="DART" value="true" />
     </context>
   </template>
-  <template name="stringIsEmpty" value="if [[ -z &quot;$string&quot; ]]; then&#10;  echo &quot;String is empty&quot;&#10;elif [[ -n &quot;$string&quot; ]]; then&#10;  echo &quot;String is not empty&quot;&#10;fi" description="字符串是否为空" toReformat="false" toShortenFQNames="true">
+  <template name="standbtn" value="StandButton(&#10;  width: 140,&#10;  height: 40,&#10;  child: StandButtonTitle(title: S.current.l_id_30008),&#10;  style: StandButtonStyle.gradient,&#10;  onPressed: () {&#10;    &#10;  },&#10;)" description="快捷创建" toReformat="false" toShortenFQNames="true">
     <context>
-      <option name="SHELL_SCRIPT" value="true" />
+      <option name="DART" value="true" />
     </context>
   </template>
-  <template name="cp" value="#使用.而不是* 可以隐藏文件一起复制， 用yes可以在重复文件覆盖的时候免去输入yes确认&#10;sudo cp -r &quot;$jim928Path&quot;/$gitProjectName/. ./&quot;$finalFolder&quot;/" description="cp命令" toReformat="false" toShortenFQNames="true">
+  <template name="popback" value="Navigator.pop(context);" description="退出当前页面" toReformat="false" toShortenFQNames="true">
     <context>
-      <option name="SHELL_SCRIPT" value="true" />
+      <option name="DART" value="true" />
     </context>
   </template>
-  <template name="formulaPath" value="path=$(brew --repo)/Library/Taps/homebrew/homebrew-core/Formula" description="Formula文件夹位置" toReformat="false" toShortenFQNames="true">
+  <template name="navto" value="Routes.navigateTo(context, Routes.V2_CHARGE_INFO_PAGE);" description="跳转页面" toReformat="false" toShortenFQNames="true">
     <context>
-      <option name="SHELL_SCRIPT" value="true" />
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="white90" value="Colors.white.withOpacity(0.9)" description="白色0.9" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="white60" value="Colors.white60" description="白色0.6" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="white10" value="Colors.white10" description="白色0.1" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="kefu" value="KefuSelectPanel().showKefuSelectPanel(context);" description="联系客服" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="popbacktoRoot" value="Navigator.popUntil(context, (route) =&gt; route.isFirst);" description="返回根页面" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="appbarcombine" value="import 'package:flutter/material.dart';&#10;&#10;class HomeHead extends StatelessWidget implements PreferredSizeWidget {&#10;  const HomeHead({Key? key}) : super(key: key);&#10;&#10;  @override&#10;  Size get preferredSize =&gt; const Size.fromHeight(200);&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    return AppBar(&#10;      centerTitle: true,&#10;      title: const Text('生存日记', style: TextStyle(color: Color(0xFF02020D))),&#10;      flexibleSpace: Container(&#10;        decoration: const BoxDecoration(&#10;          gradient: LinearGradient(colors: [&#10;            Color(0xFFFAD956),&#10;            Colors.white,&#10;          ], begin: Alignment.topCenter, end: Alignment.bottomCenter),&#10;        ),&#10;      ),&#10;      bottom: const PreferredSize(&#10;        preferredSize: Size.fromHeight(140),&#10;        child: MyCollect(),&#10;      ),&#10;    );&#10;  }&#10;}&#10;&#10;class MyCollect extends StatefulWidget {&#10;  const MyCollect({Key? key}) : super(key: key);&#10;&#10;  @override&#10;  _MyCollectState createState() =&gt; _MyCollectState();&#10;}&#10;&#10;class _MyCollectState extends State&lt;MyCollect&gt; {&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    return Column(&#10;      children: [&#10;        Row(&#10;          mainAxisAlignment: MainAxisAlignment.spaceEvenly,&#10;          crossAxisAlignment: CrossAxisAlignment.end,&#10;          children: &lt;Widget&gt;[&#10;            Column(&#10;              children: const &lt;Widget&gt;[&#10;                Text(&#10;                  '2021年',&#10;                  style:&#10;                      TextStyle(color: Color(0xFF808080), fontSize: 12),&#10;                ),&#10;                Padding(&#10;                  padding: EdgeInsets.fromLTRB(0, 8, 0, 0),&#10;                  child: Text(&#10;                    '02月',&#10;                    style: TextStyle(color: Colors.black, fontSize: 16),&#10;                  ),&#10;                )&#10;              ],&#10;            ),&#10;            Column(&#10;              children: const &lt;Widget&gt;[&#10;                Text(&#10;                  '负债金额',&#10;                  style:&#10;                      TextStyle(color: Color(0xFF808080), fontSize: 12),&#10;                ),&#10;                Padding(&#10;                  padding: EdgeInsets.fromLTRB(0, 8, 0, 0),&#10;                  child: Text(&#10;                    '78000元',&#10;                    style: TextStyle(color: Colors.black, fontSize: 16),&#10;                  ),&#10;                )&#10;              ],&#10;            ),&#10;            Column(&#10;              children: const &lt;Widget&gt;[&#10;                Text(&#10;                  '本月还款',&#10;                  style:&#10;                      TextStyle(color: Color(0xFF808080), fontSize: 12),&#10;                ),&#10;                Padding(&#10;                  padding: EdgeInsets.fromLTRB(0, 8, 0, 0),&#10;                  child: Center(&#10;                    child: Text(&#10;                      '7000元',&#10;                      style: TextStyle(color: Colors.black, fontSize: 16),&#10;                    ),&#10;                  ),&#10;                )&#10;              ],&#10;            ),&#10;          ],&#10;        ),&#10;        const Item_Type()&#10;      ],&#10;    );&#10;  }&#10;}&#10;&#10;class Item_Type extends StatelessWidget {&#10;  const Item_Type({Key? key}) : super(key: key);&#10;&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    // TODO: implement build&#10;    return Container(&#10;      margin: const EdgeInsets.all(5),&#10;      padding: const EdgeInsets.all(5),&#10;      child: DecoratedBox(&#10;          decoration: const BoxDecoration(&#10;              color: Colors.white,&#10;              borderRadius: BorderRadius.all(Radius.circular(10)),&#10;              boxShadow: [&#10;                //阴影&#10;                BoxShadow(offset: Offset(2.0, 2.0), blurRadius: 10)&#10;              ]),&#10;          child: Padding(&#10;            padding: const EdgeInsets.all(10),&#10;            child: Flex(&#10;              mainAxisAlignment: MainAxisAlignment.center,&#10;              crossAxisAlignment: CrossAxisAlignment.center,&#10;              direction: Axis.horizontal,&#10;              children: &lt;Widget&gt;[&#10;                Expanded(&#10;                    flex: 1,&#10;                    child: Column(&#10;                      children: const &lt;Widget&gt;[&#10;                        Icon(IconData(0xe63e, fontFamily: 'iconfont')),&#10;                        Text('负债记录',&#10;                            style: TextStyle(color: Colors.black, fontSize: 12))&#10;                      ],&#10;                    )),&#10;                Expanded(&#10;                  flex: 1,&#10;                  child: Column(&#10;                    children: const &lt;Widget&gt;[&#10;                      Icon(IconData(0xe688, fontFamily: 'iconfont')),&#10;                      Text('生存日记',&#10;                          style: TextStyle(color: Colors.black, fontSize: 12))&#10;                    ],&#10;                  ),&#10;                ),&#10;                Expanded(&#10;                  flex: 1,&#10;                  child: Column(&#10;                    children: const &lt;Widget&gt;[&#10;                      Icon(IconData(0xe6a0, fontFamily: 'iconfont')),&#10;                      Text('脚踏实地',&#10;                          style: TextStyle(color: Colors.black, fontSize: 12))&#10;                    ],&#10;                  ),&#10;                ),&#10;                Expanded(&#10;                  flex: 1,&#10;                  child: Column(&#10;                    children: const &lt;Widget&gt;[&#10;                      Icon(IconData(0xe6e8, fontFamily: 'iconfont')),&#10;                      Text('不软动脑',&#10;                          style: TextStyle(color: Colors.black, fontSize: 12))&#10;                    ],&#10;                  ),&#10;                ),&#10;                Expanded(&#10;                  flex: 1,&#10;                  child: Column(&#10;                    children: const &lt;Widget&gt;[&#10;                      Icon(IconData(0xe62f, fontFamily: 'iconfont')),&#10;                      Text('点打点赢',&#10;                          style: TextStyle(color: Colors.black, fontSize: 12))&#10;                    ],&#10;                  ),&#10;                ),&#10;              ],&#10;            ),&#10;          )),&#10;    );&#10;  }&#10;}&#10;" description="appbar组合使用示例" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="addimg" value=" $withdraw_record$: {&#10;    &quot;type&quot;: 1,&#10;    &quot;img&quot;: &quot;$withdraw_record$.png&quot;,&#10;  }," description="添加image数据模型" toReformat="false" toShortenFQNames="true">
+    <variable name="withdraw_record" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER" value="true" />
+    </context>
+  </template>
+  <template name="addimg1" value="ImageWidget(&#10;          data: cImages.$common_zw_head$,&#10;          &#10;        )" description="添加一个ImageWidget" toReformat="false" toShortenFQNames="true">
+    <variable name="common_zw_head" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
     </context>
   </template>
 </templateSet>
