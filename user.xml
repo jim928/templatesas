@@ -55,7 +55,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="delay" value="await Future.delayed(Duration(milliseconds: 20));&#10;Future.delayed(Duration(seconds: 1), () {&#10;    openWeb(gameCode, url, gameName, gameId);&#10;});&#10;          " description="延后执行" toReformat="true" toShortenFQNames="true">
+  <template name="delay" value="await Future.delayed(Duration(milliseconds: 20));&#10;Future.delayed(Duration(milliseconds: 100), () {&#10;    openWeb(gameCode, url, gameName, gameId);&#10;});&#10;          " description="延后执行" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
@@ -90,7 +90,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="timer" value="    //间隔重复调用timer&#10;    kickTimer?.cancel();&#10;    kickTimer = null;&#10;&#10;    int count = 0;&#10;    void Function(Timer) callBack = (timer) {&#10;      if (count &gt;= 5) {&#10;        askTimer?.cancel();&#10;        askTimer = null;&#10;      }&#10;      if (count % 2 == 0) {&#10;        do something&#10;        } else {&#10;        do other thing&#10;        }&#10;        count++;&#10;        };&#10;&#10;    kickTimer = Timer.periodic(&#10;        Duration(milliseconds: 500), callBack);&#10;    callBack(askTimer!); //立即触发timer&#10;&#10;    //一次性timer&#10;    Timer(Duration(seconds: 60 * 10), kickAction)" description="定时器" toReformat="true" toShortenFQNames="true">
+  <template name="timer" value="    Timer? kickTimer;&#10;    int count = 0;&#10;&#10;    kickTimer?.cancel();&#10;    kickTimer = null;&#10;&#10;    var kickAction = (timer) {&#10;      if (count &gt;= 5) {&#10;        kickTimer?.cancel();&#10;        kickTimer = null;&#10;        count = 0;&#10;      }&#10;      count++;&#10;    };&#10;&#10;    kickTimer = Timer.periodic(const Duration(milliseconds: 500), kickAction);&#10;    kickAction(kickTimer!); //立即触发timer" description="定时器" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
@@ -198,17 +198,12 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="cooldown" value="  void _incrementCounter() {&#10;    bool enabled = CoolDownManager.handler(&#10;      key: 'switchTap',&#10;      duration: 650,&#10;    );&#10;    if (!enabled) {&#10;      return;&#10;    }&#10;    /*&#10;class CoolDownManager {&#10;  CoolDownManager._privateConstructor();&#10;&#10;  static final CoolDownManager _instance =&#10;      CoolDownManager._privateConstructor();&#10;&#10;  static CoolDownManager get instance {&#10;    return _instance;&#10;  }&#10;&#10;  static Map&lt;String, int&gt; timeMap = {};&#10;&#10;  static bool handler({String key, int duration}) {&#10;    int currentTime = DateTime.now().millisecondsSinceEpoch;&#10;    if (currentTime - (timeMap[key] ?? 0) &gt; duration) {&#10;      timeMap[key] = DateTime.now().millisecondsSinceEpoch;&#10;      return true;&#10;    }&#10;    return false;&#10;  }&#10;}&#10;*/" description="cooldown" toReformat="true" toShortenFQNames="true">
+  <template name="cooldown" value="  void _incrementCounter() {&#10;    bool enabled = CoolDownManager.handler(&#10;      key: 'switchTap',&#10;      duration: 650,&#10;    );&#10;    if (!enabled) {&#10;      return;&#10;    }&#10;   " description="cooldown" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
   </template>
   <template name="cooldownmanager" value="class CoolDownManager {&#10;  CoolDownManager._privateConstructor();&#10;&#10;  static final CoolDownManager _instance =&#10;      CoolDownManager._privateConstructor();&#10;&#10;  static CoolDownManager get instance {&#10;    return _instance;&#10;  }&#10;&#10;  static Map&lt;String, int&gt; timeMap = {};&#10;&#10;  static bool handler({required String key, required int duration}) {&#10;    int currentTime = DateTime.now().millisecondsSinceEpoch;&#10;    if (currentTime - (timeMap[key] ?? 0) &gt; duration) {&#10;      timeMap[key] = DateTime.now().millisecondsSinceEpoch;&#10;      return true;&#10;    }&#10;    return false;&#10;  }&#10;}&#10;" description="cooldownmanager" toReformat="true" toShortenFQNames="true">
-    <context>
-      <option name="JAVA_CODE" value="true" />
-    </context>
-  </template>
-  <template name="currentroute" value="Get.currentRoute == AppRoutes.GAME" description="判断当前页面" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
@@ -575,6 +570,11 @@
     <context>
       <option name="DART" value="true" />
       <option name="FLUTTER" value="true" />
+    </context>
+  </template>
+  <template name="timerintstream" value="Stream&lt;int&gt; intStream =&#10;    Stream&lt;int&gt;.periodic(const Duration(seconds: 1), (i) =&gt; i + 1);&#10;intStream = intStream.take(3); //方式1，重复执行3次&#10;//方式2，重复执行到允许停止&#10;intStream = intStream.takeWhile((element) {&#10;  return true;&#10;});&#10;intStream.listen((event) {&#10;  print(&quot;executes  ${event} times&quot;);&#10;});" description="定时执行额外方式" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
     </context>
   </template>
 </templateSet>
