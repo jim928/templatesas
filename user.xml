@@ -602,7 +602,7 @@
       <option name="JAVA_CODE" value="true" />
     </context>
   </template>
-  <template name="IntToString" value="String $s$ = Integer.toString($100$);" description="int转string" toReformat="false" toShortenFQNames="true">
+  <template name="inttostring" value="String $s$ = Integer.toString($100$);" description="int转string" toReformat="false" toShortenFQNames="true">
     <variable name="s" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="100" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
