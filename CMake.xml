@@ -1,8 +1,0 @@
-<templateSet group="CMake">
-  <template name="selector" value="Selector&lt;UserAmountViewModel, int&gt;(&#10;    builder: (_, data, __) {&#10;        return Container();&#10;    },&#10;    selector: (_, model) =&gt; model.userAmount.diamond)" description="provider的selector" toReformat="false" toShortenFQNames="true">
-    <context>
-      <option name="DART" value="true" />
-      <option name="FLUTTER" value="true" />
-    </context>
-  </template>
-</templateSet>
