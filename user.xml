@@ -228,11 +228,11 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="enum" value="enum $askType$ {&#10;  $none$,  &#10;  $banker$, &#10;  $player$, &#10;}" description="枚举举例" toReformat="true" toShortenFQNames="true">
-    <variable name="askType" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="none" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="banker" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="player" expression="" defaultValue="" alwaysStopAt="true" />
+  <template name="enum" value="enum $TypeName$ {&#10;  $type1$,  &#10;  $type2$, &#10;  $type3$, &#10;}" description="枚举举例" toReformat="true" toShortenFQNames="true">
+    <variable name="TypeName" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="type1" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="type2" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="type3" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="DART" value="true" />
     </context>
