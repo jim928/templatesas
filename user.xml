@@ -10,13 +10,6 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="getclass" value="$class$ $name$ = Get.find&lt;$class$&gt;(); " description="获取某个类实例" toReformat="true" toShortenFQNames="true">
-    <variable name="class" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="DART" value="true" />
-    </context>
-  </template>
   <template name="extensiontemplate" value="extension $extensionName$ on $String$ {&#10;  int parseInt() {&#10;    return int.parse(this);&#10;  }&#10;}" description="类扩展" toReformat="true" toShortenFQNames="true">
     <variable name="extensionName" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="String" expression="" defaultValue="" alwaysStopAt="true" />
@@ -95,13 +88,6 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="get" value="  $String$ _$contents$;&#10;  $String$ get $contents$ =&gt; _$contents$;&#10;  set $contents$($String$ value) {&#10;    _$contents$ = value;&#10;  }" description="get计算型方法以及set方法" toReformat="true" toShortenFQNames="true">
-    <variable name="contents" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="String" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="DART" value="true" />
-    </context>
-  </template>
   <template name="rightswipe" value="return Scaffold(&#10;appBar: AppBar(&#10;backgroundColor: Colors.white,&#10;title: Text('title'),&#10;),&#10;body: WillPopScope(&#10;child: Text('禁止侧滑返回'),&#10;onWillPop: () async{&#10;return false;&#10;})&#10;);" description="禁止右滑退出页面" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
@@ -169,11 +155,6 @@
     </context>
   </template>
   <template name="image属性说明" value="const Image({&#10;...&#10;this.width, //图片的宽&#10;this.height, //图片高度&#10;this.color, //图片的混合色值&#10;this.colorBlendMode, //混合模式&#10;this.fit,//缩放模式&#10;this.alignment = Alignment.center, //对齐方式&#10;this.repeat = ImageRepeat.noRepeat, //重复方式&#10;...&#10;})&#10;&#10;// width &amp; height&#10;width、height：用于设置图片的宽、高，当不指定宽高时，图片会根据当前父容器的限制，尽可能的显示其原始大小，&#10;如果只设置width、height的其中一个，那么另一个属性默认会按比例缩放，但可以通过下面介绍的fit属性来指定适应规则。&#10;&#10;// fit&#10;该属性用于在图片的显示空间和图片本身大小不同时指定图片的适应模式。适应模式是在BoxFit中定义，它是一个枚举类型，有如下值：&#10;&#10;fill：会拉伸填充满显示空间，图片本身长宽比会发生变化，图片会变形。// 拉伸填满全屏、图片变形&#10;&#10;cover：会按图片的长宽比放大后居中填满显示空间，图片不会变形，超出显示空间部分会被剪裁。// 被裁剪、比例全屏、图片不变形&#10;&#10;contain：这是图片的默认适应规则，图片会在保证图片本身长宽比不变的情况下缩放以适应当前显示空间，图片不会变形。 // 默认&#10;&#10;fitWidth：图片的宽度会缩放到显示空间的宽度，高度会按比例缩放，然后居中显示，图片不会变形，超出显示空间部分会被剪裁。 // 宽度全部显示容器、高度比例缩放&#10;&#10;fitHeight：图片的高度会缩放到显示空间的高度，宽度会按比例缩放，然后居中显示，图片不会变形，超出显示空间部分会被剪裁。 // 高度全是显示容器、宽度比例缩放&#10;&#10;none：图片没有适应策略，会在显示空间内显示图片，如果图片比显示空间大，则显示空间只会显示图片中间部分。 // 没有任何适配规则&#10;&#10;// repeat&#10;repeat：当图片本身大小小于显示空间时，指定图片的重复规则。&#10;&#10;// color &amp; colorBlendMode&#10;color和 colorBlendMode：在图片绘制时可以对每一个像素进行颜色混合处理，color指定混合色，而colorBlendMode指定混合模式；" description="" toReformat="true" toShortenFQNames="true">
-    <context>
-      <option name="DART" value="true" />
-    </context>
-  </template>
-  <template name="get-tips" value="if (Get.isBottomSheetOpen ?? false) {&#10;      Get.back();&#10;    }&#10;// Get.until((route) =&gt; Get.currentRoute == AppRoutes.GAME);" description="Get的更多用法" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
@@ -330,12 +311,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="ifversion" value="if (appThemeVersion == AppTheme.whiteTheme) {&#10;  &#10;} else if (appThemeVersion == AppTheme.darkTheme) {&#10;  &#10;}" description="版本判断" toReformat="true" toShortenFQNames="true">
-    <context>
-      <option name="DART" value="true" />
-    </context>
-  </template>
-  <template name="gradienttext" value="ShaderMask(&#10;  shaderCallback: (Rect bounds) {&#10;    return LinearGradient(&#10;      begin: Alignment.centerLeft,&#10;      end: Alignment.centerRight,&#10;      colors: [Color(0xffFEC635), Color(0xffFD4827)],&#10;    ).createShader(Offset.zero &amp; bounds.size);&#10;  },&#10;  blendMode: BlendMode.srcATop,&#10;  child: Container(&#10;    child: Text(&#10;      &quot;充值中心&quot;,&#10;      style: TextStyle(&#10;          fontSize: 18,&#10;          color: Color(0xffffffff),&#10;          fontWeight: FontWeight.w500),&#10;    ),&#10;  ),&#10;)" description="渐变文字" toReformat="true" toShortenFQNames="true">
+  <template name="textgradient" value="ShaderMask(&#10;shaderCallback: (Rect bounds) {&#10;return LinearGradient(&#10;  begin: Alignment.centerLeft,&#10;  end: Alignment.centerRight,&#10;  colors: [Color(0xffFEC635), Color(0xffFD4827)],&#10;).createShader(Offset.zero &amp; bounds.size);&#10;},&#10;blendMode: BlendMode.srcATop,&#10;child: Container(&#10;child: Text(&#10;  &quot;充值中心&quot;,&#10;  style: TextStyle(&#10;  decoration: TextDecoration.none,&#10;      fontSize: 18,&#10;      color: Color(0xffffffff),&#10;      fontWeight: FontWeight.w500),&#10;),&#10;),&#10;)" description="渐变文字" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
@@ -417,17 +393,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="getbacktoroute" value="Get.until((route) =&gt; Get.currentRoute == AppRoutes.DEPOSIT);" description="返回到指定路由" toReformat="true" toShortenFQNames="true">
-    <context>
-      <option name="DART" value="true" />
-    </context>
-  </template>
   <template name="gradient" value="decoration: BoxDecoration(&#10;          gradient: LinearGradient(&#10;              begin: Alignment.centerLeft,&#10;              end: Alignment.centerRight,&#10;              colors: &lt;Color&gt;[&#10;            Colors.transparent,&#10;            Colors.black,&#10;            Colors.transparent,&#10;          ]))," description="渐变图层" toReformat="true" toShortenFQNames="true">
-    <context>
-      <option name="DART" value="true" />
-    </context>
-  </template>
-  <template name="ifregister" value="late BetController _betController;&#10;    if (Get.isRegistered&lt;BetController&gt;()) {&#10;      _betController = Get.find&lt;BetController&gt;();&#10;    } else {&#10;      _betController = Get.put(BetController());&#10;    }" description="判断类是否有初始化过" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
