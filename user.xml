@@ -412,7 +412,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="future" value="final completer = Completer&lt;bool&gt;();&#10;completer.complete(true);&#10;completer.complete(false);&#10;return completer.future;" description="Future返回值写法" toReformat="true" toShortenFQNames="true">
+  <template name="futureforeach" value="//根据某个集合 顺序执行多个future&#10;Future.forEach([1, 2, 3], (item) {&#10;  return Future.delayed(Duration(milliseconds: 100), () {&#10;    print(item);&#10;  });&#10;});" description="根据集合顺序执行多个future" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
@@ -578,6 +578,16 @@
     </context>
   </template>
   <template name="expansionwidget" value="class ExpansionWidget extends StatefulWidget {&#10;  const ExpansionWidget({Key? key}) : super(key: key);&#10;&#10;  @override&#10;  State&lt;ExpansionWidget&gt; createState() =&gt; _ExpansionWidgetState();&#10;}&#10;&#10;class _ExpansionWidgetState extends State&lt;ExpansionWidget&gt; {&#10;  bool isItemExpand = false;&#10;&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    return SingleChildScrollView(&#10;      child: Container(&#10;        child: ExpansionPanelList(&#10;          expansionCallback: (int index, bool isExpanded) {&#10;            setState(() {&#10;              isItemExpand = !isItemExpand;&#10;            });&#10;          },&#10;          children: [&#10;            ExpansionPanel(&#10;              headerBuilder: (BuildContext context, bool isExpanded) {&#10;                return ListTile(&#10;                  title: Text(&quot;item.headerValue&quot;),&#10;                );&#10;              },&#10;              canTapOnHeader: false,&#10;              body: ListTile(&#10;                  title: Text(&quot;item.expandedValue&quot;),&#10;                  subtitle:&#10;                      Text('To delete this panel, tap the trash can icon'),&#10;                  trailing: Icon(Icons.delete),&#10;                  onTap: () {}),&#10;              isExpanded: isItemExpand,&#10;            )&#10;          ],&#10;        ),&#10;      ),&#10;    );&#10;  }&#10;}" description="可展开的widget" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="futuremulti" value="//等待多个future执行结果&#10;var f1 = Future.delayed(Duration(seconds: 10), () =&gt; (1));&#10;var f2 = Future.delayed(Duration(seconds: 2), () =&gt; throw &quot;erro2&quot;);&#10;var f3 = Future.delayed(Duration(seconds: 3), () =&gt; throw &quot;erro3&quot;);&#10;Future.wait([f1, f2, f3]).then((value) =&gt; print(value)).catchError(print);" description="多个future同时异步执行并得到结果，有异常会提前结束" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="futureany" value="//多个异步同时执行，但是只取最先完成的结果&#10;var f1 = Future.delayed(Duration(seconds: 10), () =&gt; (1));&#10;var f2 = Future.delayed(Duration(seconds: 2), () =&gt; (1));&#10;var f3 = Future.delayed(Duration(seconds: 3), () =&gt; (1));&#10;Future.any([f1, f2, f3]).then((value) =&gt; print(value));" description="多个异步执行，取最先完成的返回" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
