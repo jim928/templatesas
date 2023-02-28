@@ -17,7 +17,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="extensionTemplate" value="extension $extensionName$ on $String$ {&#10;  int parseInt() {&#10;    return int.parse(this);&#10;  }&#10;}" description="类扩展" toReformat="true" toShortenFQNames="true">
+  <template name="extensiontemplate" value="extension $extensionName$ on $String$ {&#10;  int parseInt() {&#10;    return int.parse(this);&#10;  }&#10;}" description="类扩展" toReformat="true" toShortenFQNames="true">
     <variable name="extensionName" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="String" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
