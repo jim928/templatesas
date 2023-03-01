@@ -4,4 +4,16 @@
       <option name="JAVA_CODE" value="true" />
     </context>
   </template>
+  <template name="inttostring" value="String.valueOf($int$);" description="int转string" toReformat="false" toShortenFQNames="true">
+    <variable name="int" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="strtoint" value="Integer.parseInt($str$);" description="string转int" toReformat="false" toShortenFQNames="true">
+    <variable name="str" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
 </templateSet>
