@@ -1,0 +1,9 @@
+<templateSet group="Shell(jim)">
+  <template name="caseinput" value="  &quot;$opengoogle$&quot;)&#10;    $openGoogleFolder$&#10;    exit&#10;    ;;" description="输入参数判断" toReformat="false" toShortenFQNames="true">
+    <variable name="opengoogle" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="openGoogleFolder" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="SHELL_SCRIPT" value="true" />
+    </context>
+  </template>
+</templateSet>
