@@ -1,0 +1,7 @@
+<templateSet group="Java(jim)">
+  <template name="arraytoset" value="import java.util.Collections;&#10;import java.util.HashSet;&#10;import java.util.Set;&#10;public static &lt;T&gt; Set&lt;T&gt; asSet(T... array) {&#10;    Set&lt;T&gt; result = new HashSet&lt;T&gt;();&#10;    Collections.addAll(result, array);&#10;    return result;&#10;}" description="数组转集合" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+</templateSet>

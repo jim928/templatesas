@@ -5,7 +5,14 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="model" value="class ModelName {&#10;  String? id;&#10;  String? assortName;&#10;  String? assortSort;&#10;&#10;  ModelName({this.id, this.assortName, this.assortSort});&#10;&#10;  ModelName.fromJson(Map&lt;String, dynamic&gt; json) {&#10;    id = json['id'] is String ? json['id'] : '${json['id']}';&#10;    assortName = json['assortName'];&#10;    assortSort = json['assortSort'] is String&#10;        ? json['assortSort']&#10;        : '${json['assortSort']}';&#10;  }&#10;&#10;  Map&lt;String, dynamic&gt; toJson() {&#10;    final Map&lt;String, dynamic&gt; data = &lt;String, dynamic&gt;{};&#10;    data['id'] = id;&#10;    data['assortName'] = assortName;&#10;    data['assortSort'] = assortSort;&#10;    return data;&#10;  }&#10;}" description="model定义模版" toReformat="true" toShortenFQNames="true">
+  <template name="jsonclass" value="class GameQueryGameData {&#10;  String? id;&#10;  String? assortName;&#10;  String? assortSort;&#10;&#10;  GameQueryGameData({this.id,&#10;    this.assortName,&#10;    this.assortSort});&#10;&#10;  GameQueryGameData.fromJson(Map&lt;String, dynamic&gt; json) {&#10;    id = json['id'] is String ? json['id'] : '${json['id']}';&#10;    assortName = json['assortName'];&#10;    assortSort = json['assortSort'] is String ? json['assortSort'] : '${json['assortSort']}';&#10;  }&#10;&#10;  Map&lt;String, dynamic&gt; toJson() {&#10;    final Map&lt;String, dynamic&gt; data = new Map&lt;String, dynamic&gt;();&#10;    data['id'] = this.id;&#10;    data['assortName'] = this.assortName;&#10;    data['assortSort'] = this.assortSort;&#10;    return data;&#10;  }&#10;}" description="自定义对象解析" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="getclass" value="$class$ $name$ = Get.find&lt;$class$&gt;(); " description="获取某个类实例" toReformat="true" toShortenFQNames="true">
+    <variable name="class" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="DART" value="true" />
     </context>
@@ -18,6 +25,22 @@
     </context>
   </template>
   <template name="userdefault" value="import 'package:shared_preferences/shared_preferences.dart';&#10;SharedPreferences prefs = await SharedPreferences.getInstance();&#10;List&lt;String&gt;? lastList =&#10;        await HomeGameManager.instance.getUserGameSortFromSave();&#10;          Future&lt;List&lt;String&gt;?&gt; getUserGameSortFromSave() async {&#10;    if (_uidEmpty()) {&#10;      return null;&#10;    }&#10;&#10;    SharedPreferences prefs = await SharedPreferences.getInstance();&#10;    List&lt;String&gt;? list = prefs.getStringList(_findUid());&#10;    return list;&#10;  }&#10;//保存数据&#10;void saveMethodName() async {&#10;  SharedPreferences prefs = await _prefs;&#10;  prefs.setString(&quot;strKey&quot;, &quot;strValue&quot;);&#10;  prefs.setInt(&quot;intKey&quot;, &quot;intValue&quot;);&#10;}&#10;//获取数据&#10;void initFromCache() async {&#10;  SharedPreferences prefs = await _prefs;&#10;  String strValue = prefs.getString(&quot;strKey&quot;);&#10;  int intValue = prefs.getInt(&quot;intKey&quot;);&#10;}&#10;//从缓存中获取信息填充&#10;  void initFromCache() async {&#10;    final SharedPreferences prefs = await _prefs;&#10;    final nickname = prefs.getString(&quot;nickname&quot;);&#10;    final mt = prefs.getBool(&quot;mt&quot;);&#10;    final ds = prefs.getBool(&quot;ds&quot;);&#10;    final ltb = prefs.getBool(&quot;ltb&quot;);&#10;    &#10;    //获取到缓存中的值后，使用setState更新界面信息&#10;    setState(() {&#10;      controller.text = (nickname == null ? &quot;&quot; : nickname);&#10;      this.mt = (mt == null ? false : mt);&#10;      this.ds = (ds == null ? false : ds);&#10;      this.ltb = (ltb == null ? false : ltb);&#10;    });&#10;  }&#10;&#10;  //保存界面的输入选择信息&#10;  void saveInfo(String nickname) async {&#10;    final SharedPreferences prefs = await _prefs;&#10;    prefs.setString(&quot;nickname&quot;, nickname);&#10;    prefs.setBool(&quot;mt&quot;, mt);&#10;    prefs.setBool(&quot;ds&quot;, ds);&#10;    prefs.setBool(&quot;ltb&quot;, ltb);&#10;  }&#10;" description="持久存储" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="importget" value="import 'package:get/get.dart';" description="引入get框架" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER" value="true" />
+    </context>
+  </template>
+  <template name="importauth" value="import 'package:ob_app/service/auth_service.dart';" description="引入用户单例" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="FLUTTER" value="true" />
+    </context>
+  </template>
+  <template name="importgamemanager" value="import 'package:ob_app/modules/home/components/controller/home_game_manager.dart';" description="引入游戏管理单例" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
@@ -55,7 +78,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="img" value="Image(image: AssetImage(&quot;assets/images/$bg$.png&quot;,))&#10;Image.network($url$)&#10;Image.network(&#10;  'https://flutter.github.io/assets-for-api-docs/assets/widgets/puffin.jpg',&#10;  height: 150,&#10;  width: 150,&#10;  fit: BoxFit.cover,&#10;  frameBuilder: (&#10;      BuildContext context,&#10;      Widget child,&#10;      int? frame,&#10;      bool? wasSynchronouslyLoaded,&#10;      ) {&#10;    if (frame == null) {&#10;      return Image.asset(&#10;        'assets/images/chat.png',&#10;        height: 150,&#10;        width: 150,&#10;        fit: BoxFit.cover,&#10;      );&#10;    }&#10;    return child;&#10;  },&#10;)" description="图片" toReformat="true" toShortenFQNames="true">
+  <template name="image" value="Image(image: AssetImage(&quot;assets/images/$bg$.png&quot;,))&#10;Image.network($url$)&#10;Image.network(&#10;  'https://flutter.github.io/assets-for-api-docs/assets/widgets/puffin.jpg',&#10;  height: 150,&#10;  width: 150,&#10;  fit: BoxFit.cover,&#10;  frameBuilder: (&#10;      BuildContext context,&#10;      Widget child,&#10;      int? frame,&#10;      bool? wasSynchronouslyLoaded,&#10;      ) {&#10;    if (frame == null) {&#10;      return Image.asset(&#10;        'assets/images/chat.png',&#10;        height: 150,&#10;        width: 150,&#10;        fit: BoxFit.cover,&#10;      );&#10;    }&#10;    return child;&#10;  },&#10;)" description="图片" toReformat="true" toShortenFQNames="true">
     <variable name="bg" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="url" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
@@ -72,7 +95,19 @@
       <option name="DART" value="true" />
     </context>
   </template>
+  <template name="get" value="  $String$ _$contents$;&#10;  $String$ get $contents$ =&gt; _$contents$;&#10;  set $contents$($String$ value) {&#10;    _$contents$ = value;&#10;  }" description="get计算型方法以及set方法" toReformat="true" toShortenFQNames="true">
+    <variable name="contents" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="String" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
   <template name="rightswipe" value="return Scaffold(&#10;appBar: AppBar(&#10;backgroundColor: Colors.white,&#10;title: Text('title'),&#10;),&#10;body: WillPopScope(&#10;child: Text('禁止侧滑返回'),&#10;onWillPop: () async{&#10;return false;&#10;})&#10;);" description="禁止右滑退出页面" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="inputGuangBiao" value="transferAmountCtrl.text = balance;&#10;        transferAmountCtrl.selection = TextSelection.fromPosition(&#10;          TextPosition(offset: transferAmountCtrl.text.length),&#10;        );" description="输入框赋值后光标放最后" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
@@ -103,6 +138,11 @@
       <option name="DART" value="true" />
     </context>
   </template>
+  <template name="importscreen" value="import 'package:flutter_screenutil/flutter_screenutil.dart';" description=".w方法引用" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
   <template name="textrich" value="    final Image image =&#10;        Image.asset('assets/images/icon_head.webp', width: 20, height: 20);&#10;    const TextStyle defaultStyle = TextStyle(color: Colors.black);&#10;    const TextStyle linkStyle = TextStyle(&#10;        color: Colors.blue,&#10;        decoration: TextDecoration.underline,&#10;        decorationColor: Colors.blue);&#10;&#10;    InlineSpan span = TextSpan(children: [&#10;      //文字内添加任何widget&#10;      WidgetSpan(&#10;        child: image,&#10;        alignment: PlaceholderAlignment.middle, //和文字的对齐方式&#10;      ),&#10;      const TextSpan(text: '我已同意 ', style: defaultStyle),&#10;      TextSpan(&#10;          text: '服务条款',&#10;          style: linkStyle,&#10;          recognizer: TapGestureRecognizer()..onTap = () {}),&#10;      const TextSpan(&#10;        text: ' 和 ',&#10;        style: defaultStyle,&#10;      ),&#10;      TextSpan(&#10;          text: '隐私政策',&#10;          style: linkStyle,&#10;          recognizer: TapGestureRecognizer()..onTap = () {}),&#10;      const TextSpan(text: ' 。', style: defaultStyle),&#10;    ]);&#10;    return Text.rich(span);" description="富文本" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
@@ -118,12 +158,22 @@
       <option name="DART" value="true" />
     </context>
   </template>
+  <template name="importnumextension" value="import 'package:ob_zr_app/components/extension/num_extension.dart';" description="fixed(2)方法" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
   <template name="textshadow" value="style: TextStyle(&#10;                        fontSize: 8,&#10;                        color: Colors.white,&#10;                        shadows: &lt;Shadow&gt;[&#10;                          Shadow(&#10;                            offset: Offset(1.0, 1.0),&#10;                            blurRadius: 1.0,&#10;                            color: Color.fromARGB(255, 0, 0, 0),&#10;                          ),&#10;                          Shadow(&#10;                            offset: Offset(1.0, 1.0),&#10;                            blurRadius: 1.0,&#10;                            color: Color.fromARGB(125, 0, 0, 255),&#10;                          ),&#10;                        ],&#10;                      )" description="文字阴影" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="imgtips" value="/*&#10;      this.width, //图片的宽&#10;      this.height, //图片高度&#10;      this.color, //图片的混合色值&#10;      this.colorBlendMode, //混合模式&#10;      this.fit, //缩放模式&#10;      this.alignment = Alignment.center, //对齐方式&#10;      this.repeat = ImageRepeat.noRepeat, //重复方式&#10;      &#10;    // width &amp; height&#10;    width、height：用于设置图片的宽、高，当不指定宽高时，图片会根据当前父容器的限制，尽可能的显示其原始大小，&#10;    如果只设置 width、height的其中一个，那么另一个属性默认会按比例缩放，但可以通过下面介绍的&#10;    fit属性来指定适应规则。&#10;&#10;    // fit&#10;    该属性用于在图片的显示空间和图片本身大小不同时指定图片的适应模式。适应模式是在&#10;    BoxFit中定义，它是一个枚举类型，有如下值：&#10;    fill：会拉伸填充满显示空间，图片本身长宽比会发生变化，图片会变形。 // 拉伸填满全屏、图片变形&#10;    cover：会按图片的长宽比放大后居中填满显示空间，图片不会变形，超出显示空间部分会被剪裁。 // 被裁剪、比例全屏、图片不变形&#10;    contain：这是图片的默认适应规则，图片会在保证图片本身长宽比不变的情况下缩放以适应当前显示空间，图片不会变形。 // 默认&#10;    fitWidth：图片的宽度会缩放到显示空间的宽度，高度会按比例缩放，然后居中显示，图片不会变形，超出显示空间部分会被剪裁。 // 宽度全部显示容器、高度比例缩放&#10;    fitHeight：图片的高度会缩放到显示空间的高度，宽度会按比例缩放，然后居中显示，图片不会变形，超出显示空间部分会被剪裁。 // 高度全是显示容器、宽度比例缩放&#10;    none：图片没有适应策略，会在显示空间内显示图片，如果图片比显示空间大，则显示空间只会显示图片中间部分。 // 没有任何适配规则&#10;    // repeat&#10;    repeat：当图片本身大小小于显示空间时，指定图片的重复规则。&#10;    // color &amp; colorBlendMode&#10;    color和 colorBlendMode：在图片绘制时可以对每一个像素进行颜色混合处理，&#10;    color指定混合色，而&#10;    colorBlendMode指定混合模式；&#10;    */" description="image属性说明" toReformat="true" toShortenFQNames="true">
+  <template name="image属性说明" value="const Image({&#10;...&#10;this.width, //图片的宽&#10;this.height, //图片高度&#10;this.color, //图片的混合色值&#10;this.colorBlendMode, //混合模式&#10;this.fit,//缩放模式&#10;this.alignment = Alignment.center, //对齐方式&#10;this.repeat = ImageRepeat.noRepeat, //重复方式&#10;...&#10;})&#10;&#10;// width &amp; height&#10;width、height：用于设置图片的宽、高，当不指定宽高时，图片会根据当前父容器的限制，尽可能的显示其原始大小，&#10;如果只设置width、height的其中一个，那么另一个属性默认会按比例缩放，但可以通过下面介绍的fit属性来指定适应规则。&#10;&#10;// fit&#10;该属性用于在图片的显示空间和图片本身大小不同时指定图片的适应模式。适应模式是在BoxFit中定义，它是一个枚举类型，有如下值：&#10;&#10;fill：会拉伸填充满显示空间，图片本身长宽比会发生变化，图片会变形。// 拉伸填满全屏、图片变形&#10;&#10;cover：会按图片的长宽比放大后居中填满显示空间，图片不会变形，超出显示空间部分会被剪裁。// 被裁剪、比例全屏、图片不变形&#10;&#10;contain：这是图片的默认适应规则，图片会在保证图片本身长宽比不变的情况下缩放以适应当前显示空间，图片不会变形。 // 默认&#10;&#10;fitWidth：图片的宽度会缩放到显示空间的宽度，高度会按比例缩放，然后居中显示，图片不会变形，超出显示空间部分会被剪裁。 // 宽度全部显示容器、高度比例缩放&#10;&#10;fitHeight：图片的高度会缩放到显示空间的高度，宽度会按比例缩放，然后居中显示，图片不会变形，超出显示空间部分会被剪裁。 // 高度全是显示容器、宽度比例缩放&#10;&#10;none：图片没有适应策略，会在显示空间内显示图片，如果图片比显示空间大，则显示空间只会显示图片中间部分。 // 没有任何适配规则&#10;&#10;// repeat&#10;repeat：当图片本身大小小于显示空间时，指定图片的重复规则。&#10;&#10;// color &amp; colorBlendMode&#10;color和 colorBlendMode：在图片绘制时可以对每一个像素进行颜色混合处理，color指定混合色，而colorBlendMode指定混合模式；" description="" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="get-tips" value="if (Get.isBottomSheetOpen ?? false) {&#10;      Get.back();&#10;    }&#10;// Get.until((route) =&gt; Get.currentRoute == AppRoutes.GAME);" description="Get的更多用法" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
@@ -173,7 +223,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="imgfadein" value="FadeInImage.assetNetwork(&#10;    placeholder: 'assets/loading.gif',&#10;    image: 'https://picsum.photos/250?image=9',&#10;)&#10;FadeInImage.memoryNetwork(&#10;    placeholder: kTransparentImage,&#10;    image: '${item.image.value}',&#10;)&#10;final Uint8List kTransparentImage = new Uint8List.fromList([&#10;  0x89,&#10;  0x50,&#10;  0x4E,&#10;  0x47,&#10;  0x0D,&#10;  0x0A,&#10;  0x1A,&#10;  0x0A,&#10;  0x00,&#10;  0x00,&#10;  0x00,&#10;  0x0D,&#10;  0x49,&#10;  0x48,&#10;  0x44,&#10;  0x52,&#10;  0x00,&#10;  0x00,&#10;  0x00,&#10;  0x01,&#10;  0x00,&#10;  0x00,&#10;  0x00,&#10;  0x01,&#10;  0x08,&#10;  0x06,&#10;  0x00,&#10;  0x00,&#10;  0x00,&#10;  0x1F,&#10;  0x15,&#10;  0xC4,&#10;  0x89,&#10;  0x00,&#10;  0x00,&#10;  0x00,&#10;  0x0A,&#10;  0x49,&#10;  0x44,&#10;  0x41,&#10;  0x54,&#10;  0x78,&#10;  0x9C,&#10;  0x63,&#10;  0x00,&#10;  0x01,&#10;  0x00,&#10;  0x00,&#10;  0x05,&#10;  0x00,&#10;  0x01,&#10;  0x0D,&#10;  0x0A,&#10;  0x2D,&#10;  0xB4,&#10;  0x00,&#10;  0x00,&#10;  0x00,&#10;  0x00,&#10;  0x49,&#10;  0x45,&#10;  0x4E,&#10;  0x44,&#10;  0xAE&#10;]);" description="渐现加载网络图片" toReformat="true" toShortenFQNames="true">
+  <template name="imageFadein" value="FadeInImage.assetNetwork(&#10;    placeholder: 'assets/loading.gif',&#10;    image: 'https://picsum.photos/250?image=9',&#10;)&#10;FadeInImage.memoryNetwork(&#10;    placeholder: kTransparentImage,&#10;    image: '${item.image.value}',&#10;)&#10;final Uint8List kTransparentImage = new Uint8List.fromList([&#10;  0x89,&#10;  0x50,&#10;  0x4E,&#10;  0x47,&#10;  0x0D,&#10;  0x0A,&#10;  0x1A,&#10;  0x0A,&#10;  0x00,&#10;  0x00,&#10;  0x00,&#10;  0x0D,&#10;  0x49,&#10;  0x48,&#10;  0x44,&#10;  0x52,&#10;  0x00,&#10;  0x00,&#10;  0x00,&#10;  0x01,&#10;  0x00,&#10;  0x00,&#10;  0x00,&#10;  0x01,&#10;  0x08,&#10;  0x06,&#10;  0x00,&#10;  0x00,&#10;  0x00,&#10;  0x1F,&#10;  0x15,&#10;  0xC4,&#10;  0x89,&#10;  0x00,&#10;  0x00,&#10;  0x00,&#10;  0x0A,&#10;  0x49,&#10;  0x44,&#10;  0x41,&#10;  0x54,&#10;  0x78,&#10;  0x9C,&#10;  0x63,&#10;  0x00,&#10;  0x01,&#10;  0x00,&#10;  0x00,&#10;  0x05,&#10;  0x00,&#10;  0x01,&#10;  0x0D,&#10;  0x0A,&#10;  0x2D,&#10;  0xB4,&#10;  0x00,&#10;  0x00,&#10;  0x00,&#10;  0x00,&#10;  0x49,&#10;  0x45,&#10;  0x4E,&#10;  0x44,&#10;  0xAE&#10;]);" description="渐现加载网络图片" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
@@ -259,7 +309,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="imgshort" value=" Image(image: AssetImage('img/$name$.png'),)" description="img快速方式" toReformat="true" toShortenFQNames="true">
+  <template name="imgshort" value=" Image(image: AssetImage('img/v2/common/$name$.png'),)" description="img快速方式" toReformat="true" toShortenFQNames="true">
     <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="DART" value="true" />
@@ -280,7 +330,12 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="textgradient" value="ShaderMask(&#10;shaderCallback: (Rect bounds) {&#10;return LinearGradient(&#10;  begin: Alignment.centerLeft,&#10;  end: Alignment.centerRight,&#10;  colors: [Color(0xffFEC635), Color(0xffFD4827)],&#10;).createShader(Offset.zero &amp; bounds.size);&#10;},&#10;blendMode: BlendMode.srcATop,&#10;child: Container(&#10;child: Text(&#10;  &quot;充值中心&quot;,&#10;  style: TextStyle(&#10;  decoration: TextDecoration.none,&#10;      fontSize: 18,&#10;      color: Color(0xffffffff),&#10;      fontWeight: FontWeight.w500),&#10;),&#10;),&#10;)" description="渐变文字" toReformat="true" toShortenFQNames="true">
+  <template name="ifversion" value="if (appThemeVersion == AppTheme.whiteTheme) {&#10;  &#10;} else if (appThemeVersion == AppTheme.darkTheme) {&#10;  &#10;}" description="版本判断" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="gradienttext" value="ShaderMask(&#10;  shaderCallback: (Rect bounds) {&#10;    return LinearGradient(&#10;      begin: Alignment.centerLeft,&#10;      end: Alignment.centerRight,&#10;      colors: [Color(0xffFEC635), Color(0xffFD4827)],&#10;    ).createShader(Offset.zero &amp; bounds.size);&#10;  },&#10;  blendMode: BlendMode.srcATop,&#10;  child: Container(&#10;    child: Text(&#10;      &quot;充值中心&quot;,&#10;      style: TextStyle(&#10;          fontSize: 18,&#10;          color: Color(0xffffffff),&#10;          fontWeight: FontWeight.w500),&#10;    ),&#10;  ),&#10;)" description="渐变文字" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
@@ -362,12 +417,27 @@
       <option name="DART" value="true" />
     </context>
   </template>
+  <template name="getbacktoroute" value="Get.until((route) =&gt; Get.currentRoute == AppRoutes.DEPOSIT);" description="返回到指定路由" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
   <template name="gradient" value="decoration: BoxDecoration(&#10;          gradient: LinearGradient(&#10;              begin: Alignment.centerLeft,&#10;              end: Alignment.centerRight,&#10;              colors: &lt;Color&gt;[&#10;            Colors.transparent,&#10;            Colors.black,&#10;            Colors.transparent,&#10;          ]))," description="渐变图层" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="eventbussubscrib" value="StreamSubscription? _listener;&#10;_listener = eventBus.on().listen((event) {&#10;  var dataJson = json.decode(event);&#10;});&#10;&#10;@override&#10;void dispose() {&#10;  _listener?.cancel();&#10;  super.dispose();&#10;}" description="eventbuss监听接收" toReformat="true" toShortenFQNames="true">
+  <template name="ifregister" value="late BetController _betController;&#10;    if (Get.isRegistered&lt;BetController&gt;()) {&#10;      _betController = Get.find&lt;BetController&gt;();&#10;    } else {&#10;      _betController = Get.put(BetController());&#10;    }" description="判断类是否有初始化过" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="jiantingOne" value="  StreamSubscription? _listener;&#10;  _listener = eventBus.on&lt;FlyChipEvent&gt;().listen((event) {&#10;      List&lt;int&gt; activePoints = _betController.activePoints;&#10;       &#10;    });&#10;&#10;@override&#10;  void dispose() {&#10;    _listener?.cancel();&#10;    super.dispose();&#10;  }" description="单个事件监听" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="kefu" value="KefuSelectPanel().showKefuSelectPanel(context);" description="联系客服" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
@@ -450,6 +520,11 @@
       <option name="DART" value="true" />
     </context>
   </template>
+  <template name="initstate" value="  @override&#10;  void initState() {&#10;    super.initState();&#10;  }" description="重写initState方法" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
   <template name="providerclass" value="class $SetCurrencyModel$ extends ChangeNotifier {&#10;  List&lt;String&gt; nameList = [];&#10;   $SetCurrencyModel$() {&#10;    nameList = ['CNY', 'VND'];&#10;  }&#10;&#10;  void setNameList(List&lt;String&gt; list){&#10;     nameList = list;&#10;     notifyListeners();&#10;  }&#10;}&#10;//在UI的build方法里&#10;//SetCurrencyModel model = Provider.of&lt;SetCurrencyModel&gt;(context);" description="使用provider的类创建" toReformat="true" toShortenFQNames="true">
     <variable name="SetCurrencyModel" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
@@ -513,12 +588,6 @@
     </context>
   </template>
   <template name="futureany" value="//多个异步同时执行，但是只取最先完成的结果&#10;var f1 = Future.delayed(Duration(seconds: 10), () =&gt; (1));&#10;var f2 = Future.delayed(Duration(seconds: 2), () =&gt; (1));&#10;var f3 = Future.delayed(Duration(seconds: 3), () =&gt; (1));&#10;Future.any([f1, f2, f3]).then((value) =&gt; print(value));" description="多个异步执行，取最先完成的返回" toReformat="false" toShortenFQNames="true">
-    <context>
-      <option name="DART" value="true" />
-    </context>
-  </template>
-  <template name="stringfromjson" value="$id$ = json['$id$'] is String ? json['$id$'] : '${json['$id$']}';" description="从json中解析为字符串" toReformat="false" toShortenFQNames="true">
-    <variable name="id" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="DART" value="true" />
     </context>
