@@ -16,4 +16,19 @@
       <option name="JAVA_CODE" value="true" />
     </context>
   </template>
+  <template name="stringtodate" value="String string = &quot;January 2, 2010&quot;;&#10;DateFormat format = new SimpleDateFormat(&quot;MMMM d, yyyy&quot;, Locale.ENGLISH);&#10;Date date = format.parse(string);&#10;System.out.println(date);" description="字符串转Data" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="methodname" value="String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();&#10;System.out.println(methodName);" description="获取当前方法的名称" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="shared" value="enum Singleton {&#10;    shared;&#10;    public void doSomething() {&#10;    }&#10;}" description="单例写法" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
 </templateSet>
