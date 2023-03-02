@@ -4,8 +4,10 @@
       <option name="JAVA_CODE" value="true" />
     </context>
   </template>
-  <template name="inttostring" value="String.valueOf($int$);" description="int转string" toReformat="false" toShortenFQNames="true">
+  <template name="inttostring" value="String.valueOf($int$);&#10;String $s$ = Integer.toString($100$);" description="int转string" toReformat="false" toShortenFQNames="true">
     <variable name="int" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="s" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="100" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_CODE" value="true" />
     </context>
@@ -27,6 +29,11 @@
     </context>
   </template>
   <template name="shared" value="enum Singleton {&#10;    shared;&#10;    public void doSomething() {&#10;    }&#10;}" description="单例写法" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="find" value="// 在Java中查找对象数组中元素索引的通用方法&#10;public static&lt;T&gt; int find(T[] a, T target) {&#10;    return Arrays.asList(a).indexOf(target);&#10;}" description="查找元素" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="JAVA_CODE" value="true" />
     </context>
