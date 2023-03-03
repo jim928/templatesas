@@ -374,7 +374,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="jiantingOne" value="  StreamSubscription? _listener;&#10;  _listener = eventBus.on&lt;FlyChipEvent&gt;().listen((event) {&#10;      List&lt;int&gt; activePoints = _betController.activePoints;&#10;       &#10;    });&#10;&#10;@override&#10;  void dispose() {&#10;    _listener?.cancel();&#10;    super.dispose();&#10;  }" description="单个事件监听" toReformat="true" toShortenFQNames="true">
+  <template name="eventbus" value="EventBus eventBus = EventBus(); //全局变量&#10;eventBus.fire(event);&#10;late StreamSubscription eventBusSocket;&#10;eventBusSocket = eventBus.on().listen((event) {&#10;  //do something&#10;});&#10;@override&#10;void dispose() {&#10;  eventBusSocket.cancel();&#10;  super.dispose();&#10;}" description="eventbus示例" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
