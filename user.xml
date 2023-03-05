@@ -491,11 +491,6 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="reverseArray" value="//反转数组&#10;static void reverseArray(int[] array) {&#10;    int start = 0;&#10;    int end = array.length - 1;&#10;    while (start &lt; end) {&#10;        int temp = array[start];&#10;        array[start] = array[end];&#10;        array[end] = temp;&#10;        start++;&#10;        end--;&#10;    }&#10;}" description="数组反转" toReformat="true" toShortenFQNames="true">
-    <context>
-      <option name="JAVA_CODE" value="true" />
-    </context>
-  </template>
   <template name="sortArray" value="//从小大排列数组&#10;Arrays.sort(ar);" description="数组排序" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="JAVA_CODE" value="true" />
