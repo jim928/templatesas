@@ -1,5 +1,5 @@
 <templateSet group="Java(jim)">
-  <template name="arraytoset" value="import java.util.Collections;&#10;import java.util.HashSet;&#10;import java.util.Set;&#10;public static &lt;T&gt; Set&lt;T&gt; asSet(T... array) {&#10;    Set&lt;T&gt; result = new HashSet&lt;T&gt;();&#10;    Collections.addAll(result, array);&#10;    return result;&#10;}" description="数组转集合" toReformat="false" toShortenFQNames="true">
+  <template name="arraytoset" value="import java.util.Collections;&#10;import java.util.HashSet;&#10;import java.util.Set;&#10;public static &lt;T&gt; Set&lt;T&gt; arrayToSet(T... array) {&#10;    Set&lt;T&gt; result = new HashSet&lt;T&gt;();&#10;    Collections.addAll(result, array);&#10;    return result;&#10;}" description="数组转集合" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="JAVA_CODE" value="true" />
     </context>
@@ -34,6 +34,77 @@
     </context>
   </template>
   <template name="find" value="// 在Java中查找对象数组中元素索引的通用方法&#10;public static&lt;T&gt; int find(T[] a, T target) {&#10;    return Arrays.asList(a).indexOf(target);&#10;}" description="查找元素" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="classtemplate" value="class Person {&#10;    private String name;&#10;    private int age;&#10;&#10;    public Person(String name, int age) {&#10;        this.name = name;&#10;        this.age = age;&#10;    }&#10;&#10;    public String getName() {&#10;        return this.name;&#10;    }&#10;&#10;    public void setName(String name) {&#10;        this.name = name;&#10;    }&#10;&#10;    public int getAge() {&#10;        return this.age;&#10;    }&#10;&#10;    public void setAge(int age) {&#10;        this.age = age;&#10;    }&#10;}" description="类创建模板" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="reverseArray" value="//反转数组&#10;static void reverseArray(Object array) {&#10;    Class cl = array.getClass();&#10;    if (!cl.isArray()) return;&#10;    int length = Array.getLength(array);&#10;&#10;    int start = 0;&#10;    int end = length - 1;&#10;    while (start &lt; end) {&#10;        Object tempStart = Array.get(array, start);&#10;        Object tempEnd = Array.get(array, end);&#10;        Array.set(array, start, tempEnd);&#10;        Array.set(array, end, tempStart);&#10;        start++;&#10;        end--;&#10;    }&#10;}" description="数组反转" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="abstractclass" value="abstract class Person {&#10;    public abstract void run();&#10;}&#10;&#10;class Student extends Person {&#10;    @Override&#10;    public void run() {&#10;        System.out.println(&quot;Student.run&quot;);&#10;    }&#10;}" description="抽象类模板示例" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="interface示例" value="// interface 示例，比抽象类还要抽象的纯抽象接口，因为它连字段都不能有。&#10;// 因为接口定义的所有方法默认都是public abstract的，所以这两个修饰符不需要写出来（写不写效果都一样）&#10;interface Person {&#10;    // 所有属性为类属性 编译器会自动加上public statc final:&#10;    int MALE = 1;&#10;    int FEMALE = 2;&#10;    void run();&#10;&#10;    String getName();&#10;}&#10;&#10;class Student implements Person {&#10;    private String name;&#10;&#10;    public Student(String name) {&#10;        this.name = name;&#10;    }&#10;&#10;    @Override&#10;    public void run() {&#10;        System.out.println(this.name + &quot; run&quot;);&#10;    }&#10;&#10;    @Override&#10;    public String getName() {&#10;        return this.name;&#10;    }&#10;}" description="interface写法" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="stringjoin" value="String[] arr = {&quot;A&quot;, &quot;B&quot;, &quot;C&quot;};// &quot;A***B***C&quot;&#10;String s = String.join(&quot;***&quot;, arr);&#10;&#10;String[] names = {&quot;Bob&quot;, &quot;Alice&quot;, &quot;Grace&quot;};&#10;var sj = new StringJoiner(&quot;, &quot;, &quot;Hello &quot;, &quot;!&quot;);&#10;for (String name : names) {&#10;    sj.add(name);&#10;}&#10;String s = sj.toString();" description="字符串拼接" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="stringformate" value="String s = &quot;string %s, int %d ,十六进制 %x, 浮点 %f!&quot;;&#10;String s1 = s.formatted(&quot;Alice&quot;, 80, 2550, 3.14);&#10;String s2 = String.format(&quot;Hi %s, your score is %.2f!&quot;, &quot;Bob&quot;, 59.5);" description="格式化字符串" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="stringtochar" value="char[] cs = &quot;String&quot;.toCharArray();" description="string转char" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="chartostring" value="String s = new String(new char[]{'s', 't', 'r'});" description="char转string" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="stringbuffer" value="String str = &quot;start&quot;;&#10;//线程安全&#10;StringBuffer buffer = new StringBuffer(str);&#10;for (int i = 0; i &lt; 20; i += 1) {&#10;    buffer.append(i).append(',');&#10;}&#10;str = buffer.toString();&#10;" description="StringBuffer示例" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="arraytostring" value="String s = Arrays.toString($list$);" description="数组转字符串方便打印" toReformat="false" toShortenFQNames="true">
+    <variable name="list" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="numtostring" value="Color.red.name()" description="获取枚举的字面字符串" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="enumtoint" value="Color.red.ordinal()" description="枚举转int" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="inttoenum" value="Color c = Color.values()[0];" description="int转枚举" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="map用法" value="//注意toArray()得到的数组的元素一定是object的，所以基础类型都要使用Object版本&#10;//生成新的数组&#10;List&lt;Integer&gt; ages = Arrays.stream(list)&#10;        .map(Person::getAge).toList();&#10;//每个执行方法&#10;Arrays.stream(list)&#10;        .map(e -&gt; e.getAge())&#10;        .forEach(e -&gt; System.out.println(e));&#10;//过滤&#10;List&lt;Person&gt; p = Arrays.stream(list).filter(e -&gt; e.getAge() &lt; 4).toList();&#10;//排序 使用实例的某个属性&#10;List&lt;Person&gt; p1 = Arrays.stream(list).sorted(Comparator.comparing(Person::getAge)).toList();&#10;//排序再反转&#10;List&lt;Person&gt; p2 = Arrays.stream(list).sorted(Comparator.comparing(Person::getAge).reversed()).toList();&#10;" description="map用法提示" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="JAVA_CODE" value="true" />
     </context>
