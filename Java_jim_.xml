@@ -143,7 +143,12 @@
       <option name="JAVA_CODE" value="true" />
     </context>
   </template>
-  <template name="list" value="List&lt;String&gt; stringList = new LinkedList&lt;&gt;();" description="list初始化" toReformat="false" toShortenFQNames="true">
+  <template name="list" value="List&lt;JCard&gt; result = new ArrayList&lt;&gt;();" description="list初始化" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="srrandom" value="SecureRandom sr = new SecureRandom();" description="随机生成对象SecureRandom" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="JAVA_CODE" value="true" />
     </context>
