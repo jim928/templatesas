@@ -173,4 +173,9 @@
       <option name="JAVA_CODE" value="true" />
     </context>
   </template>
+  <template name="foreachprintln" value=".forEach(System.out::println)&#10;.forEach(e-&gt;System.out.println(e.age))" description="在stream后面打印每一个" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
 </templateSet>
