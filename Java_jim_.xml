@@ -178,4 +178,9 @@
       <option name="JAVA_CODE" value="true" />
     </context>
   </template>
+  <template name="arraytolist" value="//如果是int 使用Integer数组才行&#10;Arrays.asList(nonColors);" description="array转list" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
 </templateSet>
