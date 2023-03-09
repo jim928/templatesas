@@ -183,4 +183,19 @@
       <option name="JAVA_CODE" value="true" />
     </context>
   </template>
+  <template name="listtoset" value="Set&lt;String&gt; set = aList.stream().collect(Collectors.toSet());" description="List转Set" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="randomList" value="List&lt;JCard&gt; randomOrderList = list.stream().collect(Collectors.toSet()).stream().toList()" description="将list打乱顺序" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="settolist" value="Set&lt;String&gt; set = new HashSet&lt;&gt;(list);&#10;set.stream().toList()" description="set转list" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
 </templateSet>
