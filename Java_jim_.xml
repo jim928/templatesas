@@ -203,4 +203,9 @@
       <option name="JAVA_CODE" value="true" />
     </context>
   </template>
+  <template name="sortlist" value="blueAllCards.sort((e1, e2) -&gt; {&#10;    //从小到大&#10;    if (e1.point &gt; e2.point) return 1;&#10;    if (e1.point &lt; e2.point) return -1;&#10;    //从大的到小&#10;    if (e1.point &lt; e2.point) return 1;&#10;    if (e1.point &gt; e2.point) return -1;&#10;    return 0;&#10;});" description="list做排序" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
 </templateSet>
