@@ -109,7 +109,7 @@
       <option name="JAVA_CODE" value="true" />
     </context>
   </template>
-  <template name="fe" value="for ($String$ element: $array$){&#10;    $dosomthing$&#10;}" description="forEach循环" toReformat="false" toShortenFQNames="true">
+  <template name="fe" value="for ($String$ element: $array$){&#10;    $dosomthing$&#10;}&#10;//java8的函数式foreach中return 等效 传统的for中continue" description="forEach循环" toReformat="false" toShortenFQNames="true">
     <variable name="String" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="array" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="dosomthing" expression="" defaultValue="" alwaysStopAt="true" />
