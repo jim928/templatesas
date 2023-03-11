@@ -215,4 +215,14 @@
       <option name="JAVA_CODE" value="true" />
     </context>
   </template>
+  <template name="enumtostring" value="type.name()" description="打印枚举字面文字" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="soutintarray" value="System.out.println(Arrays.toString(cardIndexs));" description="打印int数组" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
 </templateSet>
