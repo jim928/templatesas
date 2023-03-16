@@ -228,7 +228,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="flutterkjj" value="只需要输入 stless 就可以创建一个StatelessWidget。&#10;只需要输入 stful 就可以创建一个StatefulWidget。&#10;给一个Widget包裹一个父元素：把光标放在当前Widget上面，option + 回车，出现wrap with xxx&#10;Commond + d 快速复制一行；&#10;把一个变量(类名或多行代码)转成全大写字母：Command + Shift + U，再按一下切换回来&#10;将当前行上移或下移：option + Shift + 上(下)箭头;&#10;将光标移动到上一次编辑（停留）过的地方： option+Command+左箭头，在代码比较多的页面中(或者查看源码的时候)，点击查看一个方法，看完后再回到原来的位置，就可以用此快捷键；option+Command+右箭头 相反的方向。&#10;清除无用引用  快捷键：control + option + O（字母 O 键）&#10;多行注释/**/：option + command + / 或者选中多行 ：command + /&#10;左移代码： 选中代码后 按 shift+Tab即可实现左移操作。&#10;代码格式化：选中代码后 按 option+command+l" description="flutter开发快捷键" toReformat="false" toShortenFQNames="true">
+  <template name="kjj" value="只需要输入 stless 就可以创建一个StatelessWidget。&#10;只需要输入 stful 就可以创建一个StatefulWidget。&#10;给一个Widget包裹一个父元素：把光标放在当前Widget上面，option + 回车，出现wrap with xxx&#10;Commond + d 快速复制一行；&#10;把一个变量(类名或多行代码)转成全大写字母：Command + Shift + U，再按一下切换回来&#10;将当前行上移或下移：option + Shift + 上(下)箭头;&#10;将光标移动到上一次编辑（停留）过的地方： option+Command+左箭头，在代码比较多的页面中(或者查看源码的时候)，点击查看一个方法，看完后再回到原来的位置，就可以用此快捷键；option+Command+右箭头 相反的方向。&#10;清除无用引用  快捷键：control + option + O（字母 O 键）&#10;多行注释/**/：option + command + / 或者选中多行 ：command + /&#10;左移代码： 选中代码后 按 shift+Tab即可实现左移操作。&#10;Command+Shift+Enter 自动结束代码，行末自动添加分号&#10;Command+J 插入自定义动态代码模板" description="快捷键" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
