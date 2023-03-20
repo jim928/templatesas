@@ -465,4 +465,9 @@
       <option name="DART" value="true" />
     </context>
   </template>
+  <template name="plugin" value="Rainbow Brackets&#10;GitToolBox" description="实用插件" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
 </templateSet>
