@@ -454,4 +454,15 @@
       <option name="DART" value="true" />
     </context>
   </template>
+  <template name="cmt" value="///@title $title$&#10;///@description $param$ $return$&#10;///@updateTime $date$ $time$&#10;///@author $user$" description="方法的注释" toReformat="false" toShortenFQNames="true">
+    <variable name="user" expression="user()" defaultValue="" alwaysStopAt="true" />
+    <variable name="date" expression="date()" defaultValue="" alwaysStopAt="true" />
+    <variable name="time" expression="time()" defaultValue="" alwaysStopAt="true" />
+    <variable name="title" expression="dartMethodName()" defaultValue="" alwaysStopAt="true" />
+    <variable name="param" expression="groovyScript(&quot;def result=''; def stop=false; def params=\&quot;${_1}\&quot;.replaceAll('[\\\\[|\\\\]|\\\\s]', '').split(',').toList(); if (params.size()==1 &amp;&amp; (params[0]==null || params[0]=='null' || params[0]=='')) { stop=true; }; if(!stop) { for(i=0; i &lt; params.size(); i++) {result +=((i==0) ? '\\r\\n' : '') + ((i &lt; params.size() - 1) ? '///@param: ' + params[i] + '\\r\\n' : '///@param: ' + params[i] + '')}; }; return result;&quot;, dartMethodParameters())" defaultValue="" alwaysStopAt="true" />
+    <variable name="return" expression="groovyScript(&quot;def result=''; def data=\&quot;${_1}\&quot;; def stop=false; if(data==null || data=='null' || data=='' || data=='void' ) { stop=true; }; if(!stop) { result += '\\r\\n' + '///@return: ' + data; }; return result;&quot;, dartReturnType())" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
 </templateSet>
