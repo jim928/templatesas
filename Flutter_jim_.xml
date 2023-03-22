@@ -470,4 +470,23 @@
       <option name="DART" value="true" />
     </context>
   </template>
+  <template name="assets" value="  assets:&#10;    - assets/" description="yaml中的资源路径配置" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="CMAKE" value="false" />
+      <option name="DART" value="false" />
+      <option name="FLUTTER" value="false" />
+      <option name="GROOVY" value="false" />
+      <option name="HTML" value="false" />
+      <option name="JAVA_CODE" value="false" />
+      <option name="JSON" value="false" />
+      <option name="KOTLIN" value="false" />
+      <option name="OTHER" value="true" />
+      <option name="SHELL_SCRIPT" value="false" />
+      <option name="XML" value="false" />
+      <option name="XML_ATTRIBUTE" value="false" />
+      <option name="c" value="false" />
+      <option name="cpp" value="false" />
+      <option name="objc" value="false" />
+    </context>
+  </template>
 </templateSet>
