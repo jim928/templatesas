@@ -1,4 +1,4 @@
-<templateSet group="user">
+<templateSet group="Flutter(jim)">
   <template name="printme" value="print('-jlog- $text$');" description="" toReformat="false" toShortenFQNames="true">
     <variable name="text" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
