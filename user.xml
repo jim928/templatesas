@@ -246,7 +246,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="imgshort" value=" Image(image: AssetImage('img/v2/common/$name$.png'),)" description="img快速方式" toReformat="false" toShortenFQNames="true">
+  <template name="imgshort" value=" Image(image: AssetImage('assets/$name$.png'),)" description="img快速方式" toReformat="false" toShortenFQNames="true">
     <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="DART" value="true" />
