@@ -88,7 +88,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="sharedInstant" value="class $Singleton$ {&#10;  static final $Singleton$ _instance = $Singleton$._internal();&#10;&#10;  static $Singleton$ get instance {&#10;    return _instance;&#10;  }&#10;&#10;  $Singleton$._internal() {&#10;    init();&#10;  }&#10;&#10;  void init() {&#10;    //print(&quot;这里初始化&quot;);&#10;  }&#10;}&#10;" description="单例模板" toReformat="false" toShortenFQNames="true">
+  <template name="sharedInstant" value="class $Singleton$ {&#10;  static final $Singleton$ _shared = $Singleton$._internal();&#10;&#10;  static $Singleton$ get shared {&#10;    return _shared;&#10;  }&#10;&#10;  $Singleton$._internal() {&#10;    init();&#10;  }&#10;&#10;  void init() {&#10;    //print(&quot;这里初始化&quot;);&#10;  }&#10;}&#10;" description="单例模板" toReformat="false" toShortenFQNames="true">
     <variable name="Singleton" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="DART" value="true" />
