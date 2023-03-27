@@ -494,7 +494,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="filenamefromurl" value="      import 'package:path/path.dart' as p;&#10;      String zipFileName = p.basename(url);" description="从url截取文件名" toReformat="false" toShortenFQNames="true">
+  <template name="filenamefromurl" value="      import 'package:path/path.dart' as p;&#10;      String zipFileName = p.basename(url);//包含.zip后缀" description="从url截取文件名" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
