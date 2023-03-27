@@ -88,7 +88,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="sharedInstant" value="class $Singleton$ {&#10;  static final $Singleton$ _shared = $Singleton$._internal();&#10;&#10;  static $Singleton$ get shared {&#10;    return _shared;&#10;  }&#10;&#10;  $Singleton$._internal() {&#10;    init();&#10;  }&#10;&#10;  void init() {&#10;    //print(&quot;这里初始化&quot;);&#10;  }&#10;}&#10;" description="单例模板" toReformat="false" toShortenFQNames="true">
+  <template name="sharedInstant" value="class $Singleton$ {&#10;  static final $Singleton$ _instance = $Singleton$._internal();&#10;&#10;  static $Singleton$ get instance {&#10;    return _instance;&#10;  }&#10;&#10;  $Singleton$._internal() {&#10;    init();&#10;  }&#10;&#10;  void init() {&#10;    //print(&quot;这里初始化&quot;);&#10;  }&#10;}&#10;" description="单例模板" toReformat="false" toShortenFQNames="true">
     <variable name="Singleton" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="DART" value="true" />
@@ -487,6 +487,11 @@
       <option name="c" value="false" />
       <option name="cpp" value="false" />
       <option name="objc" value="false" />
+    </context>
+  </template>
+  <template name="copyfile" value="import 'package:path/path.dart' as p;&#10;Future&lt;void&gt; copyPath(String from, String to) async {&#10;  await Directory(to).create(recursive: true);&#10;  await for (final file in Directory(from).list(recursive: true)) {&#10;    final copyTo = p.join(to, p.relative(file.path, from: from));&#10;    if (file is Directory) {&#10;      await Directory(copyTo).create(recursive: true);&#10;    } else if (file is File) {&#10;      await File(file.path).copy(copyTo);&#10;    } else if (file is Link) {&#10;      await Link(copyTo).create(await file.target(), recursive: true);&#10;    }&#10;  }&#10;}" description="复制文件到文件夹" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
     </context>
   </template>
 </templateSet>
