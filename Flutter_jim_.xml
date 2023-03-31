@@ -499,4 +499,9 @@
       <option name="DART" value="true" />
     </context>
   </template>
+  <template name="shake" value="//shake:&#10;//import 'package:shake/shake.dart';&#10;ShakeDetector detector = ShakeDetector.autoStart(&#10;  onPhoneShake: () {&#10;    if (onShake != null) onShake!();&#10;  },&#10;  minimumShakeCount: 1,&#10;  shakeSlopTimeMS: 500,&#10;  shakeCountResetTime: 3000,&#10;  shakeThresholdGravity: 2.7,&#10;);" description="摇一摇事件" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
 </templateSet>
