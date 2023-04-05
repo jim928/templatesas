@@ -179,7 +179,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="screenhelp" value="final screenW = ScreenUtil().screenWidth;&#10;final screenH = ScreenUtil().screenHeight;" description="屏幕相关" toReformat="false" toShortenFQNames="true">
+  <template name="screenhelp" value="final screenW = ScreenUtil().screenWidth;&#10;final screenH = ScreenUtil().screenHeight;&#10;final size =MediaQuery.of(context).size;&#10;final screenW =size.width;&#10;final screenH =size.height;" description="屏幕相关" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
