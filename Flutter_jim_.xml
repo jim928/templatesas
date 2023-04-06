@@ -519,4 +519,9 @@
       <option name="DART" value="true" />
     </context>
   </template>
+  <template name="gitignore" value="  //文件加入忽略列表后不起作用使用下面命令 后再提交一次&#10;  git rm -r --cached filenameOrDirName" description="git忽略不起作用的解决" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
 </templateSet>
