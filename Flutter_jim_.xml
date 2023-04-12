@@ -529,4 +529,9 @@
       <option name="DART" value="true" />
     </context>
   </template>
+  <template name="binding" value="WidgetsBinding.instance.addPostFrameCallback((_) {&#10;   &#10;});" description="页面构建完毕" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="FLUTTER" value="true" />
+    </context>
+  </template>
 </templateSet>
