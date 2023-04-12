@@ -524,4 +524,9 @@
       <option name="DART" value="true" />
     </context>
   </template>
+  <template name="futureerror" value="  Future&lt;void&gt; foo() async {&#10;    if (someCondition) {&#10;      //下面两种都可以&#10;      return Future.error('FooError');&#10;      throw Exception('BarException');&#10;    }&#10;  }&#10;  //foo().onError((error, stackTrace) {});" description="error处理" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
 </templateSet>
