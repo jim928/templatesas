@@ -534,4 +534,15 @@
       <option name="FLUTTER" value="true" />
     </context>
   </template>
+  <template name="onshow" value="LiveStreamHttp.shared.onShowToast(" description="常用log" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="mark" value="////////////////     $str$    ////////////////" description="标注分割线" toReformat="false" toShortenFQNames="true">
+    <variable name="str" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
 </templateSet>
