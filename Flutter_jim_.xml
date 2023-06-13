@@ -590,7 +590,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="push" value="Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) =&gt; Page1(初始化带参数)));" description="页面跳转最简版" toReformat="false" toShortenFQNames="true">
+  <template name="push" value="Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) =&gt; Page1(gameId:0)));" description="页面跳转最简版" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
