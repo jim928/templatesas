@@ -600,4 +600,9 @@
       <option name="DART" value="true" />
     </context>
   </template>
+  <template name="toast" value="    //fluttertoast:&#10;    Fluttertoast.showToast(&#10;        msg: &quot;This is Center Short Toast&quot;,&#10;        toastLength: Toast.LENGTH_SHORT,&#10;        gravity: ToastGravity.CENTER,&#10;        timeInSecForIosWeb: 1,&#10;        backgroundColor: Colors.red,&#10;        textColor: Colors.white,&#10;        fontSize: 16.0);" description="toast库引用" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
 </templateSet>
