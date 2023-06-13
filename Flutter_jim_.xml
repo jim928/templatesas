@@ -595,4 +595,9 @@
       <option name="DART" value="true" />
     </context>
   </template>
+  <template name="appbar示例" value="    return Scaffold(&#10;      appBar: AppBar(&#10;        leading: IconButton(&#10;          icon: Icon(Icons.arrow_back_ios),&#10;          onPressed: () =&gt; {Navigator.of(context).pop('刷新')},&#10;        ),&#10;        title: Text('标题'),&#10;        centerTitle: true,&#10;      ),&#10;      body: Container(),&#10;    );" description="AppBar的最简示例" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
 </templateSet>
