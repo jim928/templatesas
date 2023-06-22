@@ -605,4 +605,14 @@
       <option name="DART" value="true" />
     </context>
   </template>
+  <template name="gitremove" value="rm -rf .git" description="移除git(删除.git文件夹)" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="flutterios" value="//dart端&#10;var channel = MethodChannel('com.flutter.guide.MethodChannel');&#10;var result =&#10;    await channel.invokeMethod('sendData', {'name': 'laomeng', 'age': 18});&#10;//iOS端&#10;let controller : FlutterViewController = window?.rootViewController as! FlutterViewController      &#10;let channel = FlutterMethodChannel(name: &quot;com.flutter.guide.MethodChannel&quot;, binaryMessenger: controller.binaryMessenger)&#10;channel.setMethodCallHandler { (call:FlutterMethodCall, result:@escaping FlutterResult) in&#10;  if (call.method == &quot;sendData&quot;) {&#10;      if let dict = call.arguments as? Dictionary&lt;String, Any&gt; {&#10;          let name:String = dict[&quot;name&quot;] as? String ?? &quot;&quot;&#10;          let age:Int = dict[&quot;age&quot;] as? Int ?? -1&#10;          print(&quot;dic is \(dict)&quot;)&#10;          result([&quot;name&quot;:&quot;hello,\(name)&quot;,&quot;age&quot;:age])&#10;      }&#10;  }&#10;}" description="flutter与原生iOS交互" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
 </templateSet>
