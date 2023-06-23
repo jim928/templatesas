@@ -620,4 +620,9 @@
       <option name="DART" value="true" />
     </context>
   </template>
+  <template name="sshkeygithub" value="https://www.freecodecamp.org/chinese/news/manage-multiple-github-accounts-the-ssh-way/&#10;//创建不同的rsa文件&#10;cd ~/.ssh&#10;ssh-keygen -t rsa -C &quot;email@work_mail.com&quot; -f &quot;id_rsa_work_user1&quot;&#10;//copy秘钥内容 然后添加到github网站上&#10;pbcopy &lt; ~/.ssh/id_rsa_work_user1.pub&#10;//确保 ssh-agent 运行&#10;eval &quot;$(ssh-agent -s)&quot;&#10;//在我们机器上的 ssh-agent 上注册它们&#10;ssh-add ~/.ssh/id_rsa_work_user1&#10;//检查当前配置的SSH对应的git账号；&#10;ssh -T git@github.com&#10;//然后用如下命令(id_rsa对应目标账户的私钥)命令，制定目标Git账号&#10;ssh-add -k ~/.ssh/id_rsa_work_user1&#10;&#10;ssh-keyscan -t rsa github.com &gt;&gt; ~/.ssh/known_hosts" description="配置github的sshkey" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
 </templateSet>
