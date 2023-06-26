@@ -625,4 +625,9 @@
       <option name="DART" value="true" />
     </context>
   </template>
+  <template name="weburlparam" value="//确保在main方法内执行&#10;var url = Uri.base.toString();&#10;var uri = Uri.parse(url.replaceFirst('#/', ''));&#10;var uuid = uri.queryParameters['uuid'];&#10;var token = uri.queryParameters['token'];&#10;print('url:$url}\nuuid:$uuid\ntoken:$token');" description="获取weburl内的参数" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
 </templateSet>
