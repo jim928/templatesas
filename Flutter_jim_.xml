@@ -630,4 +630,9 @@
       <option name="DART" value="true" />
     </context>
   </template>
+  <template name="gitreinit" value="//完全重建版本库 从本地强制push 注意在Settings-Repository-Protected branches-Allowed to force push的开关要打开&#10;rm -rf .git&#10;git init&#10;git add .&#10;git commit -m &quot;first commit&quot;&#10;git remote add origin &lt;your_github_repo_url&gt;&#10;git push -f -u origin main&#10;" description="重建git库内容并push" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
 </templateSet>
