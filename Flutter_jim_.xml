@@ -484,7 +484,7 @@
       <option name="objc" value="false" />
     </context>
   </template>
-  <template name="copyfile" value="import 'package:path/path.dart' as p;&#10;Future&lt;void&gt; copyPath(String from, String to) async {&#10;  await Directory(to).create(recursive: true);&#10;  await for (final file in Directory(from).list(recursive: true)) {&#10;    final copyTo = p.join(to, p.relative(file.path, from: from));&#10;    if (file is Directory) {&#10;      await Directory(copyTo).create(recursive: true);&#10;    } else if (file is File) {&#10;      await File(file.path).copy(copyTo);&#10;    } else if (file is Link) {&#10;      await Link(copyTo).create(await file.target(), recursive: true);&#10;    }&#10;  }&#10;}" description="复制文件到文件夹" toReformat="false" toShortenFQNames="true">
+  <template name="copyfile" value="//import 'package:path/path.dart' as p;&#10;//import 'dart:io';&#10;Future&lt;void&gt; copyPath(String from, String to) async {&#10;  await Directory(to).create(recursive: true);&#10;  await for (final file in Directory(from).list(recursive: true)) {&#10;    final copyTo = p.join(to, p.relative(file.path, from: from));&#10;    if (file is Directory) {&#10;      await Directory(copyTo).create(recursive: true);&#10;    } else if (file is File) {&#10;      await File(file.path).copy(copyTo);&#10;    } else if (file is Link) {&#10;      await Link(copyTo).create(await file.target(), recursive: true);&#10;    }&#10;  }&#10;}" description="复制文件到文件夹" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
@@ -631,6 +631,21 @@
     </context>
   </template>
   <template name="gitreinit" value="//完全重建版本库 从本地强制push 注意在Settings-Repository-Protected branches-Allowed to force push的开关要打开&#10;rm -rf .git&#10;git init&#10;git add .&#10;git commit -m &quot;first commit&quot;&#10;git remote add origin &lt;your_github_repo_url&gt;&#10;git push -f -u origin main&#10;" description="重建git库内容并push" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="randomstr" value="String generateNonce(int length) {&#10;  const chars =&#10;      'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';&#10;  final random = Random();&#10;  final buffer = StringBuffer();&#10;  for (var i = 0; i &lt; length; i++) {&#10;    buffer.write(chars[random.nextInt(chars.length)]);&#10;  }&#10;  return buffer.toString();&#10;}" description="随机字符串生成" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="gitaddsshfile" value="ssh-add -D&#10;ssh-add ~/.ssh/id_ed25519&#10;ssh-add ~/.ssh/id_rsa_github" description="添加ssh到agent" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="unzip" value="// import 'package:archive/archive.dart';&#10;// import 'dart:io';&#10;Future&lt;String&gt; unzip(String fileFullName, String savePath) async {&#10;  String folder = &quot;&quot;;&#10;  var saveDir = savePath.isNotEmpty&#10;      ? savePath&#10;      : fileFullName.substring(0, fileFullName.lastIndexOf(&quot;/&quot;));&#10;  List&lt;int&gt; bytes = await File(fileFullName).readAsBytes();&#10;  final archive = ZipDecoder().decodeBytes(bytes);&#10;  for (final file in archive) {&#10;    String fn = file.name;&#10;    if (file.isFile) {&#10;      if ((!fn.contains(&quot;__MACOSX&quot;)) &amp;&amp; (!fn.contains(&quot;.DS_Store&quot;))) {&#10;        if (folder.isEmpty) {&#10;          List&lt;String&gt; list = fn.split(&quot;/&quot;);&#10;          folder = list[0];&#10;        }&#10;        final data = file.content as List&lt;int&gt;;&#10;        var fp = File(&quot;$saveDir/$fn&quot;);&#10;        await fp.create(recursive: true);&#10;        await fp.writeAsBytes(data);&#10;      }&#10;    } else {&#10;      if (folder.isEmpty &amp;&amp; fn != &quot;__MACOSX/&quot;) {&#10;        folder = fn;&#10;        await Directory(&quot;$saveDir/$fn&quot;).create(recursive: true);&#10;      }&#10;    }&#10;  }&#10;  return Future.value(folder);&#10;}&#10;" description="解压文件" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
