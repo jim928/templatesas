@@ -228,7 +228,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="foreach" value="for (var $element$ in $list$) { &#10;    $code$&#10;}  " description="foreach循环" toReformat="false" toShortenFQNames="true">
+  <template name="fore" value="for (var $element$ in $list$) { &#10;    $code$&#10;}  " description="foreach循环" toReformat="false" toShortenFQNames="true">
     <variable name="element" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="list" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="code" expression="" defaultValue="" alwaysStopAt="true" />
@@ -645,7 +645,12 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="unzip" value="// import 'package:archive/archive.dart';&#10;// import 'dart:io';&#10;Future&lt;String&gt; unzip(String fileFullName, String savePath) async {&#10;  String folder = &quot;&quot;;&#10;  var saveDir = savePath.isNotEmpty&#10;      ? savePath&#10;      : fileFullName.substring(0, fileFullName.lastIndexOf(&quot;/&quot;));&#10;  List&lt;int&gt; bytes = await File(fileFullName).readAsBytes();&#10;  final archive = ZipDecoder().decodeBytes(bytes);&#10;  for (final file in archive) {&#10;    String fn = file.name;&#10;    if (file.isFile) {&#10;      if ((!fn.contains(&quot;__MACOSX&quot;)) &amp;&amp; (!fn.contains(&quot;.DS_Store&quot;))) {&#10;        if (folder.isEmpty) {&#10;          List&lt;String&gt; list = fn.split(&quot;/&quot;);&#10;          folder = list[0];&#10;        }&#10;        final data = file.content as List&lt;int&gt;;&#10;        var fp = File(&quot;$saveDir/$fn&quot;);&#10;        await fp.create(recursive: true);&#10;        await fp.writeAsBytes(data);&#10;      }&#10;    } else {&#10;      if (folder.isEmpty &amp;&amp; fn != &quot;__MACOSX/&quot;) {&#10;        folder = fn;&#10;        await Directory(&quot;$saveDir/$fn&quot;).create(recursive: true);&#10;      }&#10;    }&#10;  }&#10;  return Future.value(folder);&#10;}&#10;" description="解压文件" toReformat="false" toShortenFQNames="true">
+  <template name="unzip" value="// import 'package:archive/archive.dart';&#10;// import 'dart:io';&#10;Future&lt;String&gt; unzip(String zipFilePath, String savePath) async {&#10;String folder = &quot;&quot;;&#10;var saveDir = savePath.isNotEmpty&#10;    ? savePath&#10;    : zipFilePath.substring(0, zipFilePath.lastIndexOf(&quot;/&quot;));&#10;List&lt;int&gt; bytes = await File(zipFilePath).readAsBytes();&#10;final archive = ZipDecoder().decodeBytes(bytes);&#10;for (final file in archive) {&#10;  String fn = file.name;&#10;  if (file.isFile) {&#10;    if ((!fn.contains(&quot;__MACOSX&quot;)) &amp;&amp; (!fn.contains(&quot;.DS_Store&quot;))) {&#10;      if (folder.isEmpty) {&#10;        List&lt;String&gt; list = fn.split(&quot;/&quot;);&#10;        folder = list[0];&#10;      }&#10;      final data = file.content as List&lt;int&gt;;&#10;      var fp = File(&quot;$saveDir/$fn&quot;);&#10;      await fp.create(recursive: true);&#10;      await fp.writeAsBytes(data);&#10;    }&#10;  } else {&#10;    if (folder.isEmpty &amp;&amp; fn != &quot;__MACOSX/&quot;) {&#10;      folder = fn;&#10;      await Directory(&quot;$saveDir/$fn&quot;).create(recursive: true);&#10;    }&#10;  }&#10;}&#10;return Future.value(folder);&#10;}" description="解压文件" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="createdirectory" value="String folderPath = '$path/$directory';&#10;await Directory(folderPath).create(recursive: true);" description="创建文件夹" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
