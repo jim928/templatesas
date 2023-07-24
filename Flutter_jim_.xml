@@ -585,7 +585,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="demo" value="import 'package:flutter/material.dart';&#10;&#10;void main() {&#10;  runApp(const MyApp());&#10;}&#10;&#10;class MyApp extends StatelessWidget {&#10;  const MyApp({super.key});&#10;&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    return MaterialApp(&#10;      title: 'Flutter Demo',&#10;      theme: ThemeData(&#10;        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),&#10;        useMaterial3: true,&#10;      ),&#10;      home: const MyHomePage(title: 'Flutter Demo Home Page'),&#10;    );&#10;  }&#10;}&#10;&#10;class MyHomePage extends StatefulWidget {&#10;  const MyHomePage({super.key, required this.title});&#10;&#10;  final String title;&#10;&#10;  @override&#10;  State&lt;MyHomePage&gt; createState() =&gt; _MyHomePageState();&#10;}&#10;&#10;class _MyHomePageState extends State&lt;MyHomePage&gt; {&#10;  int _counter = 0;&#10;&#10;  void _incrementCounter() {&#10;    setState(() {&#10;      _counter++;&#10;    });&#10;  }&#10;&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    return Scaffold(&#10;      appBar: AppBar(&#10;        backgroundColor: Theme.of(context).colorScheme.inversePrimary,&#10;        title: Text(widget.title),&#10;      ),&#10;      body: Center(&#10;        child: Column(&#10;          mainAxisAlignment: MainAxisAlignment.center,&#10;          children: &lt;Widget&gt;[&#10;            const Text(&#10;              'You have pushed the button this many times:',&#10;            ),&#10;            Text(&#10;              '$_counter',&#10;              style: Theme.of(context).textTheme.headlineMedium,&#10;            ),&#10;          ],&#10;        ),&#10;      ),&#10;      floatingActionButton: FloatingActionButton(&#10;        onPressed: _incrementCounter,&#10;        tooltip: 'Increment',&#10;        child: const Icon(Icons.add),&#10;      ),&#10;    );&#10;  }&#10;}&#10;" description="初始demo页内容" toReformat="false" toShortenFQNames="true">
+  <template name="homepage" value="import 'package:flutter/material.dart';&#10;&#10;void main() {&#10;  runApp(const MyApp());&#10;}&#10;&#10;class MyApp extends StatelessWidget {&#10;  const MyApp({super.key});&#10;&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    return MaterialApp(&#10;      title: 'Flutter Demo',&#10;      theme: ThemeData(&#10;        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),&#10;        useMaterial3: true,&#10;      ),&#10;      home: const MyHomePage(title: 'Flutter Demo Home Page'),&#10;    );&#10;  }&#10;}&#10;&#10;class MyHomePage extends StatefulWidget {&#10;  const MyHomePage({super.key, required this.title});&#10;&#10;  final String title;&#10;&#10;  @override&#10;  State&lt;MyHomePage&gt; createState() =&gt; _MyHomePageState();&#10;}&#10;&#10;class _MyHomePageState extends State&lt;MyHomePage&gt; {&#10;  int _counter = 0;&#10;&#10;  void _incrementCounter() {&#10;    setState(() {&#10;      _counter++;&#10;    });&#10;  }&#10;&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    return Scaffold(&#10;      appBar: AppBar(&#10;        backgroundColor: Theme.of(context).colorScheme.inversePrimary,&#10;        title: Text(widget.title),&#10;      ),&#10;      body: Center(&#10;        child: Column(&#10;          mainAxisAlignment: MainAxisAlignment.center,&#10;          children: &lt;Widget&gt;[&#10;            const Text(&#10;              'You have pushed the button this many times:',&#10;            ),&#10;            Text(&#10;              '$_counter',&#10;              style: Theme.of(context).textTheme.headlineMedium,&#10;            ),&#10;          ],&#10;        ),&#10;      ),&#10;      floatingActionButton: FloatingActionButton(&#10;        onPressed: _incrementCounter,&#10;        tooltip: 'Increment',&#10;        child: const Icon(Icons.add),&#10;      ),&#10;    );&#10;  }&#10;}&#10;" description="初始demo页内容" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
@@ -651,6 +651,18 @@
     </context>
   </template>
   <template name="createdirectory" value="String folderPath = '$path/$directory';&#10;await Directory(folderPath).create(recursive: true);" description="创建文件夹" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="markend" value="//////////////////////////////////////////////////////////////////////// &#10;" description="分割线结束" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="providerproperty" value="String $balanceTotal$ = &quot;0&quot;;&#10;void set$BalanceTotal$(String value) {&#10;    $balanceTotal$ = value;&#10;    notifyListeners();&#10;}" description="provider属性" toReformat="false" toShortenFQNames="true">
+    <variable name="balanceTotal" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="BalanceTotal" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="DART" value="true" />
     </context>
