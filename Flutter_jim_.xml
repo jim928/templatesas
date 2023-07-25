@@ -660,7 +660,8 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="providerproperty" value="String $balanceTotal$ = &quot;0&quot;;&#10;void set$BalanceTotal$(String value) {&#10;    $balanceTotal$ = value;&#10;    notifyListeners();&#10;}" description="provider属性" toReformat="false" toShortenFQNames="true">
+  <template name="providerproperty" value="$String$ $balanceTotal$ = &quot;0&quot;;&#10;void set$BalanceTotal$($String$ value) {&#10;    $balanceTotal$ = value;&#10;    notifyListeners();&#10;}" description="provider属性" toReformat="false" toShortenFQNames="true">
+    <variable name="String" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="balanceTotal" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="BalanceTotal" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
