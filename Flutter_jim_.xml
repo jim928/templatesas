@@ -252,7 +252,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="providerwithchild" value="    MultiProvider(providers: [&#10;      ChangeNotifierProvider.value(value: imMiniAppManager),&#10;      //      两种方式，这里使用ChangeNotifierProvider，因为可以自动调用dispose()方法，帮我释放资源&#10;      // ChangeNotifierProvider(builder: (_) =&gt; IndexProvider()),&#10;    ], child: AppGroupManagement(gid: gid));&#10;    &#10;    //  late ImMiniAppManager aManager;&#10;    // 在 _AppGroupManagementState 的 build 方法内 获取 aManager ，后面既可正常使用了；&#10;    // aManager = Provider.of&lt;ImMiniAppManager&gt;(context);" description="provider带child" toReformat="false" toShortenFQNames="true">
+  <template name="providerwithchild" value="    MultiProvider(providers: [&#10;      ChangeNotifierProvider.value(value: imMiniAppManager),&#10;      //      两种方式，这里使用ChangeNotifierProvider，因为可以自动调用dispose()方法，帮我释放资源&#10;      // ChangeNotifierProvider&lt;OfficialCertificationModel&gt;( create: (_) =&gt; OfficialCertificationModel(),),&#10;    ], child: AppGroupManagement(gid: gid));&#10;    &#10;    //  late ImMiniAppManager aManager;&#10;    // 在 _AppGroupManagementState 的 build 方法内 获取 aManager ，后面既可正常使用了；&#10;    // aManager = Provider.of&lt;ImMiniAppManager&gt;(context);" description="provider带child" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
@@ -404,7 +404,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="providerModel" value="$SetCurrencyModel$ model = Provider.of&lt;$SetCurrencyModel$&gt;(context);" description="build内声明provider变量" toReformat="false" toShortenFQNames="true">
+  <template name="providerOf" value="$SetCurrencyModel$ model = Provider.of&lt;$SetCurrencyModel$&gt;(context);" description="获取provider变量" toReformat="false" toShortenFQNames="true">
     <variable name="SetCurrencyModel" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="DART" value="true" />
@@ -669,6 +669,11 @@
     </context>
   </template>
   <template name="androidstudio" value="https://juejin.cn/post/6844904167312621581" description="如何用Android studio打开文件夹" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="providercreate" value="ChangeNotifierProvider&lt;OfficialCertificationModel&gt;(&#10;        create: (_) =&gt; OfficialCertificationModel(),&#10;        child: OfficialCertification())" description="create方式" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
