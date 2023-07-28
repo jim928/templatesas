@@ -678,4 +678,14 @@
       <option name="DART" value="true" />
     </context>
   </template>
+  <template name="providerimport" value="import 'package:provider/provider.dart';" description="provider头文件" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="timestamptodate" value="//import 'package:intl/intl.dart';&#10;extension Date on int? {&#10;  formatDate() {&#10;    DateTime time = DateTime.fromMillisecondsSinceEpoch(this ?? 0);&#10;    return DateFormat(&quot;MM月dd日 HH:mm&quot;).format(time);&#10;  }&#10;}&#10;" description="时间戳转日期" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
 </templateSet>
