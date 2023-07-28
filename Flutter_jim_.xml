@@ -688,4 +688,9 @@
       <option name="DART" value="true" />
     </context>
   </template>
+  <template name="timestampfirstlast" value="  DateTime now = DateTime.now();&#10;  DateTime lastDay = DateTime(now.year, now.month + 1, 1);&#10;  var lastTimeStamp1 = lastDay.millisecondsSinceEpoch / 1000;&#10;  int lastTimeStamp = lastTimeStamp1.toInt();&#10;  &#10;  DateTime firstDay = DateTime(now.year, now.month, 1);&#10;  var firstTimeStamp1 = firstDay.millisecondsSinceEpoch / 1000;&#10;  int firstTimeStamp = firstTimeStamp1.toInt();" description="取本月第一天最后一天" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
 </templateSet>
