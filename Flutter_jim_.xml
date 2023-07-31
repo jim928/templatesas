@@ -655,7 +655,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="markend" value="//////////////////////////////////////////////////////////////////////// &#10;" description="分割线结束" toReformat="false" toShortenFQNames="true">
+  <template name="markend" value="  //////////////////////////////////////////////////////////////////////// &#10;" description="分割线结束" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
