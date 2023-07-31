@@ -693,4 +693,9 @@
       <option name="DART" value="true" />
     </context>
   </template>
+  <template name="currency" value="    //import 'package:intl/intl.dart';&#10;    double balance = 983423423.23423423123123;&#10;    String formattedBalance = NumberFormat(&quot;#,###.##&quot;).format(balance);" description="钱币加逗号，并限定2位小数" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
 </templateSet>
