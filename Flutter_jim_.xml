@@ -252,7 +252,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="providerwithchild" value="    MultiProvider(providers: [&#10;      ChangeNotifierProvider.value(value: imMiniAppManager),&#10;      //      两种方式，这里使用ChangeNotifierProvider，因为可以自动调用dispose()方法，帮我释放资源&#10;      // ChangeNotifierProvider&lt;OfficialCertificationModel&gt;( create: (_) =&gt; OfficialCertificationModel(),),&#10;    ], child: AppGroupManagement(gid: gid));&#10;    &#10;    //  late ImMiniAppManager aManager;&#10;    // 在 _AppGroupManagementState 的 build 方法内 获取 aManager ，后面既可正常使用了；&#10;    // aManager = Provider.of&lt;ImMiniAppManager&gt;(context);" description="provider带child" toReformat="false" toShortenFQNames="true">
+  <template name="providerwithchild" value="    MultiProvider(providers: [&#10;      ChangeNotifierProvider.value(value: imMiniAppManager),&#10;      //      两种方式，这里使用ChangeNotifierProvider，因为可以自动调用dispose()方法，帮我释放资源&#10;      // ChangeNotifierProvider&lt;OfficialCertificationModel&gt;( create: (_) =&gt; OfficialCertificationModel()..initData(),),&#10;    ], child: AppGroupManagement(gid: gid));&#10;    &#10;    //  late ImMiniAppManager aManager;&#10;    // 在 _AppGroupManagementState 的 build 方法内 获取 aManager ，后面既可正常使用了；&#10;    // aManager = Provider.of&lt;ImMiniAppManager&gt;(context);" description="provider带child" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
@@ -398,7 +398,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="providerclass" value="class $SetCurrencyModel$ extends ChangeNotifier {&#10;  List&lt;String&gt; nameList = [];&#10;   $SetCurrencyModel$() {&#10;    nameList = ['CNY', 'VND'];&#10;  }&#10;&#10;  void setNameList(List&lt;String&gt; list){&#10;     nameList = list;&#10;     notifyListeners();&#10;  }&#10;}&#10;//在UI的build方法里&#10;//SetCurrencyModel model = Provider.of&lt;SetCurrencyModel&gt;(context);" description="使用provider的类创建" toReformat="false" toShortenFQNames="true">
+  <template name="providerclass" value="import 'package:flutter/cupertino.dart';&#10;class $SetCurrencyModel$ extends ChangeNotifier {&#10;  List&lt;String&gt; nameList = [];&#10;   $SetCurrencyModel$() {&#10;    nameList = ['CNY', 'VND'];&#10;  }&#10;&#10;  void setNameList(List&lt;String&gt; list){&#10;     nameList = list;&#10;     notifyListeners();&#10;  }&#10;}&#10;//在UI的build方法里&#10;//SetCurrencyModel model = Provider.of&lt;SetCurrencyModel&gt;(context);" description="使用provider的类创建" toReformat="false" toShortenFQNames="true">
     <variable name="SetCurrencyModel" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="DART" value="true" />
@@ -673,7 +673,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="providercreate" value="ChangeNotifierProvider&lt;OfficialCertificationModel&gt;(&#10;        create: (_) =&gt; OfficialCertificationModel(),&#10;        child: OfficialCertification())" description="create方式" toReformat="false" toShortenFQNames="true">
+  <template name="providercreate" value="ChangeNotifierProvider&lt;OfficialCertificationModel&gt;(&#10;        create: (_) =&gt; OfficialCertificationModel()..initData(),&#10;        child: OfficialCertification())" description="create方式" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
