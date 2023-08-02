@@ -590,7 +590,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="push" value="Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) =&gt; Page1(gameId:0)));" description="页面跳转最简版" toReformat="false" toShortenFQNames="true">
+  <template name="push" value="//then里面用来处理 pop回来后 刷新页面&#10;Navigator.push(&#10;  context,&#10;  MaterialPageRoute(&#10;      builder: (BuildContext context) =&gt; Page1())).then((value){});" description="页面跳转最简版" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
