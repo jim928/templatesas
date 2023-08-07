@@ -404,7 +404,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="providerOf" value="$SetCurrencyModel$ model = Provider.of&lt;$SetCurrencyModel$&gt;(context);" description="获取provider变量" toReformat="false" toShortenFQNames="true">
+  <template name="providerof" value="$SetCurrencyModel$ model = Provider.of&lt;$SetCurrencyModel$&gt;(context);" description="获取provider变量" toReformat="false" toShortenFQNames="true">
     <variable name="SetCurrencyModel" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="DART" value="true" />
