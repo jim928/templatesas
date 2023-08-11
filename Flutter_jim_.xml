@@ -10,7 +10,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="extensiontemplate" value="extension $extensionName$ on $String$ {&#10;  int parseInt() {&#10;    return int.parse(this);&#10;  }&#10;}" description="类扩展" toReformat="false" toShortenFQNames="true">
+  <template name="extensiontemplate" value="extension $extensionName$ on $String$ {&#10;  int get parseInt {&#10;    return int.tryParse(this) ?? 0;&#10;  }&#10;}" description="类扩展" toReformat="false" toShortenFQNames="true">
     <variable name="extensionName" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="String" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
