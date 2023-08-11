@@ -703,4 +703,14 @@
       <option name="DART" value="true" />
     </context>
   </template>
+  <template name="fanxing" value="class ClassA {}&#10;class ClassB extends ClassA {}&#10;class Foo&lt;T&gt; {}&#10;var f = Foo&lt;ClassA&gt;();&#10;class Bar&lt;Y extends ClassA&gt; {}&#10;var b = Bar&lt;ClassB&gt;();" description="泛型距离" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="iosadhoc" value="/*&#10;iOS 打包adhoc步骤：&#10;1，cd 到ios文件夹下&#10;2，&#10;flutter build ios  --dart-define-from-file=release.json --no-tree-shake-icons  --release&#10;3，&#10;xcodebuild -workspace Runner.xcworkspace -scheme Runner -sdk iphoneos -configuration Release archive -archivePath $PWD/build/Runner.xcarchive&#10;4，将ExportOptions.plist文件放入iOS文件夹&#10;5，&#10;xcodebuild -exportArchive -exportOptionsPlist ExportOptions.plist -archivePath $PWD/build/Runner.xcarchive -exportPath $PWD/adhoc -allowProvisioningUpdates&#10;6，&#10;open ./adhoc&#10;*/&#10; */&#10;/*&#10;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;&#10;&lt;plist version=&quot;1.0&quot;&gt;&#10;&lt;dict&gt;&#10;&#9;&lt;key&gt;destination&lt;/key&gt;&#10;&#9;&lt;string&gt;export&lt;/string&gt;&#10;&#9;&lt;key&gt;method&lt;/key&gt;&#10;&#9;&lt;string&gt;ad-hoc&lt;/string&gt;&#10;&#9;&lt;key&gt;provisioningProfiles&lt;/key&gt;&#10;&#9;&lt;dict&gt;&#10;&#9;&#9;&lt;key&gt;com.im.jim&lt;/key&gt;&#10;&#9;&#9;&lt;string&gt;imJim_adhoc&lt;/string&gt;&#10;&#9;&#9;&lt;key&gt;com.im.jim.ImagePublish&lt;/key&gt;&#10;&#9;&#9;&lt;string&gt;com.im.jim.ImagePublish_adhoc&lt;/string&gt;&#10;&#9;&#9;&lt;key&gt;com.im.jim.NotificationService&lt;/key&gt;&#10;&#9;&#9;&lt;string&gt;com.im.jim.NotificationService_adhoc&lt;/string&gt;&#10;&#9;&lt;/dict&gt;&#10;&#9;&lt;key&gt;signingCertificate&lt;/key&gt;&#10;&#9;&lt;string&gt;Apple Distribution&lt;/string&gt;&#10;&#9;&lt;key&gt;signingStyle&lt;/key&gt;&#10;&#9;&lt;string&gt;manual&lt;/string&gt;&#10;&#9;&lt;key&gt;stripSwiftSymbols&lt;/key&gt;&#10;&#9;&lt;true/&gt;&#10;&#9;&lt;key&gt;teamID&lt;/key&gt;&#10;&#9;&lt;string&gt;T882LZ87PX&lt;/string&gt;&#10;&#9;&lt;key&gt;uploadBitcode&lt;/key&gt;&#10;&#9;&lt;false/&gt;&#10;&#9;&lt;key&gt;uploadSymbols&lt;/key&gt;&#10;&#9;&lt;false/&gt;&#10;&lt;/dict&gt;&#10;&lt;/plist&gt;&#10; */" description="iOS打包adhoc命令" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
 </templateSet>
