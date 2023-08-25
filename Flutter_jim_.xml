@@ -718,4 +718,19 @@
       <option name="DART" value="true" />
     </context>
   </template>
+  <template name="for" value="Column(&#10;  children: [&#10;    for (int i = 0; i &lt; detailsList.length; i++) ...[&#10;      Container(),&#10;      if (i != (detailsList.length - 1)) divider,&#10;    ]&#10;  ],&#10;)" description="for循环内添加额外widget放到数组的示例" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="function为空" value="widget.onConfirm?.call(widget.selectionGroups);" description="function可能为空时调用解决办法" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="datetodayend" value="extension DateTimeFromTimeOfDay on DateTime {&#10;  DateTime appliedFromTimeOfDay(TimeOfDay timeOfDay) {&#10;    return DateTime.utc(year, month, day, timeOfDay.hour, timeOfDay.minute);&#10;  }&#10;  DateTime get dayStart{&#10;    return appliedFromTimeOfDay(const TimeOfDay(hour: 0, minute: 0));&#10;  }&#10;  DateTime get dayEnd{&#10;    return appliedFromTimeOfDay(const TimeOfDay(hour: 24, minute: 0));&#10;  }&#10;}&#10;" description="获取今天0点和24点" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
 </templateSet>
