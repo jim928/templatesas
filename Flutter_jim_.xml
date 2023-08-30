@@ -740,4 +740,14 @@
       <option name="DART" value="true" />
     </context>
   </template>
+  <template name="stringwidthunit" value="extension WidthCount on String {&#10;  double get widthUnit {&#10;    String value = this;&#10;    double count = 0;&#10;    for (var i = 0; i &lt; value.length; i++) {&#10;      if (value[i].toString().isChinese) {&#10;        count += 2;&#10;      } else if (value[i].toString().isUpChar) {&#10;        count += 1.5;&#10;      } else {&#10;        count += 1;&#10;      }&#10;    }&#10;    return count;&#10;  }&#10;&#10;  bool get isChinese {&#10;    RegExp reg = RegExp(&quot;[\u4E00-\u9FFF]|[\uFE30-\uFFA0]&quot;);&#10;    return reg.hasMatch(this);&#10;  }&#10;&#10;  bool get isUpChar {&#10;    RegExp reg = RegExp(&quot;[A-Z]&quot;);&#10;    return reg.hasMatch(this);&#10;  }&#10;}" description="文字宽度权重计算" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="md5" value="///  需要第三方库crypto:&#10;extension MD5Ext on String {&#10;  String get md5Str {&#10;    Uint8List content = const Utf8Encoder().convert(this);&#10;    Digest digest = md5.convert(content);&#10;    return digest.toString();&#10;  }&#10;}" description="MD5加密" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
 </templateSet>
