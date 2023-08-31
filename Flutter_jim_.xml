@@ -750,4 +750,9 @@
       <option name="DART" value="true" />
     </context>
   </template>
+  <template name="ascii" value="int asciiForIndex0 = 'abcd'.codeUnitAt(0);" description="获取字母的ASCII码" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
 </templateSet>
