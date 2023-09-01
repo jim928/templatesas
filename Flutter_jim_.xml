@@ -755,4 +755,9 @@
       <option name="DART" value="true" />
     </context>
   </template>
+  <template name="dragbtn" value="class _DragPage extends StatefulWidget {&#10;  @override&#10;  _DragPageState createState() =&gt; _DragPageState();&#10;}&#10;&#10;class _DragPageState extends State&lt;_DragPage&gt; with SingleTickerProviderStateMixin {&#10;  double _top = 0.0; //距顶部的偏移&#10;  double _left = 0.0; //距左边的偏移&#10;&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    return Stack(&#10;      children: &lt;Widget&gt;[&#10;        Positioned(&#10;          top: _top,&#10;          left: _left,&#10;          child: GestureDetector(&#10;            child: CircleAvatar(child: Text(&quot;A&quot;)),&#10;            //手指按下时会触发此回调&#10;            onPanDown: (DragDownDetails e) {&#10;              //打印手指按下的位置(相对于屏幕)&#10;              print(&quot;用户手指按下：${e.globalPosition}&quot;);&#10;            },&#10;            //手指滑动时会触发此回调&#10;            onPanUpdate: (DragUpdateDetails e) {&#10;              //用户手指滑动时，更新偏移，重新构建&#10;              setState(() {&#10;                _left += e.delta.dx;&#10;                _top += e.delta.dy;&#10;              });&#10;            },&#10;            onPanEnd: (DragEndDetails e) {&#10;              //打印滑动结束时在x、y轴上的速度&#10;              print(e.velocity);&#10;            },&#10;          ),&#10;        )&#10;      ],&#10;    );&#10;  }&#10;}&#10;" description="可拖动控件实现" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
 </templateSet>
