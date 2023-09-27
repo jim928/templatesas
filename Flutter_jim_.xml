@@ -620,7 +620,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="sshkeygithub" value="https://www.freecodecamp.org/chinese/news/manage-multiple-github-accounts-the-ssh-way/&#10;//创建不同的rsa文件&#10;cd ~/.ssh&#10;ssh-keygen -t rsa -C &quot;email@work_mail.com&quot; -f &quot;id_rsa_work_user1&quot;&#10;//copy秘钥内容 然后添加到github网站上&#10;pbcopy &lt; ~/.ssh/id_rsa_work_user1.pub&#10;//确保 ssh-agent 运行&#10;eval &quot;$(ssh-agent -s)&quot;&#10;//在我们机器上的 ssh-agent 上注册它们&#10;ssh-add ~/.ssh/id_rsa_work_user1&#10;//检查当前配置的SSH对应的git账号；&#10;ssh -T git@github.com&#10;//然后用如下命令(id_rsa对应目标账户的私钥)命令，制定目标Git账号&#10;ssh-add -k ~/.ssh/id_rsa_work_user1&#10;&#10;ssh-keyscan -t rsa github.com &gt;&gt; ~/.ssh/known_hosts" description="配置github的sshkey" toReformat="false" toShortenFQNames="true">
+  <template name="sshkeygithub" value="https://www.freecodecamp.org/chinese/news/manage-multiple-github-accounts-the-ssh-way/&#10;//创建不同的rsa文件&#10;cd ~/.ssh&#10;ssh-keygen -t rsa -C &quot;email@work_mail.com&quot; -f &quot;id_rsa_work_user1&quot;&#10;//copy秘钥内容 然后添加到github网站上&#10;pbcopy &lt; ~/.ssh/id_rsa_work_user1.pub&#10;//确保 ssh-agent 运行&#10;eval &quot;$(ssh-agent -s)&quot;&#10;//在我们机器上的 ssh-agent 上注册它们&#10;ssh-add ~/.ssh/id_rsa_work_user1&#10;//检查当前配置的SSH对应的git账号；&#10;ssh -T git@github.com&#10;//然后用如下命令(id_rsa对应目标账户的私钥)命令，制定目标Git账号&#10;ssh-add -k ~/.ssh/id_rsa_work_user1&#10;ssh-keyscan -t rsa github.com &gt;&gt; ~/.ssh/known_hosts" description="配置github的sshkey" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
@@ -698,7 +698,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="durationformat" value="// Define the function&#10;    String formatDuration(Duration duration) {&#10;      String hours = duration.inHours.toString().padLeft(0, '2');&#10;      String minutes =&#10;          duration.inMinutes.remainder(60).toString().padLeft(2, '0');&#10;      String seconds =&#10;          duration.inSeconds.remainder(60).toString().padLeft(2, '0');&#10;      return &quot;$hours:$minutes:$seconds&quot;;&#10;    }" description="时间间隔转时分秒文字" toReformat="false" toShortenFQNames="true">
+  <template name="durationformat" value="// Define the function&#10;    String formatDuration(Duration duration) {&#10;      String hours = duration.inHours.toString().padLeft(0, '2');&#10;      String minutes =&#10;          duration.inMinutes.remainder(60).toString().padLeft(2, '0');&#10;      String seconds =&#10;          duration.inSeconds.remainder(60).toString().padLeft(2, '0');&#10;      return &quot;$hours:$minutes:$seconds&quot;;&#10;    }&#10;    /*&#10;      String durationText = '';&#10;  int? createTime;&#10;&#10;  updateDuration() {&#10;    if (isCounterEnd &amp;&amp; createTime != null) {&#10;      DateTime createDateTime =&#10;          DateTime.fromMillisecondsSinceEpoch(createTime! * 1000);&#10;      durationText = formatDuration(Duration(&#10;          seconds: DateTime.now().difference(createDateTime).inSeconds));&#10;      notifyListeners();&#10;    }&#10;  }&#10;    */" description="时间间隔转时分秒文字" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
@@ -791,6 +791,21 @@
     </context>
   </template>
   <template name="vim" value="vim编辑操作流程&#10;sodu vim filename&#10;输入i进入编辑模式&#10;输入esc退出编辑模式&#10;输入:w保存文件" description="vim命令说明" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="selectxcode" value="sudo xcode-select -switch /Applications/Xcode14.app" description="选择某个版本的xcode为默认" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="textwidthintrinsic" value="IntrinsicWidth(&#10;                child: Container(&#10;                  height: 25,&#10;                  padding: EdgeInsets.symmetric(&#10;                    horizontal: 10,&#10;                  ),&#10;                  decoration: BoxDecoration(&#10;                    borderRadius: BorderRadius.all(Radius.circular(12.5)),&#10;                    color: Color(0xff121212).withOpacity(0.6),&#10;                  ),&#10;                  child: Text(&#10;                    '下拉加载更多asdfas',&#10;                    style: TextStyle(fontSize: 12.5,color: Colors.white),&#10;                  ),&#10;                  ),&#10;                )" description="宽度自动适应组件" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="providerselector" value="    Selector&lt;ChatAudioViewModel, int&gt;(&#10;        selector: (ctx, _) =&gt; chatAudioViewModel.onlineNum,&#10;        builder: (ctx, numbers, child) {&#10;          return ImText('$numbers人在语音群聊中...');&#10;        })" description="selector用法" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
