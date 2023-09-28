@@ -810,4 +810,9 @@
       <option name="DART" value="true" />
     </context>
   </template>
+  <template name="openfolder" value="//终端使用指定程序打开文件或文件夹&#10;open -a /Applications/Android\ Studio.app  im" description="终端用指定程序打开文件夹" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
 </templateSet>
