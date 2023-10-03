@@ -815,4 +815,9 @@
       <option name="DART" value="true" />
     </context>
   </template>
+  <template name="screenshopevent" value="    //screen_capture_event&#10;    final ScreenCaptureEvent screenListener = ScreenCaptureEvent();&#10;    screenListener.addScreenRecordListener((recorded) {&#10;      setState(() {&#10;        text = recorded ? &quot;Start Recording&quot; : &quot;Stop Recording&quot;;&#10;      });&#10;    });&#10;    screenListener.addScreenShotListener((filePath) {&#10;      setState(() {&#10;        text = &quot;Screenshot stored on : $filePath&quot;;&#10;      });&#10;    });&#10;    screenListener.watch();&#10;    screenListener.dispose();" description="截屏事件监听" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
 </templateSet>
