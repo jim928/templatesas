@@ -820,4 +820,15 @@
       <option name="DART" value="true" />
     </context>
   </template>
+  <template name="scrolltotop" value="//确保页面里有scaffold 那么iOS下就会自带点击状态栏 滚动到顶部&#10;//也可以调如下代码 手动滚动到顶部&#10;  final ScrollController? primaryScrollController = PrimaryScrollController.maybeOf(chatViewContext!);&#10;  if (primaryScrollController != null &amp;&amp; primaryScrollController.hasClients) {&#10;    primaryScrollController.animateTo(&#10;      0.0,&#10;      duration: const Duration(milliseconds: 1000),&#10;      curve: Curves.easeOutCirc,&#10;    );&#10;  }" description="滚动到顶部" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="logme" value="print('jim-- $code$ \n${StackTrace.current}');" description="打印trace" toReformat="false" toShortenFQNames="true">
+    <variable name="code" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
 </templateSet>
