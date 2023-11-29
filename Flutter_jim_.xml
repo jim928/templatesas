@@ -831,4 +831,14 @@
       <option name="DART" value="true" />
     </context>
   </template>
+  <template name="lockfile" value="find . -name '*.lock' -type f -print -exec rm -rf {} \;" description="删除当前文件夹下所有lock文件" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="flutterversion" value="//flutter 切换版本&#10;cd 到flutter目录 查看所有tag&#10;git tag -l &#10;git checkout 3.13.9&#10;flutter --version " description="flutter切换版本" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
 </templateSet>
