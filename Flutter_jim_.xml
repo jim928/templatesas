@@ -393,7 +393,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="initstate" value="  @override&#10;  void initState() {&#10;    super.initState();&#10;  }" description="重写initState方法" toReformat="false" toShortenFQNames="true">
+  <template name="initstate" value="@override&#10;void initState() {&#10;    super.initState();&#10;}" description="重写initState方法" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
@@ -837,6 +837,16 @@
     </context>
   </template>
   <template name="flutterversion" value="//flutter 切换版本&#10;cd 到flutter目录 查看所有tag&#10;git tag -l &#10;git checkout 3.13.9&#10;flutter --version " description="flutter切换版本" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="cleanmac" value="brew tap fwartner/tap&#10;brew install fwartner/tap/mac-cleanup&#10;mac-cleanup -v" description="清理mac空间" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="volumechange" value="import 'package:flutter/material.dart';&#10;import 'package:volume_controller/volume_controller.dart';&#10;&#10;void main() {&#10;  runApp(MyApp());&#10;}&#10;&#10;class MyApp extends StatefulWidget {&#10;  @override&#10;  _MyAppState createState() =&gt; _MyAppState();&#10;}&#10;&#10;class _MyAppState extends State&lt;MyApp&gt; {&#10;  double _volumeListenerValue = 0;&#10;  double _getVolume = 0;&#10;  double _setVolumeValue = 0;&#10;&#10;  @override&#10;  void initState() {&#10;    super.initState();&#10;    // Listen to system volume change&#10;    VolumeController().listener((volume) {&#10;      setState(() =&gt; _volumeListenerValue = volume);&#10;    });&#10;&#10;    VolumeController().getVolume().then((volume) =&gt; _setVolumeValue = volume);&#10;  }&#10;&#10;  @override&#10;  void dispose() {&#10;    VolumeController().removeListener();&#10;    super.dispose();&#10;  }&#10;&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    return MaterialApp(&#10;      home: Scaffold(&#10;        appBar: AppBar(&#10;          title: const Text('Volume Plugin example app'),&#10;        ),&#10;        body: Column(&#10;          children: [&#10;            Text('Current volume: $_volumeListenerValue'),&#10;            Row(&#10;              children: [&#10;                Text('Set Volume:'),&#10;                Flexible(&#10;                  child: Slider(&#10;                    min: 0,&#10;                    max: 1,&#10;                    onChanged: (double value) {&#10;                      _setVolumeValue = value;&#10;                      VolumeController().setVolume(_setVolumeValue);&#10;                      setState(() {});&#10;                    },&#10;                    value: _setVolumeValue,&#10;                  ),&#10;                ),&#10;              ],&#10;            ),&#10;            Row(&#10;              mainAxisAlignment: MainAxisAlignment.center,&#10;              children: [&#10;                Text('Volume is: $_getVolume'),&#10;                TextButton(&#10;                  onPressed: () async {&#10;                    _getVolume = await VolumeController().getVolume();&#10;                    setState(() {});&#10;                  },&#10;                  child: Text('Get Volume'),&#10;                ),&#10;              ],&#10;            ),&#10;            TextButton(&#10;              onPressed: () =&gt; VolumeController().muteVolume(),&#10;              child: Text('Mute Volume'),&#10;            ),&#10;            TextButton(&#10;              onPressed: () =&gt; VolumeController().maxVolume(),&#10;              child: Text('Max Volume'),&#10;            ),&#10;            Row(&#10;              mainAxisAlignment: MainAxisAlignment.center,&#10;              children: [&#10;                Text('Show system UI:${VolumeController().showSystemUI}'),&#10;                TextButton(&#10;                  onPressed: () =&gt; setState(() =&gt; VolumeController()&#10;                      .showSystemUI = !VolumeController().showSystemUI),&#10;                  child: Text('Show/Hide UI'),&#10;                )&#10;              ],&#10;            ),&#10;          ],&#10;        ),&#10;      ),&#10;    );&#10;  }&#10;}&#10;" description="音量监听和控制" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
