@@ -851,4 +851,14 @@
       <option name="DART" value="true" />
     </context>
   </template>
+  <template name="findcopy" value="find . -name '*.png' -type f -print -exec cp {} /Users/jim/Downloads/progress \;" description="查找并复制当前文件夹下的文件" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="progress" value="import 'package:flutter/material.dart';&#10;&#10;class MiniProgressWidget extends StatelessWidget {&#10;  final ImageProvider totalImage;&#10;&#10;  final ImageProvider progressImage;&#10;  final double progressPercentage;&#10;&#10;  const MiniProgressWidget({&#10;    Key? key,&#10;    this.totalImage =&#10;        const AssetImage('packages/mini_app_service/assets/progress_total.png'),&#10;    this.progressImage =&#10;        const AssetImage('packages/mini_app_service/assets/progress.png'),&#10;    required this.progressPercentage,&#10;  }) : super(key: key);&#10;&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    return Container(&#10;      constraints: const BoxConstraints(minWidth: 300.0),&#10;      height: 10,&#10;      child: Stack(alignment: Alignment.centerLeft, children: [&#10;        Image(image: totalImage),&#10;        ClipRect(&#10;          //将溢出部分剪裁&#10;          child: Align(&#10;            alignment: Alignment.centerLeft,&#10;            widthFactor: progressPercentage, //按比例显示子控件&#10;            child: Image(image: progressImage),&#10;          ),&#10;        ),&#10;      ]),&#10;    );&#10;  }&#10;}&#10;" description="自定义进度条实现" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
 </templateSet>
