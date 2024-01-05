@@ -861,4 +861,9 @@
       <option name="DART" value="true" />
     </context>
   </template>
+  <template name="gitrollback" value="1、本地代码回滚到上一版本（或者指定版本）&#10;git reset --hard HEAD~1&#10;2、加入-f参数，强制提交，远程端将强制跟新到reset版本&#10;git push -f origin master " description="回滚远程" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
 </templateSet>
