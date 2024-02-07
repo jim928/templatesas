@@ -866,4 +866,9 @@
       <option name="DART" value="true" />
     </context>
   </template>
+  <template name="gitsmall" value="/*&#10;1,确保安装了 python3&#10;2,clone 工程 https://github.com/newren/git-filter-repo.git&#10;3，将git-filter-repo文件夹下的git-filter-repo文件复制到/usr/local/bin/&#10;sudo cp /Users/jim/git-filter-repo/git-filter-repo /usr/local/bin/&#10;确保 git-filter-repo 命令可以在shell里执行&#10;4，clone go工程 https://github.com/omaryasser/git-repo-cleaner.git&#10;5，修改exec.go文件中的代码&#10;&#9;&#9;cmd := exec.Command(&quot;git&quot;, &quot;filter-repo&quot;, &quot;--force&quot;, &quot;--invert-paths&quot;, &quot;--path&quot;, file)&#10;&#9;&#9;为&#10;&#9;&#9;cmd := exec.Command(&quot;git-filter-repo&quot;, &quot;--force&quot;, &quot;--invert-paths&quot;, &quot;--path&quot;, file)&#10;6，在go工程里的命令终端执行&#10;go build clean-repo.go &amp;&amp; ./clean-repo -repo-absolute-path=/Users/jim/Downloads/git_small_test -main-branch-name=main&#10;其中 /Users/jim/Downloads/git_small_test 是git仓库的绝对路径 main 是要操作的分支&#10;7，确保操作的仓库的操作分支main 不是受保护的分支&#10;8，push上去的时候，使用强制push，来忽略掉远程的.git差异&#10;git push --force origin main&#10; */" description=".git文件瘦身" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
 </templateSet>
